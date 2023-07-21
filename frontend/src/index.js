@@ -1,50 +1,41 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import { Provider as ReduxProvider } from 'react-redux';
+
 import './index.css';
 import App from './App';
 import configureStore from './store';
-import { restoreSession } from './store/csrf';
+import csrfFetch from "./store/csrf";
 
 
-const root = ReactDOM.createRoot(document.getElementById('root'))
+const store = configureStore();
 
-function initializeApp () {
-  const currentUser = JSON.parse(sessionStoreage.getItem('currentUser'))
-
-  let initialState = {};
-  
-  if (currentUser) {
-    initialState = {
-      users: {
-        [currentUser.id]: currentUser
-      },
-      // session: {
-      //   currentUserId: currentUser.id
-      // }
-    }
-  }
-
-  const store = configureStore();
+if (process.env.NODE_ENV !== 'production') {
   window.store = store;
+}
 
-  root.render (
-    <ReduxProvider store={store}>
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+
+function Root() {
+  return (
+    <Provider store={store}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </ReduxProvider>
+    </Provider>
   );
-  
 }
 
-restoreSession().then(initializeApp);
-
-
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <Root />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
+ReactDOM.render(
+  <React.StrictMode>
+    <Root />
+  </React.StrictMode>,
+  document.getElementById('root')
+)

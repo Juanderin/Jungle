@@ -1,14 +1,7 @@
-import { Route, Switch } from "react-router-dom";
-
-
-const App = () => {
+function App() {
   return (
-    <Switch>
-      <Route>
-    
-      </Route>
-    </Switch>
+    <h1>Hello from App</h1>
   );
-};
+}
 
 export default App;
