@@ -45,6 +45,12 @@ ApplicationRecord.transaction do
         password: 'password'
       }) 
     end
+
+    User.create({
+      username: 'juan',
+      email: 'juan@email.com',
+      password: 'password'
+    })
   
     puts "Done!"
   end

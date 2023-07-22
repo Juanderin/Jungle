@@ -8,16 +8,23 @@ export async function restoreSession() {
 }
 
 
-export async function csrfFetch(url, options) {
+ async function csrfFetch(url, options) {
     options.method ||= 'GET';
 
     options.headers ||= {};
 
     if (options.method.toUpperCase() !== 'GET') {
+        options.headers['Content-Type'] = options.headers['Content-Type'] = 'application/json'
         options.headers["X-CSRF_Token"] = sessionStorage.getItem('X-CSRF-Token');
     }
 
     const res = await fetch(url, options);
+
+    if(res.response > 400) {
+        throw res
+    }
     return res;
 
 }
+
+export default csrfFetch

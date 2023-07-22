@@ -1,7 +1,7 @@
 class Api::SessionsController < ApplicationController    
 
-    # before_action :require_logged_in  #not finished 
-    # before action :require_logged_out 
+    # before action :require_logged_out, only: [:create]
+    # before_action :require_logged_in,  only: [:destroy] #not finished 
    
    def show 
         @user = current_user 
