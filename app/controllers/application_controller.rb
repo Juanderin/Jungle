@@ -26,9 +26,9 @@ class ApplicationController < ActionController::API
         @current_user ||= User.find_by(session_token: session[:session_token])
     end 
 
-    # def logged_in?
-    #     !!current_user
-    # end 
+    def logged_in?
+        !!current_user
+    end 
 
 
     def require_logged_in
@@ -38,7 +38,7 @@ class ApplicationController < ActionController::API
     end 
 
     def require_logged_out 
-        render json: {errors: ['Must be logged out']}, status: :unauthorized
+        render json: {errors: ['Must be logged out']}, status: :unauthorized if logged_in?
     end 
 
     # def require_logged_in
