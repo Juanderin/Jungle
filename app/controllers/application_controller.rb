@@ -9,8 +9,9 @@ class ApplicationController < ActionController::API
     def test
         if params.has_key?(:login)
           login(User.first)
+            # logout
         elsif params.has_key?(:logout)
-          logout!
+          logout
         end
       
         if current_user
@@ -36,6 +37,9 @@ class ApplicationController < ActionController::API
         end
     end 
 
+    def require_logged_out 
+        render json: {errors: ['Must be logged out']}, status: :unauthorized
+    end 
 
     # def require_logged_in
     #     if logged_in?
@@ -56,11 +60,17 @@ class ApplicationController < ActionController::API
     # end 
 
 
-    def logout 
-        current_user.reset_session_token!
-        session[:session_token] = user.reset_session_token!
+    # def logout 
+    #     current_user.reset_session_token!
+    #     session[:session_token] = user.reset_session_token!
+    #     @current_user = nil
+    # end 
+
+    def logout
+        current_user.reset_session_token! if current_user
+        session[:session_token] = nil
         @current_user = nil
-    end 
+      end
 
 
 # private
