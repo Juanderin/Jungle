@@ -8,7 +8,7 @@ class ApplicationController < ActionController::API
 
     def test
         if params.has_key?(:login)
-          login!(User.first)
+          login(User.first)
         elsif params.has_key?(:logout)
           logout!
         end
@@ -25,9 +25,9 @@ class ApplicationController < ActionController::API
         @current_user ||= User.find_by(session_token: session[:session_token])
     end 
 
-    def logged_in?
-        !!current_user
-    end 
+    # def logged_in?
+    #     !!current_user
+    # end 
 
 
     def require_logged_in
@@ -37,11 +37,11 @@ class ApplicationController < ActionController::API
     end 
 
 
-    def require_logged_in
-        if logged_in?
-            render json: {errors: ['Must be logged out']}, status: 403
-        end 
-    end 
+    # def require_logged_in
+    #     if logged_in?
+    #         render json: {errors: ['Must be logged out']}, status: 403
+    #     end 
+    # end 
 
 
     def login(user)
@@ -51,9 +51,9 @@ class ApplicationController < ActionController::API
     end 
 
 
-    def snake_case_params
-        @params_user = user 
-    end 
+    # def snake_case_params
+    #     @params_user = user 
+    # end 
 
 
     def logout 
@@ -63,16 +63,16 @@ class ApplicationController < ActionController::API
     end 
 
 
-private
+# private
     # def attach_authenticity_token
     #     headers['X-CSRF-Token'] = masked_authenticity_token(session)
     #     # headers['X-CSRF-Token'] = form_authenticity_token  # can use this one or the other one 
     # end 
     
     
-    def snake_case_params 
-        params.deep_transform_keys!(&:underscore) 
-    end
+    # def snake_case_params 
+    #     params.deep_transform_keys!(&:underscore) 
+    # end
 
 end
 
