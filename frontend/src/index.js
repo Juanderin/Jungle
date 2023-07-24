@@ -46,8 +46,10 @@ const renderApplication = () => {
 }
 
 
-if (sessionStorage.getItem("X-CSRF-Token") === null) {
+if (sessionStorage.getItem("X-CSRF-Token") === null || sessionStorage.getItem("currentUser") === null) {
+  // debugger;
   restoreSession().then(renderApplication)
 } else {
+  debugger;
   renderApplication();
 }

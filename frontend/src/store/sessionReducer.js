@@ -73,7 +73,7 @@ export const createUser = (user) => async dispatch => {
 
 
 const initialState = {
-    user: null
+    user: JSON.parse(sessionStorage.getItem('currentUser'))
 }
 
 function userReducer(state = initialState, action) {

@@ -16,8 +16,8 @@ const LoginPage = () => {
     const [errors, setErrors] = useState([])
 
 
-    // debugger
-    // if (sessionUser) return <Redirect to='/index'/>
+    debugger
+    if (sessionUser) return <Redirect to='/'/>
     
 
     const handleSubmit = (e) => {

@@ -15,7 +15,7 @@ const SignUpForm = () => {
     const sessionUser = useSelector(state => state.session.user)
     const [errors, setErros] = useState([])
 
-    // if (sessionUser) return <Redirect to='/index' />
+    if (sessionUser) return <Redirect to='/' />
 
     const handleSubmit = (e) => {
         e.preventDefault();

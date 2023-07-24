@@ -5,4 +5,9 @@ api_session GET   /api/session(.:format)   api/sessions#show {:format=>:json}
             POST   /api/session(.:format)    api/sessions#create {:format=>:json}
 
 
-            
+
+# Questions, 
+
+Why isnt my token working across tabs 
+
+Why Sign Up isnt working anymore

@@ -16,7 +16,7 @@ const App = () => {
     <h1>Welcome to Jungle</h1>
    <Switch>
    {/* <Route path='/' component={LoginPage}/> */}
-    <Route path='/' component={Navigation}/>
+    <Route exact path='/' component={Navigation}/>
     <Route path='/login' component={LoginPage}/>
     <Route path='/signup' component={SignUpForm}/>
     </Switch> 
