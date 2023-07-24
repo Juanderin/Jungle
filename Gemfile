@@ -24,11 +24,11 @@ gem "puma", "~> 5.0"
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 gem "bcrypt"
 gem "jbuilder"
+gem 'faker'
 
-
-group :development, :test do
-  gem "faker"
-end
+# group :development, :test do
+#   gem "faker"
+# end
 
 
 group :development do
