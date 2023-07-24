@@ -5,6 +5,9 @@ const REMOVE_USER = "users/REMOVE_USER"
 
 
 
+
+// const getUser 
+
 const receiveUser = user => ({
     type: RECEIVE_USER,
     user
