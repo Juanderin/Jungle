@@ -6,17 +6,17 @@ const REMOVE_USER = "users/REMOVE_USER"
 
 
 
-// const getUser = (userId) => {
+const getUser = (userId) => {
 
-//     return(state) => {
-//         if (state.session && state.session[userId]) {
-//             return state.session[userId]
-//         } else {
-//             return null
-//         }
-//     }
+    return(state) => {
+        if (state.session && state.session[userId]) {
+            return state.session[userId]
+        } else {
+            return null
+        }
+    }
     
-// }
+}
 
 const receiveUser = user => ({
     type: RECEIVE_USER,
@@ -67,20 +67,22 @@ export const createUser = (user) => async dispatch => {
 }
 
 
-// const initialState = {
-//     user: null
-// }
+const initialState = {
+    id: null
+}
 
-function userReducer(state = {}, action) {
+function userReducer(state = initialState, action) {
     const newState = {...Object.freeze(state)}
 
     switch(action.type) {
         case RECEIVE_USER:
-            newState[action.user.id] = action.user;
-            return newState
+            // newState[action.user.id] = action.user;
+            // return newState
+            return {...newState, id: action.user}
         case REMOVE_USER:
-            delete newState[action.userId]
-            return newState
+            // delete newState[action.userId]
+            // return newState
+            return {...newState, id: null}
         default: 
         return state;
     }

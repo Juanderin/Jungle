@@ -3,19 +3,21 @@ import * as sessionActions from '../../store/sessionReducer'
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { useState } from "react";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 
 const LoginPage = () => {
     const dispatch = useDispatch();
-    const sessionUser = useSelector(state => state.session.user);
+    const id = useParams().userId
+    const sessionUser = useSelector(state => state.session.id);
     const [credential, setCredential] = useState("")
     const [password, setPassword] = useState("")
     const [errors, setErrors] = useState([])
 
 
-
-    if (sessionUser) return <Redirect to='/'/>
-
+    // debugger
+    if (sessionUser !== null) return <Redirect to='/'/>
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -29,13 +31,15 @@ const LoginPage = () => {
 
         <>
         <form onSubmit={handleSubmit}> 
-            <h1>Please Log In</h1> 
-        <label>Username or Email
+            <h3>Please Log In</h3> 
+        <label>Username or Email:
             <input type='text' value={credential} onChange={(e) => setCredential(e.target.value)}/>
         </label>
-        <label>
+        <br/>
+        <label>Password:
             <input type='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
         </label>
+        <br/>
         <input type='submit' value='Login'/>
         </form>
 

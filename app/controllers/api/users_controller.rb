@@ -2,7 +2,7 @@ class Api::UsersController < ApplicationController
 
 
     # before_action :require_logged_out, only:[:create]
-    before_action :require_logged_in, only: [:destroy]
+    # before_action :require_logged_in, only: [:destroy]
 
     wrap_parameters include: User.attribute_names + ["password"]
 
