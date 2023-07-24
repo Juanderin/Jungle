@@ -6,7 +6,17 @@ const REMOVE_USER = "users/REMOVE_USER"
 
 
 
-// const getUser 
+// const getUser = (userId) => {
+
+//     return(state) => {
+//         if (state.session && state.session[userId]) {
+//             return state.session[userId]
+//         } else {
+//             return null
+//         }
+//     }
+    
+// }
 
 const receiveUser = user => ({
     type: RECEIVE_USER,
