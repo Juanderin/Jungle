@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: Jungle_production
-  username: Jungle
-  password: <%= ENV["JUNGLE_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
