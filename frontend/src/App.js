@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom/";
 
 const App = () => {
-  const sessionUser = useSelector(state => state.session.id)
+  const sessionUser = useSelector(state => state.session.user)
 
   // if (!sessionUser) return <Redirect to='/login' />
 
@@ -16,8 +16,7 @@ const App = () => {
     <h1>Welcome to Jungle</h1>
    <Switch>
     <Route path='/login' component={LoginPage}/>
-    <Route path='/' component={Navigation}/>
-    <LoginPage />
+    <Route path='/index' component={Navigation}/>
     </Switch> 
   </div>
 

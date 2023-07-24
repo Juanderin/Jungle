@@ -4,19 +4,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { useState } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-
+import './LoginForm.css';
 
 const LoginPage = () => {
     const dispatch = useDispatch();
-    const id = useParams().userId
-    const sessionUser = useSelector(state => state.session.id);
+    const id = useParams().userId 
+    const sessionUser = useSelector(state => state.session.user);
     const [credential, setCredential] = useState("")
     const [password, setPassword] = useState("")
     const [errors, setErrors] = useState([])
 
 
     // debugger
-    if (sessionUser !== null) return <Redirect to='/'/>
+    if (sessionUser) return <Redirect to='/index'/>
     
 
     const handleSubmit = (e) => {

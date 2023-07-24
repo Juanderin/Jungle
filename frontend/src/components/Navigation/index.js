@@ -1,16 +1,28 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom/";
+import { logoutUser } from "../../store/sessionReducer";
 
 
 const Navigation = () => {
-
-    const sessionUser = useSelector(state => state.session.id)
+    const dispatch = useDispatch();
+    const sessionUser = useSelector(state => state.session.user)
 
     if (!sessionUser) return <Redirect to='/login' />
 
+
+    const handleClick = (e) => {
+        e.preventDefault();
+
+        dispatch(logoutUser())
+    }
+
     return(
-        <h1>Hey</h1>
+        <>
+        <p>Hey {sessionUser.username}</p>
+        <button onClick={handleClick}>Logout</button>
+        </>
+
     )
 
 }

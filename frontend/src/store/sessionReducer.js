@@ -24,10 +24,15 @@ const receiveUser = user => ({
 })
 
 
-const removeUser = userId => ({
-    type: REMOVE_USER,
-    userId
-})
+// const removeUser = userId => ({
+//     type: REMOVE_USER,
+//     userId
+// })
+
+
+const removeUser = () => ({
+    type: REMOVE_USER
+  });
 
 
 export const loginUser = user => async dispatch => {
@@ -44,13 +49,13 @@ export const loginUser = user => async dispatch => {
 }
 
 
-export const logoutUser = userId => async dispatch => {
+export const logoutUser = () => async dispatch => {
     const res = await csrfFetch('/api/session', {
         method: 'DELETE'
     })
 
     sessionStorage.setItem('currentUser', null);
-    dispatch(removeUser(userId))
+    dispatch(removeUser())
 }
 
 
@@ -68,21 +73,17 @@ export const createUser = (user) => async dispatch => {
 
 
 const initialState = {
-    id: null
+    user: null
 }
 
 function userReducer(state = initialState, action) {
-    const newState = {...Object.freeze(state)}
+    const newState = {...state}
 
     switch(action.type) {
         case RECEIVE_USER:
-            // newState[action.user.id] = action.user;
-            // return newState
-            return {...newState, id: action.user}
+            return { ...newState, user: action.user };
         case REMOVE_USER:
-            // delete newState[action.userId]
-            // return newState
-            return {...newState, id: null}
+            return { ...newState, user: null };
         default: 
         return state;
     }
