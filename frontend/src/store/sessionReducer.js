@@ -1,7 +1,6 @@
-import { csrfFetch } from "./csrf"
+import  csrfFetch  from "./csrf"
 
 const RECEIVE_USER = 'users/RECIEVE_USER'
-
 const REMOVE_USER = "users/REMOVE_USER"
 
 
@@ -18,7 +17,7 @@ const removeUser = userId => ({
 })
 
 
-const loginUser = user => async dispatch => {
+export const loginUser = user => async dispatch => {
     const res = await csrfFetch('/api/session', {
         method: 'POST',
         body: JSON.stringify(user)
@@ -27,12 +26,12 @@ const loginUser = user => async dispatch => {
 
     const data = await res.json();
 
-    sessionStorage.setItem("currenUser", JSON.stringify(data.user));
+    sessionStorage.setItem("currentUser", JSON.stringify(data.user));
     dispatch(receiveUser(data.user))
 }
 
 
-const logoutUser = userId => async dispatch => {
+export const logoutUser = userId => async dispatch => {
     const res = await csrfFetch('/api/session', {
         method: 'DELETE'
     })
@@ -42,7 +41,7 @@ const logoutUser = userId => async dispatch => {
 }
 
 
-const createUser = user = async dispatch => {
+export const createUser = (user) => async dispatch => {
     const res = await csrfFetch('/api/users', {
         method: 'POST',
         body: JSON.stringify(user)
@@ -50,11 +49,14 @@ const createUser = user = async dispatch => {
 
     const data = await res.json();
 
-    sessionStorage.setItem('currentUser', json.stringify(data.user))
+    sessionStorage.setItem('currentUser', JSON.stringify(data.user))
     dispatch(receiveUser((data.user)));
 }
 
 
+// const initialState = {
+//     user: null
+// }
 
 function userReducer(state = {}, action) {
     const newState = {...Object.freeze(state)}
