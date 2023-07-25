@@ -12,6 +12,7 @@ const SignUpForm = () => {
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [passCheck, setpassCheck] = useState("")
     const sessionUser = useSelector(state => state.session.user)
     const [errors, setErros] = useState([])
 
@@ -19,8 +20,12 @@ const SignUpForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        
+        if (password === passCheck) {
         dispatch(createUser({username: username, email: email, password: password}))
-
+        } else {
+            throw new Error('Passwords do not match');
+        }
     }
 
     return (
@@ -40,6 +45,10 @@ const SignUpForm = () => {
         <br/>
         <label id='textText' >Password
             <input id='passTexts' type='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
+        </label>
+        <br/>
+        <label id='textText' >Re-enter password
+            <input id='passTexts' type='password' value={passCheck} onChange={(e) => setpassCheck(e.target.value)}/>
         </label>
         </div>
         <br/>
