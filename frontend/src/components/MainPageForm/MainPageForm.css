@@ -1,0 +1,19 @@
+#mainPageBox{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgb(19, 25, 33);
+    height: 40px;
+    width: 100%;
+}
+
+#mainLogoBox {
+   position: absolute;
+   top: 0;
+   left: 4px;
+
+}
+
+#mainLogo {
+    height: 40px;
+}
