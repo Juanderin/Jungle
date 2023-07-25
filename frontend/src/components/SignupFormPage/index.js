@@ -22,8 +22,11 @@ const SignUpForm = () => {
         e.preventDefault();
         
         if (password === passCheck) {
-        dispatch(createUser({username: username, email: email, password: password}))
+
+            dispatch(createUser({username: username, email: email, password: password}))
+
         } else {
+
             throw new Error('Passwords do not match');
         }
     }
@@ -32,11 +35,11 @@ const SignUpForm = () => {
 
         <>
         <div id='signBox'>
-        <form onSubmit={handleSubmit}>
+        <form id='formSignUp' onSubmit={handleSubmit}>
         <h2 id='createHeader'>Create Account</h2>
         <div id='signButtons'>
         <label id='textText'>Your Name
-            <input id='nameText' type='text' value={username} onChange={(e) => setUsername(e.target.value)}/>
+            <input id='nameText' placeholder="First and last name" type='text' value={username} onChange={(e) => setUsername(e.target.value)}/>
         </label>
         <br/>
         <label id='textText' >Email
@@ -44,7 +47,7 @@ const SignUpForm = () => {
         </label>
         <br/>
         <label id='textText' >Password
-            <input id='passTexts' type='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
+            <input id='passTexts' placeholder="At least 6 characters" type='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
         </label>
         <br/>
         <label id='textText' >Re-enter password
@@ -52,7 +55,10 @@ const SignUpForm = () => {
         </label>
         </div>
         <br/>
-        <input type='submit' value='Signup' id='signupButton'/>
+        <div id='signupButtonBox'>
+        <input type='submit' value='Continue' id='signupButton'/>
+        </div>
+        <p id='suDisclaimer'> By contining you agree to the Jungles conditions of use and privacy notice</p>
         </form>
         </div>
         </>

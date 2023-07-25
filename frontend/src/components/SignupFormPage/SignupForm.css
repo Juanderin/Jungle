@@ -1,15 +1,21 @@
  #signBox{
     border: 1px solid lightgray;
-    border-radius: 3px;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
     height: auto;
     justify-content: space-between;
-    padding: 14px 18px;
+    padding: 0px 15px;
     width: 250px;
     font-family: 'Amazon Ember', Arial sans-serif;
 }
 
+#formSignUp {
+
+    padding: 0px 0px;
+    margin: 0px, 0px;
+
+}
 
 #createHeader {
     font-size: 20px;
@@ -29,10 +35,28 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    font-size: 11px;
+    font-family: 'Amazon Ember', Arial sans-serif;
+
 }
 
-#signButtons{
+#suDisclaimer {
+    font-size: 10px;
+    font-family: 'Amazon Ember', Arial sans-serif;
+    display: block;
+}
+
+#signupButton:hover {
+    background-color: rgb(240, 201, 41);
+}
+
+#signupButtonBox {
+
+    margin-top: -22px
+
+}
+
+#signButtons {
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
@@ -46,11 +70,13 @@
     width: 100%;
     padding: 0px 7px; 
     margin: 0px 0px 4px; 
+    font-size: 11px;
 } 
 
 #nameText,
 #emailsText,
 #passTexts {
+
     display: flex;
     flex-direction: column;
     width: 230px;
@@ -62,3 +88,4 @@
     font-weight: bold;
 
 }
+
