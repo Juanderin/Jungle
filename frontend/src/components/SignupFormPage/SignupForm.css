@@ -10,6 +10,17 @@
     font-family: 'Amazon Ember', Arial sans-serif;
 }
 
+#redirectSignIn {
+    display: flex;
+    font-size: 10.5px;
+    margin: 6px 2px ;
+    /* margin-top: -5px; */
+    justify-content: left;
+}
+
+#reSpacer {
+    width: 10px;
+}
 #formSignUp {
 
     padding: 0px 0px;

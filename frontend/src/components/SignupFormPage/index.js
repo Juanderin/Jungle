@@ -4,6 +4,7 @@ import { useState } from "react";
 import { createUser } from "../../store/sessionReducer";
 import { Redirect } from "react-router-dom";
 import './SignupForm.css'
+import { Link } from "react-router-dom";
 
 
 const SignUpForm = () => {
@@ -59,6 +60,14 @@ const SignUpForm = () => {
         <input type='submit' value='Continue' id='signupButton'/>
         </div>
         <p id='suDisclaimer'> By contining you agree to the Jungles conditions of use and privacy notice</p>
+        <br/>
+        <div id='redirectSignIn'>
+        <span>Already have an account?</span>
+        <span id='reSpacer'></span>
+        <Link to='/login'>
+            <span>Sign In</span>
+        </Link>
+        </div>
         </form>
         </div>
         </>
