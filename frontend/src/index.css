@@ -1,1 +1,9 @@
 /* TODO Add site wide styles */
+
+#logo{
+    padding-bottom: 10px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+
+}

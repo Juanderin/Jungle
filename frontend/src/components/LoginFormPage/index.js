@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import './LoginForm.css';
+import { useHistory } from "react-router-dom";
 
 const LoginPage = () => {
     const dispatch = useDispatch();
@@ -13,10 +14,11 @@ const LoginPage = () => {
     const sessionUser = useSelector(state => state.session.user);
     const [credential, setCredential] = useState("")
     const [password, setPassword] = useState("")
+    const history = useHistory();
     const [errors, setErrors] = useState([])
 
 
-    debugger
+    // debugger
     if (sessionUser) return <Redirect to='/'/>
     
 
@@ -27,31 +29,36 @@ const LoginPage = () => {
         return dispatch(sessionActions.loginUser({credential, password}))
     }
 
+    const handleRedirect = (e) => {
+        e.preventDefault();
+
+        history.push('/signup')
+    }
+
 
     return (
 
         <>
         <div id='formBox'>
         <form onSubmit={handleSubmit}> 
-        <h3>Sign In</h3>
+        <h3 id="signHead">Sign In</h3>
         <div id='inputButtons'>
-        <label>Email 
-            <input type='text' value={credential} onChange={(e) => setCredential(e.target.value)}/>
+        <label id='emailText'>Email 
+            <input id='emailButton'type='text' value={credential} onChange={(e) => setCredential(e.target.value)}/>
         </label>
         <br/>
-        <label>Password
-            <input type='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
+        <label id="passText">Password
+            <input id='passButton' type='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
         </label>
         </div>
         <br/>
         <button type='submit' id='signButton'>Sign In</button>
         </form>
+        <p id='bottomText'>By contining you agree to the Jungle's conditions of use and privacy notice</p>
         </div>
-        <p> Dont have an account?</p>
         <div id='redirectLink'>
-        <Link to='/signup'>
-            <p>SignUp</p>
-        </Link>
+        <p id="newToJungle">New to Jungle?</p>
+        <button onClick={handleRedirect} id='signUpButton'>Sign Up</button>
         </div>
         </>
 

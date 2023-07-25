@@ -1,45 +1,116 @@
-#formBox {
-    padding: 20px;
-    height: 100px;
+#root {
     display: flex;
-    font-family: arial, sans-serif;
-    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
 }
 
+#formBox {
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    justify-content: space-between;
+    padding: 14px 18px;
+    width: 250px;
+    font-family: 'Amazon Ember', Arial sans-serif;
+}
 
-label, input{
+#signUpButton {
+    
+    height: 23px;
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    margin: 0px 0px 3px;
+    padding: 5px 0px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+    
+}
 
-    display:flex;
-    flex-direction:column;
-    height: 35px;
-    
-    
+#signUpButton:hover {
+    background-color: rgb(247, 250, 250) ;
 }
 
 #signButton {
+    height: 23px;
+    width: 100%;
+    background-color: rgb(254, 214, 54);
+    border-radius: 5px;
+    border: none;
+    margin: 0px 0px 3px;
+    padding: 5px 0px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
 
-    height: 20px;
-    width: 100px;
-    background-color :rgb(254, 214, 54)
+}
 
+
+#signButton:hover {
+    background-color: rgb(240, 201, 41);
 }
 
 #inputButtons {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
 
-font-size: 12px;
-font-weight: bold;
+#redirectLink {
+    display: flex;
+    font-family: arial, sans-serif;
+    font-size: 12px;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    justify-content: center;
+}
 
+#emailButton,
+#passButton,
+#signButton {
+    height: 23px;
+    width: 100%;
+    padding: 0px 7px; 
+    margin: 0px 0px 4px; 
+}
+
+#emailButton,
+#passButton {
+    display: flex;
+    flex-direction: column;
+    width: 230px;
 }
 
 
-#redirectLink  {
+#emailText,
+#passText {
+    font-size: 10px;
+    font-weight: bold;
+}
 
+#signHead {
     display: flex;
-    font-family: arial, sans-serif;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    padding: 0px 0px 4px;
+    margin: 0px 0px 10px;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.2;
+}
 
+#bottomText{
+
+    font-size: 10px;
+}
+
+#newToJungle{
+    font-size: 10px;
+    color: rgb(118, 118, 118);
 }

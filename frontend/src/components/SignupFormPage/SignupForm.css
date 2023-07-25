@@ -1,0 +1,102 @@
+ #signBox{
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    justify-content: space-between;
+    padding: 0px 15px;
+    width: 250px;
+    font-family: 'Amazon Ember', Arial sans-serif;
+}
+
+#redirectSignIn {
+    display: flex;
+    font-size: 10.5px;
+    margin: 6px 2px ;
+    /* margin-top: -5px; */
+    justify-content: left;
+}
+
+#reSpacer {
+    width: 10px;
+}
+#formSignUp {
+
+    padding: 0px 0px;
+    margin: 0px, 0px;
+
+}
+
+#createHeader {
+    font-size: 20px;
+    font-weight: normal;
+}
+
+
+
+#signupButton {
+    height: 23px;
+    width: 100%;
+    background-color: rgb(254, 214, 54);
+    border-radius: 5px;
+    border: none;
+    margin: 0px 0px 3px;
+    padding: 5px 0px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+    font-family: 'Amazon Ember', Arial sans-serif;
+
+}
+
+#suDisclaimer {
+    font-size: 10px;
+    font-family: 'Amazon Ember', Arial sans-serif;
+    display: block;
+}
+
+#signupButton:hover {
+    background-color: rgb(240, 201, 41);
+}
+
+#signupButtonBox {
+
+    margin-top: -22px
+
+}
+
+#signButtons {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+#nameText,
+#emailsText,
+#passTexts,
+#signupButton {
+    height: 23px;
+    width: 100%;
+    padding: 0px 7px; 
+    margin: 0px 0px 4px; 
+    font-size: 11px;
+} 
+
+#nameText,
+#emailsText,
+#passTexts {
+
+    display: flex;
+    flex-direction: column;
+    width: 230px;
+}
+
+#textText{
+
+    font-size: 10px;
+    font-weight: bold;
+
+}
+
