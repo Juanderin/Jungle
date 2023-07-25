@@ -24,7 +24,7 @@
     border-radius: 5px;
     border: none;
     margin: 0px 0px 3px;
-    padding: 5px 0px; /* Add padding to increase clickable area */
+    padding: 5px 0px; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,8 +51,8 @@
 #signButton {
     height: 23px;
     width: 100%;
-    padding: 0px 7px; /* Add horizontal padding for the email and password buttons */
-    margin: 0px 0px 4px; /* Add margin to separate the buttons */
+    padding: 0px 7px; 
+    margin: 0px 0px 4px; 
 }
 
 #emailButton,
@@ -61,7 +61,6 @@
     flex-direction: column;
     width: 230px;
 }
-
 
 
 #emailText,

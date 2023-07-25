@@ -1,0 +1,63 @@
+ #signBox{
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    justify-content: space-between;
+    padding: 14px 18px;
+    width: 250px;
+    font-family: 'Amazon Ember', Arial sans-serif;
+}
+
+
+#createHeader {
+    font-size: 20px;
+    font-weight: normal;
+}
+
+
+
+#signupButton {
+    height: 23px;
+    width: 100%;
+    background-color: rgb(254, 214, 54);
+    border-radius: 5px;
+    border: none;
+    margin: 0px 0px 3px;
+    padding: 5px 0px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#signButtons{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+#nameText,
+#emailsText,
+#passTexts,
+#signupButton {
+    height: 23px;
+    width: 100%;
+    padding: 0px 7px; 
+    margin: 0px 0px 4px; 
+} 
+
+#nameText,
+#emailsText,
+#passTexts {
+    display: flex;
+    flex-direction: column;
+    width: 230px;
+}
+
+#textText{
+
+    font-size: 10px;
+    font-weight: bold;
+}

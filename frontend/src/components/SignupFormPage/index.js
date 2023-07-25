@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { createUser } from "../../store/sessionReducer";
 import { Redirect } from "react-router-dom";
-
+import './SignupForm.css'
 
 
 const SignUpForm = () => {
@@ -28,20 +28,22 @@ const SignUpForm = () => {
         <>
         <div id='signBox'>
         <form onSubmit={handleSubmit}>
-        <h2>Signup</h2>
-        <label>Username:
-            <input type='text' value={username} onChange={(e) => setUsername(e.target.value)}/>
+        <h2 id='createHeader'>Create Account</h2>
+        <div id='signButtons'>
+        <label id='textText'>Your Name
+            <input id='nameText' type='text' value={username} onChange={(e) => setUsername(e.target.value)}/>
         </label>
         <br/>
-        <label>Email:
-            <input type='text' value={email} onChange={(e) => setEmail(e.target.value)}/>
+        <label id='textText' >Email
+            <input id='emailsText' type='text' value={email} onChange={(e) => setEmail(e.target.value)}/>
         </label>
         <br/>
-        <label>Password:
-            <input type='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
+        <label id='textText' >Password
+            <input id='passTexts' type='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
         </label>
+        </div>
         <br/>
-        <input type='submit' value='Signup'/>
+        <input type='submit' value='Signup' id='signupButton'/>
         </form>
         </div>
         </>
