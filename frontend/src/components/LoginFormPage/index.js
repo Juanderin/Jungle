@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import './LoginForm.css';
+import { useHistory } from "react-router-dom";
 
 const LoginPage = () => {
     const dispatch = useDispatch();
@@ -13,6 +14,7 @@ const LoginPage = () => {
     const sessionUser = useSelector(state => state.session.user);
     const [credential, setCredential] = useState("")
     const [password, setPassword] = useState("")
+    const history = useHistory();
     const [errors, setErrors] = useState([])
 
 
@@ -25,6 +27,12 @@ const LoginPage = () => {
 
         // setErrors([])
         return dispatch(sessionActions.loginUser({credential, password}))
+    }
+
+    const handleRedirect = (e) => {
+        e.preventDefault();
+
+        history.push('/signup')
     }
 
 
@@ -46,13 +54,11 @@ const LoginPage = () => {
         <br/>
         <button type='submit' id='signButton'>Sign In</button>
         </form>
-        <p id='bottomText'>By contining you agree to the Jungles conditions of use and privacy notice</p>
+        <p id='bottomText'>By contining you agree to the Jungle's conditions of use and privacy notice</p>
         </div>
         <div id='redirectLink'>
-        <p> Dont have an account?</p>
-        <Link to='/signup'>
-            <p>SignUp</p>
-        </Link>
+        <p id="newToJungle">New to Jungle?</p>
+        <button onClick={handleRedirect} id='signUpButton'>Sign Up</button>
         </div>
         </>
 

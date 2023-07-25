@@ -17,6 +17,26 @@
     font-family: 'Amazon Ember', Arial sans-serif;
 }
 
+#signUpButton {
+    
+    height: 23px;
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    margin: 0px 0px 3px;
+    padding: 5px 0px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+    
+}
+
+#signUpButton:hover {
+    background-color: rgb(247, 250, 250) ;
+}
+
 #signButton {
     height: 23px;
     width: 100%;
@@ -28,6 +48,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 11px;
+
+}
+
+
+#signButton:hover {
+    background-color: rgb(240, 201, 41);
 }
 
 #inputButtons {
@@ -81,4 +108,9 @@
 #bottomText{
 
     font-size: 10px;
+}
+
+#newToJungle{
+    font-size: 10px;
+    color: rgb(118, 118, 118);
 }
