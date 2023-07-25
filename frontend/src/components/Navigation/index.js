@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom/";
 import { logoutUser } from "../../store/sessionReducer";
 import LoginPage from "../LoginFormPage";
 import SignUpForm from "../SignupFormPage";
+import './Navigation.css'
 
 
 const Navigation = () => {

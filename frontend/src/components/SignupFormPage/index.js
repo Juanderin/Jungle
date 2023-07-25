@@ -26,6 +26,7 @@ const SignUpForm = () => {
     return (
 
         <>
+        <div id='signBox'>
         <form onSubmit={handleSubmit}>
         <h2>Signup</h2>
         <label>Username:
@@ -42,6 +43,7 @@ const SignUpForm = () => {
         <br/>
         <input type='submit' value='Signup'/>
         </form>
+        </div>
         </>
 
     )

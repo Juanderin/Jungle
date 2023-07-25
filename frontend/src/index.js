@@ -50,6 +50,6 @@ if (sessionStorage.getItem("X-CSRF-Token") === null || sessionStorage.getItem("c
   // debugger;
   restoreSession().then(renderApplication)
 } else {
-  debugger;
+  // debugger;
   renderApplication();
 }
