@@ -17,6 +17,14 @@
     font-family: 'Amazon Ember', Arial sans-serif;
 }
 
+#logo{
+    padding-bottom: 10px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+
+}
+
 #signUpButton {
     
     height: 23px;

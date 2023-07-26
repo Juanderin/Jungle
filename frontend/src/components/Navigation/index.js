@@ -22,7 +22,10 @@ const Navigation = () => {
 
     return(
         <>
-        {sessionUser &&  <> <p>Hey {sessionUser.username}</p> 
+        {sessionUser &&  <> 
+        <p>Hey {sessionUser.username}</p> 
+        
+
         <button onClick={handleClick}>Logout</button></>}
 
         {!sessionUser && <> {<LoginPage/ >} </>}

@@ -39,6 +39,9 @@ const LoginPage = () => {
     return (
 
         <>
+         <div id='logo'>
+            <img src='Jungle-7-24-2023.png'></img>
+        </div>
         <div id='formBox'>
         <form onSubmit={handleSubmit}> 
         <h3 id="signHead">Sign In</h3>
