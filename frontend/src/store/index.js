@@ -5,8 +5,8 @@ import userReducer from './sessionReducer';
 
 
 const rootReducer = combineReducers({
-  session: userReducer
-  // session
+  // session: userReducer
+  session
 })
 // const enhancer = applyMiddleware(thunk)
 

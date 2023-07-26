@@ -5,7 +5,8 @@ import { createUser } from "../../store/sessionReducer";
 import { Redirect } from "react-router-dom";
 import './SignupForm.css'
 import { Link } from "react-router-dom";
-
+import * as sessionActions from '../../store/sessionReducer'
+import { useEffect } from "react";
 
 const SignUpForm = () => {
 
@@ -15,20 +16,40 @@ const SignUpForm = () => {
     const [password, setPassword] = useState("")
     const [passCheck, setpassCheck] = useState("")
     const sessionUser = useSelector(state => state.session.user)
-    const [errors, setErros] = useState([])
+    const [errors, setErrors] = useState([])
+
+    useEffect(() => {
+        console.log(errors)
+    }, [errors])
 
     if (sessionUser) return <Redirect to='/' />
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
         
         if (password === passCheck) {
 
-            dispatch(createUser({username: username, email: email, password: password}))
-
-        } else {
-
-            throw new Error('Passwords do not match');
+            debugger
+            setErrors([])
+            console.log(errors)
+            return dispatch(sessionActions.createUser({username: username, email: email, password: password}))
+            .catch(async (res) => {
+                // debugger
+                let data;
+                try {
+                    data = await res.clone().json();
+    
+                } catch {
+                    // debugger
+                    // data = await res.text();
+                }
+                console.log(errors)
+                if (data?.errors) setErrors(data.errors);
+                else if (data) setErrors([data])
+                else setErrors([res.statusText])
+                console.log(errors)
+            })
         }
     }
 
@@ -38,6 +59,10 @@ const SignUpForm = () => {
         <div id='logo'>
             <img src='Jungle-7-24-2023.png'></img>
         </div>
+        <ul>
+          {errors.map((error) => <li key={error}>{error}</li>)}
+        </ul>
+    
         <div id='signBox'>
         <form id='formSignUp' onSubmit={handleSubmit}>
         <h2 id='createHeader'>Create Account</h2>

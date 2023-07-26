@@ -69,6 +69,7 @@ export const createUser = (user) => async dispatch => {
 
     sessionStorage.setItem('currentUser', JSON.stringify(data.user))
     dispatch(receiveUser((data.user)));
+    return res;
 }
 
 

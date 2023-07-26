@@ -25,8 +25,19 @@ const LoginPage = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // setErrors([])
+        setErrors([])
         return dispatch(sessionActions.loginUser({credential, password}))
+        .catch(async (res) => {
+            let data;
+            try {
+                data = await res.clone().json();
+            } catch {
+                data = await res.text();
+            }
+            if (data.errors) setErrors(data.errors);
+            else if (data) setErrors([data])
+            else setErrors([res.statusText])
+        })
     }
 
     const handleRedirect = (e) => {
