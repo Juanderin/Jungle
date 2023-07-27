@@ -2,7 +2,7 @@ class ApplicationController < ActionController::API
 
     include ActionController::RequestForgeryProtection
 
-    rescue_from StandardError, with: :unhandled_error
+    # rescue_from StandardError, with: :unhandled_error
     rescue_from ActionController::InvalidAuthenticityToken,
       with: :invalid_authenticity_token
 
@@ -93,17 +93,17 @@ private
         status: :unprocessable_entity
     end
     
-    def unhandled_error(error)
-      if request.accepts.first.html?
-        raise error
-      else
-        @message = "#{error.class} - #{error.message}"
-        @stack = Rails::BacktraceCleaner.new.clean(error.backtrace)
-        render 'api/errors/internal_server_error', status: :internal_server_error
+    # def unhandled_error(error)
+    #   if request.accepts.first.html?
+    #     raise error
+    #   else
+    #     @message = "#{error.class} - #{error.message}"
+    #     @stack = Rails::BacktraceCleaner.new.clean(error.backtrace)
+    #     render 'api/errors/internal_server_error', status: :internal_server_error
         
-        logger.error "\n#{@message}:\n\t#{@stack.join("\n\t")}\n"
-      end
-    end
+    #     logger.error "\n#{@message}:\n\t#{@stack.join("\n\t")}\n"
+    #   end
+    # end
 
 
 end
