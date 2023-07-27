@@ -42,6 +42,7 @@ const LoginPage = () => {
          <div id='logo'>
             <img src='Jungle-7-24-2023.png'></img>
         </div>
+        <div id='loginFormContents'>
         <div id='formBox'>
         <form onSubmit={handleSubmit}> 
         <h3 id="signHead">Sign In</h3>
@@ -62,6 +63,7 @@ const LoginPage = () => {
         <div id='redirectLink'>
         <p id="newToJungle">New to Jungle?</p>
         <button onClick={handleRedirect} id='signUpButton'>Sign Up</button>
+        </div>
         </div>
         </>
 

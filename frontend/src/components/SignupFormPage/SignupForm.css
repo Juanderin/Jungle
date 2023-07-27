@@ -1,10 +1,15 @@
+#signFormContents{
+    display: flex;
+    justify-content: center;
+} 
+ 
  #signBox{
     border: 1px solid lightgray;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     height: auto;
-    justify-content: space-between;
+    align-items: center;
     padding: 0px 15px;
     width: 250px;
     font-family: 'Amazon Ember', Arial sans-serif;

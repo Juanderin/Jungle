@@ -38,6 +38,7 @@ const SignUpForm = () => {
         <div id='logo'>
             <img src='Jungle-7-24-2023.png'></img>
         </div>
+        <div id='signFormContents'>
         <div id='signBox'>
         <form id='formSignUp' onSubmit={handleSubmit}>
         <h2 id='createHeader'>Create Account</h2>
@@ -72,6 +73,7 @@ const SignUpForm = () => {
         </Link>
         </div>
         </form>
+        </div>
         </div>
         </>
 

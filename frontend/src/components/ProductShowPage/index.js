@@ -15,7 +15,6 @@ const ProductShow = () => {
 
 
     if (!product) return null
-
     return(
         <>
         {product.productName}

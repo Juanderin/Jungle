@@ -1,4 +1,4 @@
-#root {
+#loginFormContents {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -65,6 +65,10 @@
     background-color: rgb(240, 201, 41);
 }
 
+#signUpButton{
+    width: 100%;
+}
+
 #inputButtons {
     display: flex;
     flex-direction: column;
@@ -79,6 +83,7 @@
     align-items: center;
     margin: auto;
     justify-content: center;
+    width: 290px;
 }
 
 #emailButton,

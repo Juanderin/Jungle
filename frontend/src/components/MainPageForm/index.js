@@ -9,11 +9,20 @@ const MainPage = () => {
     return (
 
         <>
+        
         <div id='mainPageBox'>
 
-        <span id='mainLogoBox'>
+        {/* <div id='mainLogoBox'> */}
             <img id='mainLogo' src='Jungle-7-25-2023.png'/>
-        </span>
+            <input id='searchBox' type='text' />
+          
+                <button>
+                    Hello, sign in
+                   <br></br>
+                    <span id="AccountLists">Account & Lists</span>
+                </button>
+           
+        {/* </div> */}
         </div>
         
         </>

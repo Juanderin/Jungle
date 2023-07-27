@@ -5,7 +5,10 @@ import ProductsIndex from "../ProductsIndex";
 
 const HomePage = (props) => {
 
+    
+    
     return (
+        
         <>
         <MainPage />
         <ProductsIndex />

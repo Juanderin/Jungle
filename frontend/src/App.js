@@ -16,7 +16,7 @@ const App = () => {
 
 
   return (
-  <div>
+  <>
     {/* <h1>Welcome to Jungle</h1> */}
     {/* <div id='logo'>
     <img src='Jungle-7-24-2023.png'></img>
@@ -24,14 +24,14 @@ const App = () => {
 
    <Switch>
    {/* <Route path='/' component={LoginPage}/> */}
-    {/* <Route exact path='/' component={Navigation}/> */}
-    <Route path={"/products/:productId"}><ProductShow/></Route>
-    <Route path='/' component={HomePage} />
+    <Route exact path='/' component={Navigation}/>
     <Route path='/login' component={LoginPage}/>
+    <Route path={"/products/:productId"}><ProductShow/></Route>
+    <Route path='/home' component={HomePage} />
     <Route path='/main' component={MainPage} />
     <Route path='/signup' component={SignUpForm}/>
     </Switch> 
-  </div>
+  </>
 
   )
 }
