@@ -1,92 +1,100 @@
-import  csrfFetch  from "./csrf"
+import csrfFetch from "./csrf.js";
 
-const RECEIVE_USER = 'users/RECIEVE_USER'
-const REMOVE_USER = "users/REMOVE_USER"
+const SET_CURRENT_USER = 'session/setCurrentUser';
+const REMOVE_CURRENT_USER = 'session/removeCurrentUser';
 
+const setCurrentUser = (user) => ({
+  type: SET_CURRENT_USER,
+  user
+});
 
+const removeCurrentUser = () => ({
+  type: REMOVE_CURRENT_USER
+});
 
-
-const getUser = (userId) => {
-
-    return(state) => {
-        if (state.session && state.session[userId]) {
-            return state.session[userId]
-        } else {
-            return null
-        }
-    }
-    
+const storeCurrentUser = user => {
+  if (user) sessionStorage.setItem("currentUser", JSON.stringify(user));
+  else sessionStorage.removeItem("currentUser");
 }
 
-const receiveUser = user => ({
-    type: RECEIVE_USER,
-    user
-})
+const storeCSRFToken = response => {
+  const csrfToken = response.headers.get("X-CSRF-Token");
+  if (csrfToken) sessionStorage.setItem("X-CSRF-Token", csrfToken);
+}
 
+export const restoreSession = () => async dispatch => {
+  const response = await csrfFetch("/api/session");
 
-// const removeUser = userId => ({
-//     type: REMOVE_USER,
-//     userId
-// })
+  storeCSRFToken(response);
 
+  const data = await response.json();
+  storeCurrentUser(data.user);
 
-const removeUser = () => ({
-    type: REMOVE_USER
+  dispatch(setCurrentUser(data.user));
+  return response;
+};
+
+export const login = ({ credential, password }) => async dispatch => {
+  const response = await csrfFetch("/api/session", {
+    method: "POST",
+    body: JSON.stringify({ credential, password })
   });
 
+  const data = await response.json();
 
-export const loginUser = user => async dispatch => {
-    const res = await csrfFetch('/api/session', {
-        method: 'POST',
-        body: JSON.stringify(user)
+  storeCurrentUser(data.user);
+  
+  dispatch(setCurrentUser(data.user));
+  return response;
+};
+
+
+export const signup = (user) => async (dispatch) => {
+  const { username, email, password } = user;
+  const response = await csrfFetch("/api/users", {
+    method: "POST",
+    body: JSON.stringify({
+      username,
+      email,
+      password
     })
+  });
 
+  const data = await response.json();
 
-    const data = await res.json();
+  storeCurrentUser(data.user);
+  dispatch(setCurrentUser(data.user));
 
-    sessionStorage.setItem("currentUser", JSON.stringify(data.user));
-    dispatch(receiveUser(data.user))
-}
+  return response;
+};
 
+export const logout = () => async (dispatch) => {
+  const response = await csrfFetch("/api/session", {
+    method: "DELETE"
+  });
 
-export const logoutUser = () => async dispatch => {
-    const res = await csrfFetch('/api/session', {
-        method: 'DELETE'
-    })
+  storeCurrentUser(null);
 
-    sessionStorage.setItem('currentUser', null);
-    dispatch(removeUser())
-}
+  dispatch(removeCurrentUser());
+  return response;
+};
 
+const initialState = { 
+  user: JSON.parse(sessionStorage.getItem("currentUser"))
+};
 
-export const createUser = (user) => async dispatch => {
-    const res = await csrfFetch('/api/users', {
-        method: 'POST',
-        body: JSON.stringify(user)
-    })
+const sessionReducer = (state = initialState, action) => {
 
-    const data = await res.json();
+  const newState = {...state}
 
-    sessionStorage.setItem('currentUser', JSON.stringify(data.user))
-    dispatch(receiveUser((data.user)));
-}
+  switch (action.type) {
+    case SET_CURRENT_USER:
+      return { ...newState, user: action.user };
+    case REMOVE_CURRENT_USER:
+      return { ...newState, user: null };
+    default:
+      return state;
+  }
+};
 
-
-const initialState = {
-    user: JSON.parse(sessionStorage.getItem('currentUser'))
-}
-
-function userReducer(state = initialState, action) {
-    const newState = {...state}
-
-    switch(action.type) {
-        case RECEIVE_USER:
-            return { ...newState, user: action.user };
-        case REMOVE_USER:
-            return { ...newState, user: null };
-        default: 
-        return state;
-    }
-}
-
-export default userReducer;
+export default sessionReducer;

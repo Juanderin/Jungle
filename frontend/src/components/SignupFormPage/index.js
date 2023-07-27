@@ -5,6 +5,7 @@ import { createUser } from "../../store/sessionReducer";
 import { Redirect } from "react-router-dom";
 import './SignupForm.css'
 import { Link } from "react-router-dom";
+import { signup } from "../../store/sessionReducer";
 
 
 const SignUpForm = () => {
@@ -24,7 +25,7 @@ const SignUpForm = () => {
         
         if (password === passCheck) {
 
-            dispatch(createUser({username: username, email: email, password: password}))
+            dispatch(signup({username: username, email: email, password: password}))
 
         } else {
 

@@ -26,7 +26,7 @@ const LoginPage = () => {
         e.preventDefault();
 
         // setErrors([])
-        return dispatch(sessionActions.loginUser({credential, password}))
+        return dispatch(sessionActions.login({credential, password}))
     }
 
     const handleRedirect = (e) => {
