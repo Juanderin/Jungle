@@ -5,6 +5,7 @@ import { logoutUser } from "../../store/sessionReducer";
 import LoginPage from "../LoginFormPage";
 import SignUpForm from "../SignupFormPage";
 import './Navigation.css'
+import { logout } from "../../store/sessionReducer";
 
 
 const Navigation = () => {
@@ -17,7 +18,7 @@ const Navigation = () => {
     const handleClick = (e) => {
         e.preventDefault();
 
-        dispatch(logoutUser())
+        dispatch(logout())
     }
 
     return(
