@@ -1,10 +1,11 @@
 import React from "react"
 import './MainPageForm.css'
+import "@fortawesome/fontawesome-free/css/all.min.css"; 
 
 const MainPage = () => {
 
 
-//
+
 
     return (
 
@@ -12,13 +13,12 @@ const MainPage = () => {
         
         <div id='mainPageBox'>
 
-            <img id='mainLogo' src='Jungle-7-25-2023.png'/>
+            <img id='mainLogo' src='/Jungle-7-25-2023.png'/>
                 <div id='searchBoxContainer'>
                     <input id='searchBox' type='text' placeholder="Search The Jungle"/>
                     <button id='searchButton'>
                         <div>
-                        <i className="fa-solid fa-magnifying-glass">
-                            Mag
+                        <i className="fa-solid fa-magnifying-glass" >
                         </i> 
                         </div>
                         </button>
