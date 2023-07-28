@@ -26,21 +26,20 @@ const SignUpForm = () => {
         e.preventDefault();
         
     
-        // debugger
-        console.log(errors)
         if (password === passCheck) {
             setErrors([]);
             // debugger
             dispatch(signup({username: username, email: email, password: password}))
             .catch(async (res) => {
                 let data;
-                debugger
                 try {
                     data = await res.clone().json();
                 } catch {
                     data = await res.text();
                 }
                 if (data?.errors) {
+                    // debugger
+                    console.log("done");
                     setErrors(data.errors)
                 } else if (data) {
                     setErrors([data])
@@ -66,6 +65,8 @@ const SignUpForm = () => {
     } 
     }
 
+    debugger;
+
     return (
 
         <>
@@ -76,7 +77,7 @@ const SignUpForm = () => {
         <div id='signBox'>
         <form id='formSignUp' onSubmit={handleSubmit}>
             <ul>
-            {errors.map((error) => <li key={error}>{error.message}</li>)}
+            {errors.map((error) => <li key={error}>{error}</li>)}
             </ul>
         <h2 id='createHeader'>Create Account</h2>
         <div id='signButtons'>
