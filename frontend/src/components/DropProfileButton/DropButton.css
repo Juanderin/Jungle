@@ -1,4 +1,48 @@
+#signInText{
+    font-size: 10px;
+    background-color: rgb(19, 25, 33);
+    border: none;
+    font-family: 'Amazon Ember', Arial sans-serif;
+    color: white;
+    text-align: left;
+}
+
 #dropButton{
-    position: absolute;
-    bottom: 70px;
+background-color: rgb(19, 25, 33);
+font-family: 'Amazon Ember', Arial sans-serif;
+color: white;
+}
+
+
+#dropButton:hover {
+    background-color: rgb(19, 25, 33);
+    font-family: 'Amazon Ember', Arial sans-serif;
+    color: white;
+    border: solid white;
+    border-radius: 2px;
+}
+
+#carrotContainer{
+    position: relative;
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* justify-content: flex-start; */
+    text-align: left;
+    /* align-content: flex-start; */
+    height: 40px;
+    width: 100px;
+    
+}
+
+#carrot{
+    color: gray;
+    font-size: 10px;
+}
+
+
+#accountLists{
+
+    font-size: 11px;
+    display: block;
+
 }

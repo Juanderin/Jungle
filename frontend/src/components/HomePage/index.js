@@ -14,7 +14,7 @@ const HomePage = () => {
         
         <>
         <MainPage />
-        <DropProfile user={sessionUser}/>
+        {/* <DropProfile user={sessionUser}/> */}
         <div id='allproductsContainer'>
         <ProductsIndex />
         </div>

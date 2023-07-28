@@ -52,8 +52,14 @@ const DropProfile = ({user}) => {
             </>
           ) : (
             <>
-            <span>Hello, Sign In</span>
-            <i className="fa-solid fa-caret-down" />
+            <div id='carrotContainer'>
+            <button id='signInText'>Hello, Sign In
+            <br/>
+            <span id='accountLists'>
+              Account & Lists  <i id='carrot' className="fa-solid fa-caret-down" />
+            </span>
+            </button>
+            </div>
             {dropMenu && (
                 <>
                 <div id='signinDrop'>
