@@ -1,11 +1,14 @@
 import React from "react"
 import './MainPageForm.css'
 import "@fortawesome/fontawesome-free/css/all.min.css"; 
+import { useSelector } from "react-redux";
+import DropProfile from "../DropProfileButton";
 
 const MainPage = () => {
+    const sessionUser = useSelector(state => state.session.user)
 
 
-
+// debugger 
 
     return (
 
@@ -18,17 +21,15 @@ const MainPage = () => {
                     <input id='searchBox' type='text' placeholder="Search The Jungle"/>
                     <button id='searchButton'>
                         <div>
-                        <i className="fa-solid fa-magnifying-glass" >
+                        <i id='mag' className="fa-solid fa-magnifying-glass" >
                         </i> 
                         </div>
                         </button>
                 </div>
 
-                <button>
-                    Hello, sign in
-                   <br></br>
-                    <span id="AccountLists">Account & Lists</span>
-                </button>
+                <div id='dropProfile'>
+                    <DropProfile user={sessionUser}/>
+                </div>
            
     
         </div>
