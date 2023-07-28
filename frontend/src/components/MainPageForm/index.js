@@ -1,11 +1,13 @@
 import React from "react"
 import './MainPageForm.css'
 import "@fortawesome/fontawesome-free/css/all.min.css"; 
+import { useSelector } from "react-redux";
 
 const MainPage = () => {
+    const sessionUser = useSelector(state => state.session.user)
 
 
-
+// debugger 
 
     return (
 
@@ -25,7 +27,7 @@ const MainPage = () => {
                 </div>
 
                 <button>
-                    Hello, sign in
+                    Hello, sign in {sessionUser && sessionUser.username}
                    <br></br>
                     <span id="AccountLists">Account & Lists</span>
                 </button>
