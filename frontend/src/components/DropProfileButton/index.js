@@ -56,16 +56,16 @@ const DropProfile = ({user}) => {
             <button id='signInText'>Hello, Sign In
             <br/>
             <span id='accountLists'>
-              Account & Lists  <i id='carrot' className="fa-solid fa-caret-down" />
+              Account & Lists <i id='carrot' className="fa-solid fa-caret-down" />
             </span>
             </button>
             </div>
             {dropMenu && (
                 <>
                 <div id='signinDrop'>
-                <Link to='/login'>
+                  <button id='homeSignInButton'>
                     Sign In
-                </Link>
+                  </button>
                 </div>
                 <div id='newCustomer'>
                 <Link to='/signUp'>

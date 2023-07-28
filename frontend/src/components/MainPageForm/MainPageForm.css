@@ -36,7 +36,7 @@
     display: flex;
     width: 480px;
     height: 25px;
-    margin-left: 160px;
+    /* margin-left: 160px; */
 
 }
 
@@ -65,5 +65,5 @@
 }
 
 #dropProfile{
-    margin-right: 160px;
+    /* margin-right: 160px; */
 }
