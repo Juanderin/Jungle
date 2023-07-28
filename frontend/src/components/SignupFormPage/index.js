@@ -7,6 +7,7 @@ import './SignupForm.css'
 import { Link } from "react-router-dom";
 import { signup } from "../../store/sessionReducer";
 import { useEffect } from "react";
+import "@fortawesome/fontawesome-free/css/all.min.css"; 
 
 const SignUpForm = () => {
 
@@ -65,7 +66,7 @@ const SignUpForm = () => {
     } 
     }
 
-    debugger;
+    // debugger;
 
     return (
 
@@ -76,26 +77,28 @@ const SignUpForm = () => {
         <div id='signFormContents'>
         <div id='signBox'>
         <form id='formSignUp' onSubmit={handleSubmit}>
-            <ul>
+            {/* <ul>
             {errors.map((error) => <li key={error}>{error}</li>)}
-            </ul>
+            </ul> */}
         <h2 id='createHeader'>Create Account</h2>
         <div id='signButtons'>
         <label id='textText'>Your Name
-            <input id='nameText' placeholder="First and last name" type='text' value={username} onChange={(e) => setUsername(e.target.value)}/>
+            <input id={getErrorField("Username")? "signupFieldErrors" : 'nameText' } placeholder="First and last name" type='text' value={username} onChange={(e) => setUsername(e.target.value)}/>
         </label>
-        {getErrorField("Username")? <span id='signupError'>{getErrorField('Username')}</span> : null}
+        {getErrorField("Username")? <span id='signupError'><i id="a-icon a-icon-alert" >!</i> {getErrorField('Username')}</span> : null}
         <br/>
         <label id='textText' >Email
-            <input id='emailsText' type='text' value={email} onChange={(e) => setEmail(e.target.value)}/>
+            <input id={getErrorField("Email")? "signupFieldErrors" : 'emailsText' } type='text' value={email} onChange={(e) => setEmail(e.target.value)}/>
         </label>
+        {getErrorField("Email")? <span id='signupError'><i id="a-icon a-icon-alert" >!</i> {getErrorField('Email')}</span> : null}
         <br/>
         <label id='textText' >Password
-            <input id='passTexts' placeholder="At least 6 characters" type='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
+            <input id={getErrorField("Password")? "signupFieldErrors" : 'passTexts' } placeholder="At least 6 characters" type='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
         </label>
+        {getErrorField("Password")? <span id='signupError'><i id="a-icon a-icon-alert" >!</i> {getErrorField('Password')}</span> : null}
         <br/>
         <label id='textText' >Re-enter password
-            <input id='passTexts' type='password' value={passCheck} onChange={(e) => setpassCheck(e.target.value)}/>
+            <input id='passTexts'  type='password' value={passCheck} onChange={(e) => setpassCheck(e.target.value)}/>
         </label>
         </div>
         <br/>
