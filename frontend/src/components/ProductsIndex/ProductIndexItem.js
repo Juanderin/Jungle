@@ -4,8 +4,12 @@ import { Link } from "react-router-dom/";
 const ProductsIndexItem = ({product}) => {
 
     return (
-        <>from product index item
-      <Link to={`/products/${product.id}`}> {product.productName} </Link> 
+        <>
+        <div id='indexItemsContainer'> 
+          <Link to={`/products/${product.id}`}> {product.productName} 
+        <img id='productImage' src="/cheeto.jpeg"/>
+        </Link> 
+      </div>
         </>
     )
 

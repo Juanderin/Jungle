@@ -1,7 +1,7 @@
 import React from "react";
 import MainPage from "../MainPageForm";
 import ProductsIndex from "../ProductsIndex";
-
+import './HomePage.css'
 
 const HomePage = (props) => {
 
@@ -11,7 +11,9 @@ const HomePage = (props) => {
         
         <>
         <MainPage />
+        <div id='allproductsContainer'>
         <ProductsIndex />
+        </div>
         </>
     )
 

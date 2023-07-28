@@ -1,4 +1,22 @@
 #title{
-    position: absolute;
+    position: relative;
     margin-top: 100px;
+
+}
+
+#indexItemsContainer{
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+
+} 
+
+
+#productImage {
+
+    width: 300px;
+    height: 300px;
+
 }
