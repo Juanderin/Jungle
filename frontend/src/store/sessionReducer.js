@@ -60,11 +60,16 @@ export const signup = (user) => async (dispatch) => {
     })
   });
 
-  const data = await response.json();
 
+  if (response.ok) {
+
+  const data = await response.json();
+    if (data.errors) throw data
   storeCurrentUser(data.user);
   dispatch(setCurrentUser(data.user));
-
+  } else {
+    throw response
+  }
   return response;
 };
 

@@ -6,7 +6,7 @@ import { Redirect } from "react-router-dom";
 import './SignupForm.css'
 import { Link } from "react-router-dom";
 import { signup } from "../../store/sessionReducer";
-
+import { useEffect } from "react";
 
 const SignUpForm = () => {
 
@@ -16,22 +16,56 @@ const SignUpForm = () => {
     const [password, setPassword] = useState("")
     const [passCheck, setpassCheck] = useState("")
     const sessionUser = useSelector(state => state.session.user)
-    const [errors, setErros] = useState([])
+    const [errors, setErrors] = useState([])
+
+
 
     if (sessionUser) return <Redirect to='/' />
 
     const handleSubmit = (e) => {
         e.preventDefault();
         
+    
         if (password === passCheck) {
-
+            setErrors([]);
+            // debugger
             dispatch(signup({username: username, email: email, password: password}))
+            .catch(async (res) => {
+                let data;
+                try {
+                    data = await res.clone().json();
+                } catch {
+                    data = await res.text();
+                }
+                if (data?.errors) {
+                    // debugger
+                    console.log("done");
+                    setErrors(data.errors)
+                } else if (data) {
+                    setErrors([data])
+                } else {
+                    setErrors([res.statusText])
+                } 
 
-        } else {
-
-            throw new Error('Passwords do not match');
+              
+            })
         }
+
+       return setErrors(['Passwords do not match'])
+    };
+
+    console.log(errors)
+
+    const getErrorField = (field) => {
+        // debugger
+        if (errors) {
+        return errors.find((error) => {
+            return error.includes(field)
+        })
+    } 
     }
+
+    debugger;
 
     return (
 
@@ -42,11 +76,15 @@ const SignUpForm = () => {
         <div id='signFormContents'>
         <div id='signBox'>
         <form id='formSignUp' onSubmit={handleSubmit}>
+            <ul>
+            {errors.map((error) => <li key={error}>{error}</li>)}
+            </ul>
         <h2 id='createHeader'>Create Account</h2>
         <div id='signButtons'>
         <label id='textText'>Your Name
             <input id='nameText' placeholder="First and last name" type='text' value={username} onChange={(e) => setUsername(e.target.value)}/>
         </label>
+        {getErrorField("Username")? <span id='signupError'>{getErrorField('Username')}</span> : null}
         <br/>
         <label id='textText' >Email
             <input id='emailsText' type='text' value={email} onChange={(e) => setEmail(e.target.value)}/>
