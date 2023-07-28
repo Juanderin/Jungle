@@ -127,3 +127,76 @@
     font-size: 10px;
     color: rgb(118, 118, 118);
 }
+
+#errorText{ 
+    font-family: 'Amazon Ember', Arial sans-serif;
+    align-items: center;
+    font-size: 12px;
+    /* font-weight: bold; */
+    color: rgb(213, 11, 11);
+}
+
+#errorTextE{
+    font-family: 'Amazon Ember', Arial sans-serif;
+    font-size: 11px;
+}
+
+#loginErrorContainer{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border: 0px solid rgb(179, 92, 92);
+    box-shadow: 0 0 0 1px rgb(166, 76, 76) inset, 0 0 0px 2px rgb(245, 211, 211);
+    width: 277px;
+    border-radius: 4px;
+    padding: 4px;
+}
+
+#signupFieldErrorsL{
+    
+    font-family: 'Amazon Ember', sans-serif;
+    display: flex;
+    flex-direction: column;
+    font-size: 11px;
+    height: 23px;
+    width: 230px;
+    border: 2px solid rgb(191, 3, 3);
+    background-color: white;
+    box-shadow: 0 0 0 1px rgb(191, 3, 3) inset, 0 0 0px 2px rgb(245, 211, 211);
+    border-radius: 3px;
+    border-width: 0.5px;
+    padding: 0px 7px; 
+    font-style: italic;
+}
+
+
+#signupFieldErrorsL:focus{
+    font-family: 'Amazon Ember', sans-serif;
+    display: flex;
+    flex-direction: column;
+    font-size: 11px;
+    height: 23px;
+    width: 230px;
+    box-shadow: 0 0 0 1px rgb(191, 3, 3) inset, 0 0 0px 2px rgb(245, 211, 211);
+    border-width: 0.5px;
+    background-color: white;
+    border-width: 1px;
+}
+
+#warningTriangle{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+#alertPic {
+    height: 30px;
+    margin-right: 20px;
+    width: 30px;
+}
+
+#errorWords{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between ;
+}
