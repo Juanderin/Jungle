@@ -101,13 +101,22 @@
     flex-direction: column;
     width: 230px;
 }
-
+ 
 
 #emailText,
 #passText {
     font-size: 10px;
     font-weight: bold;
 }
+
+
+/* #passButton:focus {
+    
+    border-color: red;
+    box-shadow: 0px 0px 10px green;
+    outline: red;
+    border-radius: 5px;
+} */
 
 #signHead {
     display: flex;

@@ -58,6 +58,8 @@ class User < ApplicationRecord
     
     before_validation :ensure_session_token
   
+    has_one_attached :photo
+    
     def self.find_by_credentials(credential, password)
       field = credential =~ URI::MailTo::EMAIL_REGEXP ? :email : :username
       user = User.find_by(field => credential)
@@ -81,5 +83,8 @@ class User < ApplicationRecord
     def ensure_session_token
       self.session_token ||= generate_unique_session_token
     end
+
+
+
   end
   
