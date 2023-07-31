@@ -90,10 +90,28 @@
     width: 200px;
 }
 
+#addCartButton:hover{
+    background-color: rgb(230, 193, 45);
+    border: 1px solid rgb(211, 176, 40);
+    border-radius: 100px;
+    box-shadow: 0 3px 5px 0 hsla(180,5%,85%, 0.5);
+    height: 30px;
+    width: 200px;
+}
 
 #buyNowButton{
     background-color: rgb(255, 152, 30);
     border: 1px solid rgb(255, 152, 30);
+    border-radius: 100px;
+    box-shadow: 0 3px 5px 0 hsla(180,5%,85%, 0.5);
+    height: 30px;
+    width: 200px;
+}
+
+
+#buyNowButton:hover{
+    background-color: rgb(248, 136, 0);
+    border: 1px solid rgb(242, 133, 0);
     border-radius: 100px;
     box-shadow: 0 3px 5px 0 hsla(180,5%,85%, 0.5);
     height: 30px;
