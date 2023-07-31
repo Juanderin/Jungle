@@ -1,7 +1,10 @@
 #allproductsContainer {
     position: relative;
-    top: 100px;
+    top: 90px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
+
+

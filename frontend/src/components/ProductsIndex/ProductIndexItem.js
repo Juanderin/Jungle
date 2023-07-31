@@ -5,11 +5,14 @@ const ProductsIndexItem = ({product}) => {
 
     return (
         <>
+        
         <div id='indexItemsContainer'> 
-          <Link to={`/products/${product.id}`}> {product.productName} 
-        <img id='productImage' src="/cheeto.jpeg"/>
+          <Link to={`/products/${product.id}`} id="productLinkContainerIndex">
+          <img id='productImg' src={product.photoUrl} alt='product_image' />
+          <br></br>
+          <div id='productNameOnIndex'>{product.productName}</div>
         </Link> 
-      </div>
+        </div>
         </>
     )
 
