@@ -18,10 +18,16 @@ const ProductShow = () => {
     return(
         <>
         {product.productName}
+        {/* <br/>
+        {product.photoUrl} */}
+        <img id='productImg' src={product.photoUrl} alt='product_image' />
         </>
     )
 
 }
+
+
+export default ProductShow;
 
 
 
