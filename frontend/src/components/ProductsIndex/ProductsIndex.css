@@ -36,4 +36,19 @@
     text-decoration: none;
     /* color: rgb(0, 102, 122); */
     color: black;
+    font-family: 'Amazon Ember', Arial sans-serif;
+
+}
+
+#productPriceOnIndex{
+    display: flex;
+    font-size: 25px;
+}
+
+#productCentsOnIndex{
+
+    position: relative;
+    top: 2px;
+    font-size: 12px;
+    margin: 1px;
 }
