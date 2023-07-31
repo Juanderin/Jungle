@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom/";
+import ProductShow from "../ProductShowPage";
 
 const ProductsIndexItem = ({product}) => {
   const priceStr = product.productPrice.toLocaleString()
@@ -13,12 +14,12 @@ const ProductsIndexItem = ({product}) => {
         
         <div id='indexItemsContainer'> 
           <Link to={`/products/${product.id}`} id="productLinkContainerIndex">
-          <img id='productImg' src={product.photoUrl} alt='product_image' />
+            <img id='productImg' src={product.photoUrl} alt='product_image' />
           <br></br>
-          <div id='productInfoContainerOnIndex'>
-          <div id='productNameOnIndex'>{product.productName}</div>
-          <div id='productPriceOnIndex'>{price[0]}<div id="productCentsOnIndex">{price[1]}</div></div>
-          </div>
+            <div id='productInfoContainerOnIndex'>
+              <div id='productNameOnIndex'>{product.productName}</div>
+              <div id='productPriceOnIndex'><div id="productCentsOnIndex">$</div>{price[0]}<div id="productCentsOnIndex">{price[1]}</div></div>
+            </div>
         </Link> 
         </div>
         </>

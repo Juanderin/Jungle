@@ -57,7 +57,7 @@ p1 = Product.create!(
 p1.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/JungleImgs/dumbell.jpg"),filename: "dumbell.jpg")
 
 p2 = Product.create!(
-    product_name: "Hand Dinosaur",
+    product_name: "Hand Dinosaur!!",
     description: "For when you need a hand puppet showm from the prehistoric era.",
     product_price: 6.99,
     category: "Recreation"

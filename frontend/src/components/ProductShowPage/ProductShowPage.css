@@ -1,0 +1,166 @@
+#showMain{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;    
+    font-family: 'Amazon Ember', Arial sans-serif;
+    margin: 20px;
+    margin-top: 40px;
+}
+
+#showProductInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    font-size: 28px;
+ 
+}
+
+#productImg{
+    height: 430px;
+    width: 400px;
+}
+/* 
+#showTitle{
+    font-size: 25px;
+} */
+
+#showProductPurchase{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: space-evenly;
+    padding: 10px;
+    border: solid 1px rgb(205, 205, 205);
+    border-radius: 8px;
+    width: 300px;
+    height: 200px;
+    /* margin-top: ; */
+}
+
+
+#showPageDivider{
+    border-top: solid 1px rgb(190, 190, 190);
+}
+
+#showCat{
+    font-size: 13px;
+}
+
+#middleContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    width: 100%;
+    margin: 20px;
+}
+
+#freeReturnsInfo{
+    font-size: 13px;
+}
+
+#dropShow{
+    display: flex;
+    flex-direction: row;
+}
+
+#dropText{
+    margin-right: 7px;
+}
+
+#dropdown{
+    background: rgb(238,240,240);
+    border-color: rgb(212, 212, 212);;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px 0 hsla(180,5%,85%,.5);
+    color: #000000;
+    width: 40px;
+}
+
+#inStock{
+    color: rgb(1, 106, 1);
+}
+
+#addCartButton{
+
+    background-color: rgb(254, 215, 54);
+    border: 1px solid rgb(254, 215, 54);
+    border-radius: 100px;
+    box-shadow: 0 3px 5px 0 hsla(180,5%,85%, 0.5);
+    height: 30px;
+    width: 200px;
+}
+
+#addCartButton:hover{
+    background-color: rgb(230, 193, 45);
+    border: 1px solid rgb(211, 176, 40);
+    border-radius: 100px;
+    box-shadow: 0 3px 5px 0 hsla(180,5%,85%, 0.5);
+    height: 30px;
+    width: 200px;
+}
+
+#buyNowButton{
+    background-color: rgb(255, 152, 30);
+    border: 1px solid rgb(255, 152, 30);
+    border-radius: 100px;
+    box-shadow: 0 3px 5px 0 hsla(180,5%,85%, 0.5);
+    height: 30px;
+    width: 200px;
+}
+
+
+#buyNowButton:hover{
+    background-color: rgb(248, 136, 0);
+    border: 1px solid rgb(242, 133, 0);
+    border-radius: 100px;
+    box-shadow: 0 3px 5px 0 hsla(180,5%,85%, 0.5);
+    height: 30px;
+    width: 200px;
+}
+
+#showReview{
+    font-family: 'Amazon Ember', Arial sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 360px;
+    margin-top: 30px;
+    margin-left: 5px;
+}
+
+.ratingFiller {
+    width: 50%;
+    height: 100%;
+    background-color: #ffa41c;
+    box-shadow: inset 0 0 0 1px #bbbfbf;
+    border-radius: 4px;
+}
+
+
+.ratingMeter {
+    height: 20px;
+    width: 191px;
+    background-color: #f1f4f4;
+    box-shadow: inset 0 0 0 1px #bbbfbf;
+    border-radius: 4px;
+    margin-bottom: 13px;
+}
+
+#ratingBars{
+    display: flex;
+    font-family: 'Amazon Ember', Arial sans-serif;
+    flex-direction: column;
+    justify-content: space-between; 
+}
+
+#barTitle{
+    font-size: 23px;
+    font-weight: bold;
+}
+
+
+#topReviewsTitle{
+    font-weight: bold;
+    font-size: 16px;
+    margin-left: -20px;
+}
