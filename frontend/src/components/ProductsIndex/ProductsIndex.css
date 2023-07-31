@@ -18,8 +18,8 @@
 
 
 #productImg {
-    max-width: 300px;
-    max-height: 330px;
+    width: 300px;
+    height: 330px;
     align-items: center;
 }
 
@@ -51,4 +51,8 @@
     top: 2px;
     font-size: 12px;
     margin: 1px;
+}
+
+#productInfoContainerOnIndex{
+    margin: 10px;
 }
