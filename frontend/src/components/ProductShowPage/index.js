@@ -10,21 +10,24 @@ const ProductShow = () => {
     const dispatch = useDispatch();
     const productId = useParams().productId
     const product = useSelector(state => state.products?.[productId])
-    const sessionUser = useSelector(state => state.session.user)
-    const userId = sessionUser.id
+    const sessionUser = useSelector(state => state.session?.user)
+    const userId = sessionUser?.id
+    // const userId = sessionUser
     const history = useHistory();
     const [quantity, setQuantity] = useState(1)
     const priceStr = product?.productPrice?.toLocaleString()
     let price = priceStr?.split(".")
     price = price?.length < 2 ? [price[0], "00"] : price
 
+    // debugger
+    
     const handleAddToCart = (e) => {
         e.preventDefault();
 
         if (!sessionUser) {
-        //     history.push('/login')
-        // } else {
-            dispatch(cartActions.createCart({productId, userId, quantity}))
+            history.push('/login')
+        } else {
+            dispatch(cartActions.createCart({product_id: 1, user_id: 1, quantity: 9}))
         }
 
     }

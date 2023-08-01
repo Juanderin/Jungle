@@ -10,7 +10,7 @@ class Api::CartsController < ApplicationController
         if @cart.save 
             render :show
         else 
-            render json: json: {errors: @cart.errors.full_messages}, status: 422
+            render json: {errors: @cart.errors.full_messages}, status: 422
         end 
 
    end 
@@ -23,7 +23,7 @@ class Api::CartsController < ApplicationController
         if @cart.update(cart_params)
             render :show
         else 
-            render json: json: {errors: @cart.errors.full_messages}, status: 422
+            render json: {errors: @cart.errors.full_messages}, status: 422
         end 
 
     end 
