@@ -60,7 +60,7 @@ export const updateCart = (cart) => async dispatch => {
 
 
 
-export const deleteCart = (cartId) = async dispatch => {
+export const deleteCart = (cartId) => async dispatch => {
 
     const res = await fetch(`/api/carts/${cartId}`, {
         method: 'DELETE'
@@ -78,7 +78,7 @@ export const deleteCart = (cartId) = async dispatch => {
 
 const cartReducer = (state = {}, action) => {
 
-    newState = {...state}
+   let newState = {...state}
 
 
     switch(action.type) {
