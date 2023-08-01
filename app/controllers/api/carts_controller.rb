@@ -1,5 +1,21 @@
 class Api::CartsController < ApplicationController    
 
+    def index 
+        # debugger 
+       @carts = Cart.all.where(user_id: current_user.id)
+
+        render :index
+
+    end 
+
+
+    def show 
+
+        
+
+
+    end 
+
 
    def create 
 

@@ -1,5 +1,7 @@
 import csrfFetch from "./csrf"
 import { SET_CURRENT_USER } from "./sessionReducer"
+import { useSelector } from "react-redux"
+import { RECEIVE_ALL_PRODUCTS } from "./products"
 
 const SET_CURRENT_CART = 'cart/SET_CURRENT_CART'
 const REMOVE_CURRENT_CART = 'cart/REMOVE_CURRENT_CART'
@@ -12,7 +14,7 @@ const receiveCartsProducts = (cartProducts) => {
 
     return({
         type: RECEIVE_CART_PRODUCTS,
-        cartProducts: cartProducts
+        cartProducts
     })
 
 }
@@ -23,7 +25,7 @@ const receiveCartProduct = (cartProduct) => {
 
     return({
         type: RECEIVE_CART_PRODUCT,
-        cartProduct: cartProduct
+        cartProduct
     })
 
 }
@@ -33,7 +35,7 @@ const removeCartProduct = (productId) => {
     return({
         
         type: REMOVE_PRODUCT,
-        productId: productId
+         productId
     })
   
 }
@@ -46,13 +48,16 @@ const removeCartProduct = (productId) => {
 
 export const fetchCarts = () => async (dispatch) => {
 
-    const res = await csrfFetch('/api/products')
+    const res = await csrfFetch('/api/carts')
     const data = await res.json();
 
     dispatch({
         type: RECEIVE_CART_PRODUCTS,
         cartProducts: data
     })
+
+console.log(data)
+return data
 
 }
 
@@ -73,6 +78,7 @@ export const createCart = (cart) => async dispatch => {
     // })
 
     dispatch(receiveCartProduct(data))
+    return data
 
 } 
 
@@ -113,26 +119,73 @@ export const deleteCart = (cartId) => async dispatch => {
 }
 
 
-const initialState = {
-    cartProducts: []
-}
 
-const cartReducer = (state = initialState, action) => {
-    
-    
+const cartReducer = (state = {}, action) => {
+
+    const newState = {...state}
+
+    const sessionUser = JSON.parse(sessionStorage.getItem('currentUser')) 
+    const userId = sessionUser.id
+
     switch (action.type) {
       case RECEIVE_CART_PRODUCTS:
-        return {...state, cartProducts: action.cartProducts};
+        return {
+          ...state,
+          cartProducts: action.cartProducts
+        };
 
-      case RECEIVE_CART_PRODUCT:
-        return { ...state, cartProducts: [...state.cartProducts, action.cartProduct]};
+        case RECEIVE_ALL_PRODUCTS:
+            // debugger
+        return {...newState, ...action.data.carts};
+
+    case RECEIVE_CART_PRODUCT:
+        return { ...newState,  [action.cartProduct.cart.id]: action.cartProduct.cart }
 
       case REMOVE_PRODUCT:
-        return { ...state, cartProducts: state.cartProducts.filter(
-            product => product.id !== action.productId) };
+        const { [action.productId]: removedProduct, ...newCartProducts } =
+          state.cartProducts;
+        return {
+          ...state,
+          cartProducts: newCartProducts
+        };
       default:
         return state;
     }
   };
-
 export default cartReducer;
+
+// const initialState = {
+//     cartProducts: []
+//   }
+  
+
+// const cartReducer = (state = initialState, action) => {
+
+//     const sessionUser = JSON.parse(sessionStorage.getItem('currentUser')).id 
+//     const userId = sessionUser.id
+    
+
+//     switch (action.type) {
+//       case RECEIVE_CART_PRODUCTS:
+//         return {
+//           ...state,
+//           cartProducts: action.cartProducts
+//         };
+//       case RECEIVE_CART_PRODUCT:
+//         return {
+//           ...state,
+//           cartProducts: [...state.cartProducts, action.cartProduct]
+//         };
+//       case REMOVE_PRODUCT:
+//         return {
+//           ...state,
+//           cartProducts: state.cartProducts.filter(
+//             product => product.id !== action.productId
+//           )
+//         };
+//       default:
+//         return state;
+//     }
+//   };
+
+// export default cartReducer;
