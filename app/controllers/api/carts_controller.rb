@@ -9,13 +9,13 @@ class Api::CartsController < ApplicationController
     end 
 
 
-    # def show 
+    def show 
 
-    #     @cart = Cart.all.where(user_id: current_user.id)
+        @cart = Cart.find_by(id: params[:id])
 
-    #     render :show
+        render :show
         
-    # end     
+    end     
 
 
    def create 

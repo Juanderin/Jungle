@@ -24,9 +24,9 @@ const CartShow = () => {
 
     useEffect(() => {
 
-        // if (itemParams && Object.keys(itemParams).length > 0) {
-        //     dispatch(cartActions.updateCart(itemParams))
-        // }
+        if (itemParams && Object.keys(itemParams).length > 0) {
+            dispatch(cartActions.updateCart(itemParams))
+        }
 
     },[itemParams])
 
