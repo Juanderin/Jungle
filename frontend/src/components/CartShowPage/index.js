@@ -19,8 +19,18 @@ const CartShow = () => {
     const userId = sessionUser.id
     let items =  Object.values(cart_items).filter((item) => item.userId === userId)
     let selectedProducts = items.map((cartItem) => products[cartItem.productId])
-    const [quant, setQuant] = useState();
+    const [newQuantity, setNewQuantity] = useState();
+    const [itemParams, getItemParams] = useState({});
 
+    useEffect(() => {
+
+        // if (itemParams && Object.keys(itemParams).length > 0) {
+        //     dispatch(cartActions.updateCart(itemParams))
+        // }
+
+    },[itemParams])
+
+    
     
     const quantities = items.reduce((acc, cartItem) => {
         acc[cartItem.productId] = cartItem.quantity;
@@ -32,6 +42,9 @@ const CartShow = () => {
         return acc;
         
     }, {});
+
+    console.log(itemParams, 'theeee mostt cooolest thing')
+
     
     const handleDelete = (id) => {
 
@@ -60,7 +73,6 @@ const CartShow = () => {
         let price = productPrice.toLocaleString()
         price = price.length < 2 ? [price[0], ".00"] : price
 
-
         
 
         return (
@@ -80,7 +92,8 @@ const CartShow = () => {
                             <div id="cartModifyContainer">
                                 <div id='dropShow'>
                                     <label id="dropText">Qty: </label>
-                                        <select id="dropdown">
+                                        <select id="dropdown" value={newQuantity} onChange={(e) =>  setNewQuantity(e.target.value)} onMouseLeave={(e) => { getItemParams({id: itemIds[id], productId: id, userId: userId, quantity: newQuantity}) }}>
+
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -110,7 +123,7 @@ const CartShow = () => {
 
 
 
-    
+
 
     return (
 

@@ -37,7 +37,7 @@ class Api::CartsController < ApplicationController
 
         @cart = Cart.find_by(id: params[:id])
 
-        if @cart.update(cart_params)
+        if @cart && @cart.update(cart_params)
             render :show
         else 
             render json: {errors: @cart.errors.full_messages}, status: 422
