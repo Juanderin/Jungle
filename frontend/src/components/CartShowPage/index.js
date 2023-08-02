@@ -19,19 +19,19 @@ const CartShow = () => {
     const userId = sessionUser.id
     let items =  Object.values(cart_items).filter((item) => item.userId === userId)
     let selectedProducts = items.map((cartItem) => products[cartItem.productId])
-    const [newQuantity, setNewQuantity] = useState();
+    const [newQuantity, setNewQuantity] = useState(0);
     const [itemParams, getItemParams] = useState({});
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        if (itemParams && Object.keys(itemParams).length > 0) {
-            dispatch(cartActions.updateCart(itemParams))
-        }
+    //     if (itemParams && Object.keys(itemParams).length > 0) {
+    //         debugger;
+    //         dispatch(cartActions.updateCart(itemParams))
+    //     }
 
-    },[itemParams])
+    // },[itemParams])
 
-    
-    
+
     const quantities = items.reduce((acc, cartItem) => {
         acc[cartItem.productId] = cartItem.quantity;
         return acc;
@@ -44,6 +44,16 @@ const CartShow = () => {
     }, {});
 
     console.log(itemParams, 'theeee mostt cooolest thing')
+
+    const handleChange = (cartItem) => {
+
+        return (e) => {
+            cartItem.quantity = e.target.value
+            dispatch(cartActions.updateCart(cartItem))
+        }
+
+        
+    }
 
     
     const handleDelete = (id) => {
@@ -92,7 +102,7 @@ const CartShow = () => {
                             <div id="cartModifyContainer">
                                 <div id='dropShow'>
                                     <label id="dropText">Qty: </label>
-                                        <select id="dropdown" value={newQuantity} onChange={(e) =>  setNewQuantity(e.target.value)} onMouseLeave={(e) => { getItemParams({id: itemIds[id], productId: id, userId: userId, quantity: newQuantity}) }}>
+                                        <select id="dropdown" value={quantities[id]} onChange={handleChange({id: itemIds[id], productId: id, userId: userId, quantity: 1})}>
 
                                             <option value="1">1</option>
                                             <option value="2">2</option>
