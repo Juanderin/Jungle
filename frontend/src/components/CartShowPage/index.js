@@ -41,7 +41,7 @@ const CartShow = () => {
 
         const {id, productName, productPrice, photoUrl} = item;
         let price = productPrice.toLocaleString()
-        price = price.length < 2 ? [price[0], "00"] : price
+        price = price.length < 2 ? [price[0], ".00"] : price
 
         return (
             <div id='cartMainContainer'>
@@ -57,7 +57,7 @@ const CartShow = () => {
     return (
 
     <>
-        <h1>Shopping Cart</h1>
+        <h1>ShoppingCart</h1>
 
 
         {arrangedProducts}
