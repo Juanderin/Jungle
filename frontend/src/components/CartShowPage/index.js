@@ -92,7 +92,7 @@ const CartShow = () => {
                             <div id="cartModifyContainer">
                                 <div id='dropShow'>
                                     <label id="dropText">Qty: </label>
-                                        <select id="dropdown" value={newQuantity} onChange={(e) =>  setNewQuantity(e.target.value)} onMouseLeave={(e) => { getItemParams({id: itemIds[id], productId: id, userId: userId, quantity: newQuantity}) }}>
+                                        <select id="dropdown" value={quantities[id]} onChange={(e) =>  setNewQuantity(e.target.value)} onMouseLeave={(e) => { getItemParams({id: itemIds[id], productId: id, userId: userId, quantity: newQuantity}) }}>
 
                                             <option value="1">1</option>
                                             <option value="2">2</option>
