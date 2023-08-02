@@ -10,6 +10,9 @@ import MainPage from "./components/MainPageForm";
 import './index.css';
 import HomePage from "./components/HomePage";
 import ProductShow from "./components/ProductShowPage";
+import CartShow from "./components/CartShowPage";
+import ProductsIndex from "./components/ProductsIndex";
+
 
 const App = () => {
   const sessionUser = useSelector(state => state.session.user)
@@ -30,8 +33,9 @@ const App = () => {
     <Route path={"/products/:productId"}><ProductShow/></Route>
     {/* <Route path='/home' component={HomePage} /> */}
     <Route path='/main' component={MainPage} />
-    {/* <Route path='/cart' component= */}
+    <Route path='/cart' component={CartShow} />
     <Route path='/signup' component={SignUpForm}/>
+    <Route path='/tester' component={ProductsIndex} />
     </Switch> 
   </>
 

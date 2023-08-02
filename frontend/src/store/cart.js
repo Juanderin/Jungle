@@ -10,17 +10,17 @@ const RECEIVE_CART_PRODUCT = 'cart/RECEIVE_CART_PRODUCT'
 const REMOVE_PRODUCT = 'cart/REMOVE_PRODUCT'
 
 
-const receiveCartsProducts = (cartProducts) => {
+// export const receiveCartsProducts = () => {
 
-    return({
-        type: RECEIVE_CART_PRODUCTS,
-        cartProducts
-    })
+//     return({
+//         type: RECEIVE_CART_PRODUCTS,
+//         carts
+//     })
 
-}
+// }
 
 
-const receiveCartProduct = (cartProduct) => {
+export const receiveCartProduct = (cartProduct) => {
 
 
     return({
@@ -30,7 +30,7 @@ const receiveCartProduct = (cartProduct) => {
 
 }
 
-const removeCartProduct = (productId) => {
+export const removeCartProduct = (productId) => {
 
     return({
         
@@ -49,15 +49,15 @@ const removeCartProduct = (productId) => {
 export const fetchCarts = () => async (dispatch) => {
 
     const res = await csrfFetch('/api/carts')
-    const data = await res.json();
+    const carts = await res.json();
 
     dispatch({
         type: RECEIVE_CART_PRODUCTS,
-        cartProducts: data
+        carts
     })
 
-console.log(data)
-return data
+// console.log(data)
+// return data
 
 }
 
@@ -124,34 +124,32 @@ const cartReducer = (state = {}, action) => {
 
     const newState = {...state}
 
-    const sessionUser = JSON.parse(sessionStorage.getItem('currentUser')) 
-    const userId = sessionUser.id
 
     switch (action.type) {
-      case RECEIVE_CART_PRODUCTS:
-        return {
-          ...state,
-          cartProducts: action.cartProducts
-        };
+
+
+        case RECEIVE_CART_PRODUCTS:
+                return { ...newState, ...action.carts};
 
         case RECEIVE_ALL_PRODUCTS:
-            // debugger
-        return {...newState, ...action.data.carts};
+            return {...newState, ...action.data.carts};
 
-    case RECEIVE_CART_PRODUCT:
-        return { ...newState,  [action.cartProduct.cart.id]: action.cartProduct.cart }
+        case RECEIVE_CART_PRODUCT:
+            return { ...newState,  [action.cartProduct.cart.id]: action.cartProduct.cart }
+            
+        case REMOVE_PRODUCT:
+            const { [action.productId]: removedProduct, ...newCartProducts } =
+            state.cartProducts;
 
-      case REMOVE_PRODUCT:
-        const { [action.productId]: removedProduct, ...newCartProducts } =
-          state.cartProducts;
-        return {
-          ...state,
-          cartProducts: newCartProducts
-        };
-      default:
-        return state;
-    }
-  };
+            return {
+            ...state,
+            cartProducts: newCartProducts
+            };
+
+        default:
+            return newState;
+        }
+};
 export default cartReducer;
 
 // const initialState = {

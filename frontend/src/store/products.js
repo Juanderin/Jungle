@@ -56,7 +56,6 @@ export const productsReducer = (state = initialState, action) => {
 
     switch(action.type) {
         case RECEIVE_ALL_PRODUCTS:
-            // debugger;
             return {...newState, ...action.data.products}
         case RECEIVE_PRODUCT:
             return {...newState, ...action.product}
