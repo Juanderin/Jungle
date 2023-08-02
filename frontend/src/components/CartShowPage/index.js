@@ -21,18 +21,33 @@ const CartShow = () => {
     let selectedProducts = items.map((cartItem) => products[cartItem.productId])
    
 
+    
     const quantities = items.reduce((acc, cartItem) => {
         acc[cartItem.productId] = cartItem.quantity;
         return acc;
-      }, {});
+    }, {});
+    
+    const itemIds = items.reduce((acc, cartItems) => {
+        acc[cartItems.productId] = cartItems.id
+        return acc;
+        
+    }, {});
+    
+    const handleDelete = (id) => {
 
-      console.log(quantities, 'tha quantities');
-      console.log(quantities[2], 'el dino')
+        dispatch(cartActions.deleteCart(itemIds[id]))
+
+    }
+
+    console.log(itemIds, 'the og ids')
+
+    console.log(quantities, 'tha quantities');
+    console.log(quantities[2], 'el dino')
 
     console.log(cart_items, 'these cart items')
     console.log(items, 'these items')
     console.log(selectedProducts, 'these products');
-    // debugger
+
     useEffect(() => {
         dispatch(fetchProducts())
     }, [])
@@ -40,10 +55,13 @@ const CartShow = () => {
     if (!cart_items) return null
     
     let arrangedProducts = selectedProducts.map((item) => {
-
+     
         const {id, productName, productPrice, photoUrl} = item;
         let price = productPrice.toLocaleString()
         price = price.length < 2 ? [price[0], ".00"] : price
+
+
+        
 
         return (
            
@@ -69,6 +87,9 @@ const CartShow = () => {
                                         </select>
                                 </div>
                             {/* <div>Qty: {quantities[id]}</div> */}
+
+                            <button onClick={() => handleDelete(id)}>Delete</button>
+
                         </div>
 
                     </div>
@@ -81,6 +102,9 @@ const CartShow = () => {
         )
     })
 
+
+
+    
 
     return (
 
