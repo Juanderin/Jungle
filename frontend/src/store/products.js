@@ -1,14 +1,14 @@
 import csrfFetch from "./csrf"
 
 
-const RECEIVE_ALL_PRODUCTS = 'products/RECEIVE_ALL_PRODUCTS'
+export const RECEIVE_ALL_PRODUCTS = 'products/RECEIVE_ALL_PRODUCTS'
 const RECEIVE_PRODUCT = 'products/RECEIVE_PRODUCT'
 
 
-const receiveProducts = (products) => {
+const receiveProducts = (data) => {
     return ({
         type: RECEIVE_ALL_PRODUCTS,
-        products
+        data
     })
 }
 
@@ -27,8 +27,8 @@ export const fetchProducts = () => async dispatch => {
     const res = await fetch("/api/products")
     const data = await res.json();
 
-
-    dispatch(receiveProducts(data.products))
+    console.log(data);
+    dispatch(receiveProducts(data))
     return res
 
 }
@@ -56,7 +56,7 @@ export const productsReducer = (state = initialState, action) => {
 
     switch(action.type) {
         case RECEIVE_ALL_PRODUCTS:
-            return {...newState, ...action.products}
+            return {...newState, ...action.data.products}
         case RECEIVE_PRODUCT:
             return {...newState, ...action.product}
         default:

@@ -8,7 +8,7 @@ import configureStore from './store';
 import csrfFetch from "./store/csrf";
 import { restoreSession } from './store/sessionReducer';
 import * as sessionActions from './store/sessionReducer';
-
+import * as cartActions from './store/cart'
 
 const store = configureStore();
 
@@ -16,6 +16,7 @@ if (process.env.NODE_ENV !== 'production') {
   window.store = store;
   window.csrfFetch = csrfFetch
   window.sessionActions = sessionActions;
+  window.cartActions = cartActions
 }
 
 // ReactDOM.render(

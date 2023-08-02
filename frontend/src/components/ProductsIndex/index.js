@@ -5,7 +5,7 @@ import { fetchProducts } from "../../store/products";
 import ProductsIndexItem from "./ProductIndexItem";
 
 
-const ProdutsIndex = () => {
+const ProductsIndex = () => {
     const products = useSelector(state => state.products)
     const dispatch = useDispatch();
 
@@ -25,4 +25,4 @@ const ProdutsIndex = () => {
 }
 
 
-export default ProdutsIndex
+export default ProductsIndex

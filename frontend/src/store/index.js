@@ -3,11 +3,12 @@ import thunk from 'redux-thunk';
 import session from './sessionReducer'
 import userReducer from './sessionReducer';
 import { productsReducer } from './products';
-
+import cartReducer from './cart';
 
 const rootReducer = combineReducers({
   session: userReducer,
-  products: productsReducer
+  products: productsReducer,
+  carts: cartReducer
 });
 
 // const enhancer = applyMiddleware(thunk)
