@@ -7,6 +7,8 @@ import * as cartActions from '../../store/cart'
 import { fetchCarts} from "../../store/cart";
 import CartIndexItem from "./CartIndexItem";
 import { fetchProducts } from "../../store/products";
+import './CartShowPage.css'
+
 
 const CartShow = () => {
 
@@ -44,12 +46,38 @@ const CartShow = () => {
         price = price.length < 2 ? [price[0], ".00"] : price
 
         return (
-            <div id='cartMainContainer'>
-            <div id='productCartName'>{productName}</div>
-            <img id='propductCartIma' src={photoUrl}></img>
-            <div id='productCartPrice'>${price}</div>
-            <div>Qty: {quantities[id]}</div>
+           
+            <div>
+
+                    <div id='cartSubContainer'>
+                        <img id='productCartImg' src={photoUrl}></img>
+
+                        <div id='cartInfoContainer'>
+                            <div id='productCartName'>{productName}</div>
+                            <div id='productCartPrice'>${price}</div>
+                            <div id='inStockCart'>In Stock</div>
+
+                                <div id='eligibleFree'>Eligible for FREE Shipping <span id='eligibleFreeTwo'>&</span> <span id='eligibleFreeThree'>FREE Returns</span></div>
+
+                                <div id='dropShow'>
+                                    <label id="dropText">Qty: </label>
+                                        <select id="dropdown">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                        </select>
+                                </div>
+                            {/* <div>Qty: {quantities[id]}</div> */}
+                        </div>
+
+                    </div>
+
+                <div id='cartShowPageDivider'></div>
+
             </div>
+                
+          
         )
     })
 
@@ -57,11 +85,15 @@ const CartShow = () => {
     return (
 
     <>
-        <h1>ShoppingCart</h1>
+        <div id='cartPageContainer'>
+            <div id='cartMainContainer'>
+                <div id='mainCartHeader'>Shopping Cart</div>
+                    <div id='cartShowPageDivider'></div>
 
 
-        {arrangedProducts}
-
+                {arrangedProducts}
+            </div>
+        </div>
     </>
 )
 

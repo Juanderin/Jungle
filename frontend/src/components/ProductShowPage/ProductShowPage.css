@@ -19,10 +19,12 @@
     height: 430px;
     width: 400px;
 }
-/* 
-#showTitle{
-    font-size: 25px;
-} */
+
+#inStockCart{
+
+    font-size: 12px;
+    color: rgb(2, 124, 2);
+}
 
 #showProductPurchase{
     display: flex;
