@@ -119,3 +119,34 @@
 
     color: rgb(0, 113, 133)
 }
+
+
+#cartDeleteButton {
+    background: none;
+    border: none;
+    padding: 0;
+    color: rgb(56, 144, 160);
+}
+
+
+#cartDeleteButton:hover {
+    background: none;
+    border: none;
+    padding: 0;
+    text-decoration: underline;
+    color: rgb(56, 144, 160);
+    cursor: pointer;
+}
+
+#cartModifyContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+#cartShowPageHorizontalDivider{
+
+    border-left: solid 0.5px gray;
+
+
+}
