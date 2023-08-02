@@ -19,20 +19,35 @@ const CartShow = () => {
     const userId = sessionUser.id
     let items =  Object.values(cart_items).filter((item) => item.userId === userId)
     let selectedProducts = items.map((cartItem) => products[cartItem.productId])
-   
+    const [quant, setQuant] = useState();
 
+    
     const quantities = items.reduce((acc, cartItem) => {
         acc[cartItem.productId] = cartItem.quantity;
         return acc;
-      }, {});
+    }, {});
+    
+    const itemIds = items.reduce((acc, cartItems) => {
+        acc[cartItems.productId] = cartItems.id
+        return acc;
+        
+    }, {});
+    
+    const handleDelete = (id) => {
 
-      console.log(quantities, 'tha quantities');
-      console.log(quantities[2], 'el dino')
+        dispatch(cartActions.deleteCart(itemIds[id]))
+
+    }
+
+    console.log(itemIds, 'the og ids')
+
+    console.log(quantities, 'tha quantities');
+    console.log(quantities[2], 'el dino')
 
     console.log(cart_items, 'these cart items')
     console.log(items, 'these items')
     console.log(selectedProducts, 'these products');
-    // debugger
+
     useEffect(() => {
         dispatch(fetchProducts())
     }, [])
@@ -40,10 +55,13 @@ const CartShow = () => {
     if (!cart_items) return null
     
     let arrangedProducts = selectedProducts.map((item) => {
-
+     
         const {id, productName, productPrice, photoUrl} = item;
         let price = productPrice.toLocaleString()
         price = price.length < 2 ? [price[0], ".00"] : price
+
+
+        
 
         return (
            
@@ -59,6 +77,7 @@ const CartShow = () => {
 
                                 <div id='eligibleFree'>Eligible for FREE Shipping <span id='eligibleFreeTwo'>&</span> <span id='eligibleFreeThree'>FREE Returns</span></div>
 
+                            <div id="cartModifyContainer">
                                 <div id='dropShow'>
                                     <label id="dropText">Qty: </label>
                                         <select id="dropdown">
@@ -68,7 +87,15 @@ const CartShow = () => {
                                             <option value="4">4</option>
                                         </select>
                                 </div>
-                            {/* <div>Qty: {quantities[id]}</div> */}
+                                            {/* <div>Qty: {quantities[id]}</div> */}
+                                <div id='cartShowPageHorizontalDivider'></div>
+
+                                    <button id='cartDeleteButton' onClick={() => handleDelete(id)}>Delete</button>
+
+                                <div id='cartShowPageHorizontalDivider'></div>
+
+                            </div>
+
                         </div>
 
                     </div>
@@ -82,10 +109,15 @@ const CartShow = () => {
     })
 
 
+
+    
+
     return (
 
     <>
         <div id='cartPageContainer'>
+
+
             <div id='cartMainContainer'>
                 <div id='mainCartHeader'>Shopping Cart</div>
                     <div id='cartShowPageDivider'></div>
@@ -93,6 +125,12 @@ const CartShow = () => {
 
                 {arrangedProducts}
             </div>
+
+            <div id='cartSidebarContainer'>
+                <div id='subtotalContainer'></div>
+                <div id='recommendedContainer'></div>
+            </div>
+
         </div>
     </>
 )

@@ -94,12 +94,16 @@ export const updateCart = (cart) => async dispatch => {
     const data = await res.json();
 
 
-    dispatch({
+    // dispatch({
 
-        type: RECEIVE_CART_PRODUCT,
-        cartProduct: data
+    //     type: RECEIVE_CART_PRODUCT,
+    //     data
 
-    })
+    // })
+
+
+    dispatch(receiveCartProduct(data))
+    return data
 
 }
 
@@ -113,7 +117,7 @@ export const deleteCart = (cartId) => async dispatch => {
 
     dispatch({
         type: REMOVE_PRODUCT,
-        cartProductId: cartId
+        cartId
     })
 
 }
@@ -138,14 +142,8 @@ const cartReducer = (state = {}, action) => {
             return { ...newState,  [action.cartProduct.cart.id]: action.cartProduct.cart }
             
         case REMOVE_PRODUCT:
-            const { [action.productId]: removedProduct, ...newCartProducts } =
-            state.cartProducts;
-
-            return {
-            ...state,
-            cartProducts: newCartProducts
-            };
-
+            delete newState[action.cartId]
+            return newState
         default:
             return newState;
         }
