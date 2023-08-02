@@ -94,12 +94,16 @@ export const updateCart = (cart) => async dispatch => {
     const data = await res.json();
 
 
-    dispatch({
+    // dispatch({
 
-        type: RECEIVE_CART_PRODUCT,
-        cartProduct: data
+    //     type: RECEIVE_CART_PRODUCT,
+    //     data
 
-    })
+    // })
+
+
+    dispatch(receiveCartProduct(data))
+    return data
 
 }
 
