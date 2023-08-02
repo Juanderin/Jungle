@@ -86,6 +86,8 @@ const CartShow = () => {
 
     <>
         <div id='cartPageContainer'>
+
+
             <div id='cartMainContainer'>
                 <div id='mainCartHeader'>Shopping Cart</div>
                     <div id='cartShowPageDivider'></div>
@@ -93,6 +95,12 @@ const CartShow = () => {
 
                 {arrangedProducts}
             </div>
+
+            <div id='cartSidebarContainer'>
+                <div id='subtotalContainer'></div>
+                <div id='recommendedContainer'></div>
+            </div>
+
         </div>
     </>
 )
