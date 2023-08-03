@@ -31,14 +31,7 @@ const MainPage = () => {
                 </div>
 
                 <div id='searchBoxContainer'>
-                    {/* <input id='searchBox' type='text' placeholder="Search The Jungle"/> */}
                     <SearchBar />
-                    <button id='searchButton'>
-                        <div>
-                        <i id='mag' className="fa-solid fa-magnifying-glass" >
-                        </i> 
-                        </div>
-                        </button>
                 </div>
 
                 <div id='dropProfile'>

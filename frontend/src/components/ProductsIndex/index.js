@@ -17,7 +17,9 @@ const ProductsIndex = () => {
 
     return (
         <>
-        {Object.values(products).map((product) => <ProductsIndexItem product={product}/> )}
+        <div id='productShowPageContainer'>
+            {Object.values(products).map((product) => <ProductsIndexItem product={product}/> )}
+        </div>
         </>
     )
 

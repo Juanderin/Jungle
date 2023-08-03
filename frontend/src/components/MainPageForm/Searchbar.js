@@ -55,7 +55,10 @@ function SearchBar() {
             onChange={handleSearch}
             />
            
-           <button id='search-button' onClick={handleSubmit}>Search</button>
+           <button id='search-button' onClick={handleSubmit}>
+            <i id='mag' className="fa-solid fa-magnifying-glass" ></i> 
+
+           </button>
             {searchText && searchResults && <ul id='search-dropdown'>
                 {searchResults.map(result => { 
                     return <li className="search-dropdown-item" onClick={handClick(result.id)}>{result.productName}</li>
