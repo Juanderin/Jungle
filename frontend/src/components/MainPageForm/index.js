@@ -3,8 +3,6 @@ import './MainPageForm.css'
 import "@fortawesome/fontawesome-free/css/all.min.css"; 
 import { useSelector } from "react-redux";
 import DropProfile from "../DropProfileButton";
-
-import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 import SearchBar from "./Searchbar";

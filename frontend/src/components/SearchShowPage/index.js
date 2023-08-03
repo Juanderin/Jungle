@@ -1,9 +1,10 @@
 import React from "react";
 import { useEffect } from "react";
-import { fetchSearchResults } from "../../store/search";
+import { clearSearchResults, fetchSearchResults } from "../../store/search";
 import { useLocation } from "react-router-dom";
 import ProductsIndexItem from "../ProductsIndex/ProductIndexItem";
 import { useDispatch, useSelector } from "react-redux";
+import MainPage from "../MainPageForm";
 
     function SearchShowPage () {
         const location = useLocation();
@@ -15,14 +16,21 @@ import { useDispatch, useSelector } from "react-redux";
         useEffect(() => {
             if (query) {
                 dispatch(fetchSearchResults(query))
+                dispatch(clearSearchResults)
             }
-        })
+        }, [])
 
         return (
             <div id='search=page-container'>{searchResults.map(result => {
 
                 return (
-                    <ProductsIndexItem product={result}/>
+                
+                    <>
+                        <MainPage />
+                        <br/>
+                        <br/>
+                        <ProductsIndexItem product={result}/>
+                    </>
                 )
             })}
             </div>

@@ -84,7 +84,7 @@ const ProductShow = () => {
             </div>
         </div>
         <div id='showPageDivider'></div>
-
+{/* 
         <div id='showReview'>
                 <div id='ratingBars'>
                     <div id='barTitle'>Customer Reviews</div>
@@ -109,8 +109,9 @@ const ProductShow = () => {
 
                 </div>
             <div id='topReviewsTitle'>Top reviews from the United States</div>
-            {/* <div>Space Filler</div> */}
-        </div>
+        
+        </div> */}
+
         </>
     )
 
