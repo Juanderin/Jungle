@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../store/products";
 import ProductsIndexItem from "./ProductIndexItem";
 
-
 const ProductsIndex = () => {
     const products = useSelector(state => state.products)
     const dispatch = useDispatch();

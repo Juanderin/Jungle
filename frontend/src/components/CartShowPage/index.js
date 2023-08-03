@@ -21,7 +21,7 @@ const CartShow = () => {
     const sessionUser = useSelector(state => state.session.user)
 
 
-    const userId = sessionUser.id
+    const userId = sessionUser?.id
     let items =  Object.values(cart_items).filter((item) => item.userId === userId)
     let selectedProducts = items.map((cartItem) => products[cartItem.productId])
 
@@ -31,6 +31,14 @@ const CartShow = () => {
     priceTotal = priceTotal.length < 2 ? [priceTotal[0], ".00"] : priceTotal
 
 
+
+    useEffect(() => {
+        dispatch(fetchProducts())
+    }, [])
+    
+    if (!sessionUser) {
+        history.push("/")
+    }
 
 
     const quantities = items.reduce((acc, cartItem) => {
@@ -78,9 +86,6 @@ const CartShow = () => {
     console.log(items, 'these items')
     console.log(selectedProducts, 'these products');
 
-    useEffect(() => {
-        dispatch(fetchProducts())
-    }, [])
 
     if (!cart_items) return null
     

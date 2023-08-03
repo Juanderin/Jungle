@@ -6,6 +6,9 @@ import { fetchProduct } from "../../store/products";
 import "./ProductShowPage.css"
 import * as cartActions from '../../store/cart'
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import MainPage from "../MainPageForm";
+
+
 const ProductShow = () => {
     const dispatch = useDispatch();
     const productId = useParams().productId
@@ -40,6 +43,9 @@ const ProductShow = () => {
     if (!product) return null
     return(
         <>
+
+        <MainPage />
+        
         <div id='showMain'>
             <div id='showProductImg'>
                 <img id='productImg' src={product.photoUrl} alt='product_image' />

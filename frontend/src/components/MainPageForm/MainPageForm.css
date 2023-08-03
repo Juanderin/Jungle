@@ -4,7 +4,7 @@
     top: 0px;
     left: 0px;
     background-color: rgb(19, 25, 33);
-    height: 40px;
+    height: 55px;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -12,12 +12,38 @@
     
 }
 
+#logoLinkContainer{
+
+    height: 53px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    border: solid 1px transparent; 
+    border-radius: 3px;
+    margin-left: 5px;
+
+}
+
+#logoLinkContainer:hover{
+
+    height: 53px;
+    display: flex;
+    align-items: center;
+    border: solid 1px white;
+    border-radius: 3px;
+    box-sizing: border-box;
+    margin-left: 5px;
+
+
+}
+
+
 
 #searchBox{
 
     position: relative;
     height: 100%;
-    width: 400px;
+    width: 100%;
     border: none;
     font-family: 'Amazon Ember', Arial sans-serif;
     border-top-left-radius: 3px; 
@@ -26,16 +52,25 @@
     top: 5px;
 }
 
+#searchBox:focus{
+
+    border: none;
+}
+
 
 #mainLogo {
-    height: 40px;
+    margin-top: 3px;
+    margin-left: 10px;
+    height: 45px;
 }
 
 #searchBoxContainer{
 
     display: flex;
-    width: 480px;
-    height: 25px;
+    margin-top: 4px;
+    width: 530px;
+    height: 33px;
+    margin-left: 120px;
     /* margin-left: 160px; */
 
 }
@@ -49,8 +84,9 @@
     height: 108%;
     padding: 0px;
     margin: 0px;
-    width: 43px;
+    width: 50px;
     top: 5px;
+    /* font-size: 13px; */
 }
 
 
@@ -61,7 +97,7 @@
     border-top-right-radius: 4px;
     height: 108%;
     padding: 0;
-    width: 43px;
+    width: 50px;
 }
 
 #dropProfile{
