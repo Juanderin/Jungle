@@ -12,13 +12,17 @@ class Api::ProductsController < ApplicationController
     def index 
 
         @products = Product.all
-        @cart_items = Cart.all
-        
+    #    debugger 
+        if current_user 
+            @cart_items =  Cart.all.where(user_id: current_user.id)
+        end 
+    
+
         render :index
 
     end 
 
-    
+
 
     def search 
         query = params[:query]
@@ -27,6 +31,7 @@ class Api::ProductsController < ApplicationController
 
     end 
 
+    
     
 
 end 
