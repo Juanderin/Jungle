@@ -72,7 +72,7 @@
 #searchbar-container{
     display: flex;
     padding: 5px;
-    border: 1px solid red;
+    border: 1px solid white;
     height: 30px;
     width: 400px;
     align-items: center;
@@ -86,7 +86,7 @@
     border: 0;
     outline: none;
     width: 100%;
-    
+
 }
 
 #search-dropdown {
@@ -94,6 +94,8 @@
     top: 45px;
     width: 100%;
     background-color: white;
+    list-style: none;
+    z-index: 3;
 
 }
 
@@ -102,3 +104,4 @@
     padding: 5px;
     cursor: pointer;
 }
+

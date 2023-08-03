@@ -37,6 +37,14 @@ function SearchBar() {
 
     }
 
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        if (searchText.trim() !== '') {
+            history.push(`/search?query=${searchText}`)
+        }
+    }
+
     return (
         <div id="searchbar-container">
             <input 
@@ -47,7 +55,7 @@ function SearchBar() {
             onChange={handleSearch}
             />
            
-           <button id='search-button'>Search</button>
+           <button id='search-button' onClick={handleSubmit}>Search</button>
             {searchText && searchResults && <ul id='search-dropdown'>
                 {searchResults.map(result => { 
                     return <li className="search-dropdown-item" onClick={handClick(result.id)}>{result.productName}</li>
