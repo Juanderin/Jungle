@@ -12,7 +12,9 @@ class Api::ProductsController < ApplicationController
     def index 
 
         @products = Product.all
-        @cart_items = Cart.all.where(user_id: current_user.id) 
+        
+        @cart_items = Cart.all
+        
         render :index
 
     end 
