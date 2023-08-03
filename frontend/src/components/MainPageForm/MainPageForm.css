@@ -69,3 +69,36 @@
 }
 
 
+#searchbar-container{
+    display: flex;
+    padding: 5px;
+    border: 1px solid red;
+    height: 30px;
+    width: 400px;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+
+#search-input, #search-input:focus{
+
+    border: 0;
+    outline: none;
+    width: 100%;
+    
+}
+
+#search-dropdown {
+    position:absolute;
+    top: 45px;
+    width: 100%;
+    background-color: white;
+
+}
+
+.search-dropdown-item{
+    border: solid 1px black;
+    padding: 5px;
+    cursor: pointer;
+}
