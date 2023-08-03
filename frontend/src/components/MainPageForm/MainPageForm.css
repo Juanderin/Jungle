@@ -38,42 +38,21 @@
 }
 
 
-
-#searchBox{
-
-    position: relative;
-    height: 100%;
-    width: 100%;
-    border: none;
-    font-family: 'Amazon Ember', Arial sans-serif;
-    border-top-left-radius: 3px; 
-    border-bottom-left-radius: 3px;
-    font-size: 12px;
-    top: 5px;
-}
-
-#searchBox:focus{
-
-    border: none;
-}
-
-
 #mainLogo {
     margin-top: 3px;
     margin-left: 10px;
     height: 45px;
 }
 
-#searchBoxContainer{
+/* #searchBoxContainer{
 
     display: flex;
     margin-top: 4px;
-    width: 530px;
+    width: 900px;
     height: 33px;
-    margin-left: 120px;
-    /* margin-left: 160px; */
+  
 
-}
+} */
 
 #searchButton {
     position: relative;
@@ -111,7 +90,7 @@
     display: flex;
     align-items: center;
     position: relative;
-    width: 530px;
+    width: 900px;
     height: 33px;
     margin-left: 120px;
     margin-top: 4px;
@@ -128,10 +107,17 @@
     width: 100%;
     border: none;
     font-family: 'Amazon Ember', Arial sans-serif;
+    font-size: 15px;
     border-top-left-radius: 3px; 
     border-bottom-left-radius: 3px;
-    font-size: 12px;
+    font-size: 50x;
     top: 5px;
+
+}
+
+#search-input::placeholder{
+
+font-size: 15px;
 
 }
 
@@ -176,4 +162,8 @@
     height: 108%;
     padding: 0;
     width: 50px;
+}
+
+#mag{
+    font-size: 19px;
 }
