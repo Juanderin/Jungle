@@ -26,7 +26,6 @@ class Api::ProductsController < ApplicationController
         .where('product_name ILIKE ?', "%#{query}%" )
 
     end 
-
-    
+ 
 
 end 
