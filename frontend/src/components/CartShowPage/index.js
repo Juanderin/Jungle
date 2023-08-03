@@ -16,20 +16,17 @@ const CartShow = () => {
     const cart_items = useSelector(state => state.carts)
     const products = useSelector(state => state.products)
     const sessionUser = useSelector(state => state.session.user)
+
     const userId = sessionUser.id
     let items =  Object.values(cart_items).filter((item) => item.userId === userId)
     let selectedProducts = items.map((cartItem) => products[cartItem.productId])
-    const [newQuantity, setNewQuantity] = useState(0);
-    const [itemParams, getItemParams] = useState({});
 
-    // useEffect(() => {
+    const subAmount = selectedProducts.length
+    const totalPrice = selectedProducts.reduce((sum, product) => sum + product.productPrice, 0)
+    let priceTotal = totalPrice.toLocaleString()
+    priceTotal = priceTotal.length < 2 ? [priceTotal[0], ".00"] : priceTotal
 
-    //     if (itemParams && Object.keys(itemParams).length > 0) {
-    //         debugger;
-    //         dispatch(cartActions.updateCart(itemParams))
-    //     }
 
-    // },[itemParams])
 
 
     const quantities = items.reduce((acc, cartItem) => {
@@ -43,7 +40,6 @@ const CartShow = () => {
         
     }, {});
 
-    console.log(itemParams, 'theeee mostt cooolest thing')
 
     const handleChange = (cartItem) => {
 
@@ -82,7 +78,6 @@ const CartShow = () => {
         const {id, productName, productPrice, photoUrl} = item;
         let price = productPrice.toLocaleString()
         price = price.length < 2 ? [price[0], ".00"] : price
-
         
 
         return (
@@ -102,7 +97,7 @@ const CartShow = () => {
                             <div id="cartModifyContainer">
                                 <div id='dropShow'>
                                     <label id="dropText">Qty: </label>
-                                        <select id="dropdown" value={quantities[id]} onChange={handleChange({id: itemIds[id], productId: id, userId: userId, quantity: 1})}>
+                                        <select id="dropdown" value={quantities[id]} onChange={handleChange({id: itemIds[id], productId: id, userId: userId, quantity: quantities[id]})}>
 
                                             <option value="1">1</option>
                                             <option value="2">2</option>
@@ -110,7 +105,7 @@ const CartShow = () => {
                                             <option value="4">4</option>
                                         </select>
                                 </div>
-                                            {/* <div>Qty: {quantities[id]}</div> */}
+                                        
                                 <div id='cartShowPageHorizontalDivider'></div>
 
                                     <button id='cartDeleteButton' onClick={() => handleDelete(id)}>Delete</button>
@@ -150,7 +145,20 @@ const CartShow = () => {
             </div>
 
             <div id='cartSidebarContainer'>
-                <div id='subtotalContainer'></div>
+                <div id='subtotalContainer'>
+                    <div id='subtotalSubContainer'>
+
+                    <div id='eligibleFreeSubtotal'>Your order qualifies for FREE Shipping. <span id='eligibleFreeSubtotalTwo'>Get it upon checkout</span></div>
+                        
+
+                        <div id='subtotalHeader'>Subtotal {`(${subAmount} items)`}: ${priceTotal} </div>
+                        <div id='giftBoxContainer'>
+                        <input id='giftCheckbox' type="checkbox"></input>
+                        <span id="giftBoxText">This order contains a gift</span>
+                        </div>
+                    <button id='checkoutButton'>Proceed to checkout</button>
+                    </div>
+                </div>
                 <div id='recommendedContainer'></div>
             </div>
 
