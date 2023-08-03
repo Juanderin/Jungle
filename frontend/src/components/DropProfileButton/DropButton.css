@@ -5,16 +5,17 @@
     font-family: 'Amazon Ember', Arial sans-serif;
     color: white;
     text-align: left;
+    
 }
 
 #dropButton{
     position: relative;
-    background-color: rgb(19, 25, 33);
+    /* background-color: rgb(19, 25, 33); */
     font-family: 'Amazon Ember', Arial sans-serif;
     color: white;
     height: 40px;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 7px;
     border: solid 1px transparent; 
 
 }
@@ -37,13 +38,6 @@
     border-radius: 2px;
 }
 
-#carrotContainer{
-
-    text-align: left;
-    height: 40px;
-    width: 100%;
-    
-}
 
 
 #carrot{
@@ -51,7 +45,12 @@
     font-size: 15px;
 }
 
+#signedInContainer{
 
+    border: solid 1px transparent;
+    background-color: transparent;
+
+}
 
 #homeSignInButton{
     height: 23px;
@@ -65,6 +64,14 @@
     justify-content: center;
     align-items: center;
     font-size: 11px;
+    
+
+}
+
+#homeSignInButton:hover{
+
+    background-color: rgb(212, 177, 34);
+    cursor: pointer;
 
 }
 
@@ -72,9 +79,49 @@
     display: block;
     justify-content: column;
     align-items: center;
+    
 } 
 
+#outButton{
 
+    height: 23px;
+    width: 150%;
+    background-color: rgb(254, 214, 54);
+    border-radius: 5px;
+    border: none;
+    margin: 0px 0px 3px;
+    padding: 5px 0px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+
+}
+
+#outButton:hover{
+
+    background-color: rgb(201, 170, 43);
+    cursor: pointer;
+
+}
+
+#loggedinDrop{
+
+    color: rgb(0, 113, 133);
+    position: absolute;
+    border: solid lightgray;
+    background-color: white;
+    height: 50px;
+    width: 200px;
+    left: -50px;
+    z-index: 2;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column;
+    border-radius: 3px;
+
+}
 
 
 #dropContainer{
@@ -82,15 +129,14 @@
     border: solid lightgray;
     background-color: white;
     height: 100px;
-    width: 400px;
-    /* right: 10px; */
-    left: -150px;
+    width: 300px;
+    left: -90px;
     z-index: 2;
-    display: flex; /* Use flexbox to center the items */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
     flex-direction: column;
-
+    border-radius: 3px;
 }
 
 #overlay {
@@ -107,7 +153,9 @@
     position: relative;
     bottom: 15px;
     width: 200px;
+
 }
+
 
 #newCustomer{
 

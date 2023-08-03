@@ -50,16 +50,18 @@ const DropProfile = ({user}) => {
             <div id='signedInContainer'>
               <div className='signInText'>Hello, {user.username}</div>
                 <div id='accountListingsContainer'>
-                    <span className='accountLists'>Accounts & Lists <i id='carrot' className='fa-solid fa-caret-down' />
+                    <span className='accountLists'>Account & Lists <i id='carrot' className='fa-solid fa-caret-down' />
                 </span>
                 </div>
               </div>
               {dropMenu && (
                 <>
                   <div id='loggedinDrop'>
-                    <span>{user.email}</span>
+                    <div id='emailBox'>
+                      <span>{user.email}</span>
+                    </div>
                     <div id="logoutButton">
-                      <button onClick={handleClickLogout}>
+                      <button id='outButton' onClick={handleClickLogout}>
                         Log Out
                       </button>
                     </div>
@@ -69,16 +71,13 @@ const DropProfile = ({user}) => {
             </>
           ) : (
             <>
-            <div className='carrotContainer'>
-            <button className='signInText'>Hello, Sign In
-            <br/>
-            <div id='accountListingsContainer'>
-            <span id='accountListings'>
-              Account & Lists <i id='carrot' className="fa-solid fa-caret-down" />
-            </span>
-            </div>
-            </button>
-            </div>
+            <div id='signedInContainer'>
+              <div className='signInText'>Hello, Sign In</div>
+                <div id='accountListingsContainer'>
+                    <span className='accountLists'>Account & Lists <i id='carrot' className='fa-solid fa-caret-down' />
+                </span>
+                </div>
+              </div>
             {dropMenu &&  (
                 <>
                 <div id='dropContainer'>
