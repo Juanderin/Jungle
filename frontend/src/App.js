@@ -1,17 +1,16 @@
 import { Route, Switch } from "react-router-dom/";
-import LoginPage from "./components/LoginFormPage";
-import { Link } from "react-router-dom/"
-// import UserIndex from "./components/Navigation/userIndex";
-import Navigation from "./components/Navigation";
 import { useSelector } from "react-redux";
-import { Redirect } from "react-router-dom/";
+import LoginPage from "./components/LoginFormPage";
 import SignUpForm from "./components/SignupFormPage";
 import MainPage from "./components/MainPageForm";
-import './index.css';
 import HomePage from "./components/HomePage";
 import ProductShow from "./components/ProductShowPage";
 import CartShow from "./components/CartShowPage";
 import ProductsIndex from "./components/ProductsIndex";
+import SearchShowPage from "./components/SearchShowPage";
+import Navigation from "./components/Navigation";
+import { Redirect } from "react-router-dom/";
+import './index.css';
 
 
 const App = () => {
@@ -28,10 +27,11 @@ const App = () => {
    <Switch>
    {/* <Route path='/' component={LoginPage}/> */}
     {/* <Route exact path='/' component={Navigation}/> */}
+    {/* <Route path='/home' component={HomePage} /> */}
     <Route exact path='/' component={HomePage} />
     <Route path='/login' component={LoginPage}/>
     <Route path={"/products/:productId"}><ProductShow/></Route>
-    {/* <Route path='/home' component={HomePage} /> */}
+    <Route path='/search'><SearchShowPage /></Route>
     <Route path='/main' component={MainPage} />
     <Route path='/cart' component={CartShow} />
     <Route path='/signup' component={SignUpForm}/>

@@ -3,8 +3,12 @@ import './MainPageForm.css'
 import "@fortawesome/fontawesome-free/css/all.min.css"; 
 import { useSelector } from "react-redux";
 import DropProfile from "../DropProfileButton";
+
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+
+import SearchBar from "./Searchbar";
+
 
 const MainPage = () => {
     const sessionUser = useSelector(state => state.session.user)
@@ -29,7 +33,8 @@ const MainPage = () => {
                 </div>
 
                 <div id='searchBoxContainer'>
-                    <input id='searchBox' type='text' placeholder="Search The Jungle"/>
+                    {/* <input id='searchBox' type='text' placeholder="Search The Jungle"/> */}
+                    <SearchBar />
                     <button id='searchButton'>
                         <div>
                         <i id='mag' className="fa-solid fa-magnifying-glass" >
