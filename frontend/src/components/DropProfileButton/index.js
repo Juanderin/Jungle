@@ -12,7 +12,7 @@ import { useHistory } from "react-router-dom";
 
 
 const DropProfile = ({user}) => {
-    // debugger
+   
     const dispatch = useDispatch();
     const [dropMenu, setDropMenu] = useState(false);
     const [overlay, setOverlay] = useState(false)
@@ -47,9 +47,13 @@ const DropProfile = ({user}) => {
         <div id='dropButton' onMouseEnter={open} onMouseLeave={close}>
           {user ? (
             <>
-              <span>Hello, {user.username}</span>
-              <span>Accounts & Lists</span>
-              <i className='fa-solid fa-caret-down' />
+            <div id='signedInContainer'>
+              <div className='signInText'>Hello, {user.username}</div>
+                <div id='accountListingsContainer'>
+                    <span className='accountLists'>Accounts & Lists <i id='carrot' className='fa-solid fa-caret-down' />
+                </span>
+                </div>
+              </div>
               {dropMenu && (
                 <>
                   <div id='loggedinDrop'>
@@ -65,12 +69,14 @@ const DropProfile = ({user}) => {
             </>
           ) : (
             <>
-            <div id='carrotContainer'>
-            <button id='signInText'>Hello, Sign In
+            <div className='carrotContainer'>
+            <button className='signInText'>Hello, Sign In
             <br/>
-            <span id='accountLists'>
+            <div id='accountListingsContainer'>
+            <span id='accountListings'>
               Account & Lists <i id='carrot' className="fa-solid fa-caret-down" />
             </span>
+            </div>
             </button>
             </div>
             {dropMenu &&  (
@@ -81,13 +87,10 @@ const DropProfile = ({user}) => {
                       Sign In
                     </button>
                   </div>
-                  <div id='newCustomer'>New customer?
-                    <Link to='/signUp'>
-                        Start Here
-                    </Link>
+                  <div id='newCustomer'>New customer? <Link to='/signUp'>  Start Here </Link>
                   </div>
                 </div>
-                {/* <div id='overlay'/> */}
+  
                 </>
             )}
             </>

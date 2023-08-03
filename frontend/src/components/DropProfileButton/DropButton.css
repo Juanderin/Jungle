@@ -1,5 +1,5 @@
-#signInText{
-    font-size: 10px;
+.signInText{
+    font-size: 12px;
     background-color: rgb(19, 25, 33);
     border: none;
     font-family: 'Amazon Ember', Arial sans-serif;
@@ -13,49 +13,42 @@
     font-family: 'Amazon Ember', Arial sans-serif;
     color: white;
     height: 40px;
-    width: 100%
+    width: 100%;
+    margin-top: 10px;
+    border: solid 1px transparent; 
+
+}
+
+#accountListingsContainer{
+
+    font-size: 14px;
+    font-weight: bold;
+
 }
 
 
-#dropButton:hover{
-    background-color: rgb(19, 25, 33);
-    font-family: 'Amazon Ember', Arial sans-serif;
-
-}
     
 
 #dropButton:hover {
     background-color: rgb(19, 25, 33);
     font-family: 'Amazon Ember', Arial sans-serif;
     color: white;
-    border: solid white;
+    border: solid white 1px;
     border-radius: 2px;
 }
 
 #carrotContainer{
-    /* position: relative; */
-    /* display: flex; */
-    /* flex-direction: row; */
-    /* justify-content: flex-start; */
+
     text-align: left;
-    /* align-content: flex-start; */
     height: 40px;
     width: 100%;
     
 }
 
+
 #carrot{
     color: rgb(151, 151, 151);
-    font-size: 9.5px;
-}
-
-
-#accountLists{
-
-    font-size: 11.5px;
-    display: block;
-    font-weight: bold;
-
+    font-size: 15px;
 }
 
 
@@ -115,3 +108,11 @@
     bottom: 15px;
     width: 200px;
 }
+
+#newCustomer{
+
+    color: black;
+    font-size: 14px;
+
+}
+
