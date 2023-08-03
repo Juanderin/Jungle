@@ -8,14 +8,18 @@ import { fetchCarts} from "../../store/cart";
 import CartIndexItem from "./CartIndexItem";
 import { fetchProducts } from "../../store/products";
 import './CartShowPage.css'
-
+import { useHistory } from "react-router-dom";
+import MainPage from "../MainPageForm";
 
 const CartShow = () => {
 
     const dispatch = useDispatch();
+    const history = useHistory();
+
     const cart_items = useSelector(state => state.carts)
     const products = useSelector(state => state.products)
     const sessionUser = useSelector(state => state.session.user)
+
 
     const userId = sessionUser.id
     let items =  Object.values(cart_items).filter((item) => item.userId === userId)
@@ -58,6 +62,13 @@ const CartShow = () => {
 
     }
 
+
+    const handleCheckout = () => {
+
+        history.push('/checkout')
+
+    }
+
     console.log(itemIds, 'the og ids')
 
     console.log(quantities, 'tha quantities');
@@ -83,6 +94,7 @@ const CartShow = () => {
         return (
            
             <div>
+                <MainPage />
 
                     <div id='cartSubContainer'>
                         <img id='productCartImg' src={photoUrl}></img>
@@ -90,7 +102,7 @@ const CartShow = () => {
                         <div id='cartInfoContainer'>
                             <div id='productCartName'>{productName}</div>
                             <div id='productCartPrice'>${price}</div>
-                            <div id='inStockCart'>In Stock</div>
+                            <div id='inStockCartText'>In Stock</div>
 
                                 <div id='eligibleFree'>Eligible for FREE Shipping <span id='eligibleFreeTwo'>&</span> <span id='eligibleFreeThree'>FREE Returns</span></div>
 
@@ -156,7 +168,7 @@ const CartShow = () => {
                         <input id='giftCheckbox' type="checkbox"></input>
                         <span id="giftBoxText">This order contains a gift</span>
                         </div>
-                    <button id='checkoutButton'>Proceed to checkout</button>
+                    <button id='checkoutButton' onClick={handleCheckout}>Proceed to checkout</button>
                     </div>
                 </div>
                 <div id='recommendedContainer'></div>
