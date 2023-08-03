@@ -12,8 +12,18 @@ class Api::ProductsController < ApplicationController
     def index 
 
         @products = Product.all
-        @cart_items = Cart.all.where(user_id: current_user.id) 
+        @cart_items = Cart.all
+        
         render :index
+
+    end 
+
+    
+
+    def search 
+        query = params[:query]
+        @products = Product
+        .where('product_name ILIKE ?', "%#{query}%" )
 
     end 
 
