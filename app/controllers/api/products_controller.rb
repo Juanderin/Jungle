@@ -12,7 +12,7 @@ class Api::ProductsController < ApplicationController
     def index 
 
         @products = Product.all
-    #    debugger 
+
         if current_user 
             @cart_items =  Cart.all.where(user_id: current_user.id)
         end 
