@@ -17,10 +17,16 @@ const ProductsIndex = () => {
 
     return (
         <>
-
-        {/* <div id='splashBox'>yoooooooo</div> */}
-        <div id='productShowPageContainer'>
-            {Object.values(products).map((product) => <ProductsIndexItem product={product}/> )}
+        <div id='splashContainer'>
+            <div id='splashBox'>
+                <ul id='imageList' className="imageList">
+                    {/* <li><img id="splashImg" src='/amazonSplashOne.jpg'/></li> */}
+                    <li><img id="splashImg" src='/amazonSplashTwo.jpg'/></li>
+                    </ul>
+            </div>
+            <div id='productShowPageContainer'>
+                {Object.values(products).map((product) => <ProductsIndexItem product={product}/> )}
+            </div>
         </div>
         </>
     )
@@ -29,3 +35,6 @@ const ProductsIndex = () => {
 
 
 export default ProductsIndex
+
+
+

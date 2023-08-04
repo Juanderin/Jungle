@@ -15,7 +15,7 @@ const MainPage = () => {
     const quantities = Object.values(cartQuantities).map((item) => item.quantity)
     const cartQuantity = quantities.reduce((total, quantity) => total + quantity, 0)
     
-    
+    //
     
     console.log(cartQuantities, 'waht are thewrererer')
     console.log(quantities)
