@@ -17,6 +17,8 @@ const ProductsIndex = () => {
 
     return (
         <>
+
+        {/* <div id='splashBox'>yoooooooo</div> */}
         <div id='productShowPageContainer'>
             {Object.values(products).map((product) => <ProductsIndexItem product={product}/> )}
         </div>

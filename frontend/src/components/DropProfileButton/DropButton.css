@@ -51,6 +51,13 @@
     
 }
 
+#signedInContainer:hover{
+
+
+    cursor: pointer;
+
+}
+
 #homeSignInButton{
     height: 23px;
     width: 100%;

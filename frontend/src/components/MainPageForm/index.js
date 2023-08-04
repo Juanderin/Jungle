@@ -26,8 +26,11 @@ const MainPage = () => {
         history.push("/")
     }
 
+    const handleCart = () => {
 
-// debugger 
+        history.push('/cart')
+
+    }
 
     return (
 
@@ -48,8 +51,8 @@ const MainPage = () => {
                 </div>
 
 
-                <div id="cartButton">
-                  <div id='cartAmount'>{cartQuantity}</div> 
+                <div id="cartButton" onClick={handleCart}>
+                  <div id='cartAmount' >{cartQuantity}</div> 
                     <img id='cartImg' src="/cart.jpg" /> 
                 </div>
 

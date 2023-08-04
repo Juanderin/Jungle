@@ -16,9 +16,10 @@ const LoginPage = () => {
     const [password, setPassword] = useState("")
     const history = useHistory();
     const [errors, setErrors] = useState([])
-    // const [error]
+    const demoUsername = 'juan'
+    const demoPassword = 'password'
 
-    // debugger
+   
     if (sessionUser) return <Redirect to='/'/>
     
 
@@ -35,7 +36,6 @@ const LoginPage = () => {
                 data = await res.text();
             }
             if (data?.errors) {
-                // debugger
                 console.log("done");
                 setErrors(data.errors)
             } else if (data) {
@@ -54,7 +54,13 @@ const LoginPage = () => {
         history.push('/signup')
     }
 
+    const handleDemo = (e) => {
 
+        e.preventDefault();
+
+        dispatch(sessionActions.login({ credential: demoUsername, password: demoPassword }))
+
+    }
 
 
     return (
@@ -87,7 +93,9 @@ const LoginPage = () => {
         </label>
         </div>
         <br/>
-        <button type='submit' id='signButton'>Sign In</button>
+            <button type='submit' id='signButton'>Sign In</button>
+        <br />
+            <button type='submit' id='signButton' onClick={handleDemo}>Demo User</button>
         </form>
         <p id='bottomText'>By contining you agree to the Jungle's conditions of use and privacy notice</p>
         </div>

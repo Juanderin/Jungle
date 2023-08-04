@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    gap: 90px;
+    gap: 110px;
     
 }
 
@@ -34,7 +34,7 @@
     border-radius: 3px;
     box-sizing: border-box;
     margin-left: 5px;
-
+    cursor: pointer;
 
 }
 
@@ -50,18 +50,27 @@
     position: relative;
     display: flex;
     align-items: center;
+    border: solid 1px transparent;
+}
+
+#cartButton:hover {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: solid 1px white;
+    cursor: pointer;
 }
   
 #cartAmount {
     position: absolute;
-    top: 5px;
-    right: 35.5px; 
+    top: 4px;
+    right: 37px; 
     font-family: 'Amazon Ember', Arial sans-serif;
     color: rgb(238, 136, 36);
     font-weight: bold;
     border-radius: 50%; 
     padding: 5px;
-    font-size: 14px; 
+    font-size: 16px; 
     z-index: 1; 
 }
 
@@ -108,7 +117,7 @@
     display: flex;
     align-items: center;
     position: relative;
-    width: 900px;
+    width: 630px;
     height: 33px;
     margin-left: 120px;
     margin-top: 4px;
