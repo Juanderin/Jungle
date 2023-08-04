@@ -15,7 +15,7 @@ const ProductsIndexItem = ({product}) => {
         
         <div id='indexItemsContainer'> 
           <Link to={`/products/${product.id}`} id="productLinkContainerIndex">
-            <img id='productImg' src={product.photoUrl} alt='product_image' />
+            <img id='productImgOne' src={product.photoUrl} alt='product_image' />
           <br></br>
             <div id='productInfoContainerOnIndex'>
               <div id='productNameOnIndex'>{product.productName}</div>
