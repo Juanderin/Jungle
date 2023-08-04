@@ -1,64 +1,62 @@
-#signInText{
-    font-size: 10px;
+.signInText{
+    font-size: 12px;
     background-color: rgb(19, 25, 33);
     border: none;
     font-family: 'Amazon Ember', Arial sans-serif;
     color: white;
     text-align: left;
+    
 }
 
 #dropButton{
     position: relative;
-    background-color: rgb(19, 25, 33);
     font-family: 'Amazon Ember', Arial sans-serif;
     color: white;
     height: 40px;
-    width: 100%
+    width: 100%;
+    margin-top: 7px;
+    border: solid 1px transparent; 
+
+}
+
+#accountListingsContainer{
+
+    font-size: 14px;
+    font-weight: bold;
+
 }
 
 
-#dropButton:hover{
-    background-color: rgb(19, 25, 33);
-    font-family: 'Amazon Ember', Arial sans-serif;
-
-}
     
 
 #dropButton:hover {
     background-color: rgb(19, 25, 33);
     font-family: 'Amazon Ember', Arial sans-serif;
     color: white;
-    border: solid white;
+    border: solid white 1px;
     border-radius: 2px;
 }
 
-#carrotContainer{
-    /* position: relative; */
-    /* display: flex; */
-    /* flex-direction: row; */
-    /* justify-content: flex-start; */
-    text-align: left;
-    /* align-content: flex-start; */
-    height: 40px;
-    width: 100%;
-    
-}
 
 #carrot{
     color: rgb(151, 151, 151);
-    font-size: 9.5px;
+    font-size: 15px;
 }
 
+#signedInContainer{
 
-#accountLists{
 
-    font-size: 11.5px;
-    display: block;
-    font-weight: bold;
-
+    border: solid 1px transparent;
+    background-color: transparent;
+    
 }
 
+#signedInContainer:hover{
 
+
+    cursor: pointer;
+
+}
 
 #homeSignInButton{
     height: 23px;
@@ -72,6 +70,14 @@
     justify-content: center;
     align-items: center;
     font-size: 11px;
+    
+
+}
+
+#homeSignInButton:hover{
+
+    background-color: rgb(212, 177, 34);
+    cursor: pointer;
 
 }
 
@@ -79,9 +85,59 @@
     display: block;
     justify-content: column;
     align-items: center;
+    
 } 
 
+#logoutButton{
 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+
+}
+
+#outButton{
+
+    height: 23px;
+    width: 90%;
+    background-color: rgb(254, 214, 54);
+    border-radius: 5px;
+    border: none;
+    margin: 0px 0px 3px;
+    padding: 5px 0px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+
+}
+
+#outButton:hover{
+
+    background-color: rgb(201, 170, 43);
+    cursor: pointer;
+
+}
+
+#loggedinDrop{
+
+    color: rgb(0, 113, 133);
+    position: absolute;
+    border: solid lightgray;
+    background-color: white;
+    height: 50px;
+    width: 200px;
+    left: -50px;
+    z-index: 2;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column;
+    border-radius: 3px;
+    gap: 5px;
+
+}
 
 
 #dropContainer{
@@ -89,15 +145,14 @@
     border: solid lightgray;
     background-color: white;
     height: 100px;
-    width: 400px;
-    /* right: 10px; */
-    left: -150px;
+    width: 300px;
+    left: -90px;
     z-index: 2;
-    display: flex; /* Use flexbox to center the items */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
     flex-direction: column;
-
+    border-radius: 3px;
 }
 
 #overlay {
@@ -114,4 +169,14 @@
     position: relative;
     bottom: 15px;
     width: 200px;
+
 }
+
+
+#newCustomer{
+
+    color: black;
+    font-size: 14px;
+
+}
+

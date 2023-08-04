@@ -15,14 +15,12 @@ const ProductShow = () => {
     const product = useSelector(state => state.products?.[productId])
     const sessionUser = useSelector(state => state.session?.user)
     const userId = sessionUser?.id
-    // const userId = sessionUser
     const history = useHistory();
     const [quantity, setQuantity] = useState(1)
     const priceStr = product?.productPrice?.toLocaleString()
     let price = priceStr?.split(".")
     price = price?.length < 2 ? [price[0], "00"] : price
 
-    // debugger
     
     const handleAddToCart = (e) => {
         e.preventDefault();
@@ -84,7 +82,7 @@ const ProductShow = () => {
             </div>
         </div>
         <div id='showPageDivider'></div>
-
+{/* 
         <div id='showReview'>
                 <div id='ratingBars'>
                     <div id='barTitle'>Customer Reviews</div>
@@ -109,8 +107,9 @@ const ProductShow = () => {
 
                 </div>
             <div id='topReviewsTitle'>Top reviews from the United States</div>
-            {/* <div>Space Filler</div> */}
-        </div>
+        
+        </div> */}
+
         </>
     )
 

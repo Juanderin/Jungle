@@ -3,8 +3,6 @@ import './MainPageForm.css'
 import "@fortawesome/fontawesome-free/css/all.min.css"; 
 import { useSelector } from "react-redux";
 import DropProfile from "../DropProfileButton";
-
-import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 import SearchBar from "./Searchbar";
@@ -12,15 +10,27 @@ import SearchBar from "./Searchbar";
 
 const MainPage = () => {
     const sessionUser = useSelector(state => state.session.user)
+    const cartQuantities = useSelector(state => state.carts)
     const history = useHistory();
+    const quantities = Object.values(cartQuantities).map((item) => item.quantity)
+    const cartQuantity = quantities.reduce((total, quantity) => total + quantity, 0)
+    
+    
+    
+    console.log(cartQuantities, 'waht are thewrererer')
+    console.log(quantities)
+    console.log(cartQuantity)
 
     const handleClick = () => {
 
         history.push("/")
     }
 
+    const handleCart = () => {
 
-// debugger 
+        history.push('/cart')
+
+    }
 
     return (
 
@@ -33,21 +43,20 @@ const MainPage = () => {
                 </div>
 
                 <div id='searchBoxContainer'>
-                    {/* <input id='searchBox' type='text' placeholder="Search The Jungle"/> */}
                     <SearchBar />
-                    <button id='searchButton'>
-                        <div>
-                        <i id='mag' className="fa-solid fa-magnifying-glass" >
-                        </i> 
-                        </div>
-                        </button>
                 </div>
 
                 <div id='dropProfile'>
                     <DropProfile user={sessionUser}/>
                 </div>
+
+
+                <div id="cartButton" onClick={handleCart}>
+                  <div id='cartAmount' >{cartQuantity}</div> 
+                    <img id='cartImg' src="/cart.jpg" /> 
+                </div>
+
            
-    
         </div>
         
         </>

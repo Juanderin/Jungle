@@ -12,7 +12,7 @@ import { useHistory } from "react-router-dom";
 
 
 const DropProfile = ({user}) => {
-    // debugger
+   
     const dispatch = useDispatch();
     const [dropMenu, setDropMenu] = useState(false);
     const [overlay, setOverlay] = useState(false)
@@ -47,15 +47,21 @@ const DropProfile = ({user}) => {
         <div id='dropButton' onMouseEnter={open} onMouseLeave={close}>
           {user ? (
             <>
-              <span>Hello, {user.username}</span>
-              <span>Accounts & Lists</span>
-              <i className='fa-solid fa-caret-down' />
+            <div id='signedInContainer'>
+              <div className='signInText'>Hello, {user.username}</div>
+                <div id='accountListingsContainer'>
+                    <span className='accountLists'>Account & Lists <i id='carrot' className='fa-solid fa-caret-down' />
+                </span>
+                </div>
+              </div>
               {dropMenu && (
                 <>
                   <div id='loggedinDrop'>
-                    <span>{user.email}</span>
+                    <div id='emailBox'>
+                      <span>{user.email}</span>
+                    </div>
                     <div id="logoutButton">
-                      <button onClick={handleClickLogout}>
+                      <button id='outButton' onClick={handleClickLogout}>
                         Log Out
                       </button>
                     </div>
@@ -65,14 +71,13 @@ const DropProfile = ({user}) => {
             </>
           ) : (
             <>
-            <div id='carrotContainer'>
-            <button id='signInText'>Hello, Sign In
-            <br/>
-            <span id='accountLists'>
-              Account & Lists <i id='carrot' className="fa-solid fa-caret-down" />
-            </span>
-            </button>
-            </div>
+            <div id='signedInContainer'>
+              <div className='signInText'>Hello, Sign In</div>
+                <div id='accountListingsContainer'>
+                    <span className='accountLists'>Account & Lists <i id='carrot' className='fa-solid fa-caret-down' />
+                </span>
+                </div>
+              </div>
             {dropMenu &&  (
                 <>
                 <div id='dropContainer'>
@@ -81,13 +86,10 @@ const DropProfile = ({user}) => {
                       Sign In
                     </button>
                   </div>
-                  <div id='newCustomer'>New customer?
-                    <Link to='/signUp'>
-                        Start Here
-                    </Link>
+                  <div id='newCustomer'>New customer? <Link to='/signUp'>  Start Here </Link>
                   </div>
                 </div>
-                {/* <div id='overlay'/> */}
+  
                 </>
             )}
             </>

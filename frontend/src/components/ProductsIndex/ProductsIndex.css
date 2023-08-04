@@ -4,6 +4,17 @@
 
 }
 
+/* #splashBox  */
+
+#productShowPageContainer{
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+}
+
 #indexItemsContainer{
 
     display: flex; 
@@ -34,7 +45,6 @@
     flex-direction: column;
     justify-content: space-between;
     text-decoration: none;
-    /* color: rgb(0, 102, 122); */
     color: black;
     font-family: 'Amazon Ember', Arial sans-serif;
 

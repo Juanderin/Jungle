@@ -25,12 +25,18 @@ const CartShow = () => {
     let items =  Object.values(cart_items).filter((item) => item.userId === userId)
     let selectedProducts = items.map((cartItem) => products[cartItem.productId])
 
-    const subAmount = selectedProducts.length
-    const totalPrice = selectedProducts.reduce((sum, product) => sum + product.productPrice, 0)
+    
+        const quantities = items.reduce((acc, cartItem) => {
+            acc[cartItem.productId] = cartItem.quantity;
+            return acc;
+        }, {});
+
+    const totalPrice = selectedProducts.reduce((sum, product) => sum + (product.productPrice * quantities[product.id]), 0)
+    const totalItems = items.reduce((sum, item) => sum + item.quantity, 0)
     let priceTotal = totalPrice.toLocaleString()
     priceTotal = priceTotal.length < 2 ? [priceTotal[0], ".00"] : priceTotal
 
-
+    console.log(totalPrice, 'the totoala pricelkjdhflskd')
 
     useEffect(() => {
         dispatch(fetchProducts())
@@ -40,11 +46,6 @@ const CartShow = () => {
         history.push("/")
     }
 
-
-    const quantities = items.reduce((acc, cartItem) => {
-        acc[cartItem.productId] = cartItem.quantity;
-        return acc;
-    }, {});
     
     const itemIds = items.reduce((acc, cartItems) => {
         acc[cartItems.productId] = cartItems.id
@@ -95,6 +96,7 @@ const CartShow = () => {
         let price = productPrice.toLocaleString()
         price = price.length < 2 ? [price[0], ".00"] : price
         
+
 
         return (
            
@@ -168,7 +170,7 @@ const CartShow = () => {
                     <div id='eligibleFreeSubtotal'>Your order qualifies for FREE Shipping. <span id='eligibleFreeSubtotalTwo'>Get it upon checkout</span></div>
                         
 
-                        <div id='subtotalHeader'>Subtotal {`(${subAmount} items)`}: ${priceTotal} </div>
+                        <div id='subtotalHeader'>Subtotal {`(${totalItems} items)`}: ${priceTotal} </div>
                         <div id='giftBoxContainer'>
                         <input id='giftCheckbox' type="checkbox"></input>
                         <span id="giftBoxText">This order contains a gift</span>
