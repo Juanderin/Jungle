@@ -8,7 +8,8 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 90px;
     
 }
 
@@ -40,19 +41,36 @@
 
 #mainLogo {
     margin-top: 3px;
-    margin-left: 10px;
     height: 45px;
 }
 
-/* #searchBoxContainer{
 
+
+#cartButton {
+    position: relative;
     display: flex;
-    margin-top: 4px;
-    width: 900px;
-    height: 33px;
+    align-items: center;
+}
   
+#cartAmount {
+    position: absolute;
+    top: 5px;
+    right: 35.5px; 
+    font-family: 'Amazon Ember', Arial sans-serif;
+    color: rgb(238, 136, 36);
+    font-weight: bold;
+    border-radius: 50%; 
+    padding: 5px;
+    font-size: 14px; 
+    z-index: 1; 
+}
 
-} */
+#cartImg {
+    height: 58px;
+    background-color: transparent;
+    margin-bottom: 4px;
+}
+
 
 #searchButton {
     position: relative;
@@ -65,7 +83,7 @@
     margin: 0px;
     width: 50px;
     top: 5px;
-    /* font-size: 13px; */
+
 }
 
 
@@ -80,7 +98,7 @@
 }
 
 #dropProfile{
-    margin-right: 160px;
+
 }
 
 

@@ -10,7 +10,6 @@
 
 #dropButton{
     position: relative;
-    /* background-color: rgb(19, 25, 33); */
     font-family: 'Amazon Ember', Arial sans-serif;
     color: white;
     height: 40px;
@@ -39,7 +38,6 @@
 }
 
 
-
 #carrot{
     color: rgb(151, 151, 151);
     font-size: 15px;
@@ -47,9 +45,10 @@
 
 #signedInContainer{
 
+
     border: solid 1px transparent;
     background-color: transparent;
-
+    
 }
 
 #homeSignInButton{
@@ -82,10 +81,19 @@
     
 } 
 
+#logoutButton{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+
+}
+
 #outButton{
 
     height: 23px;
-    width: 150%;
+    width: 90%;
     background-color: rgb(254, 214, 54);
     border-radius: 5px;
     border: none;
@@ -120,6 +128,7 @@
     align-items: center; 
     flex-direction: column;
     border-radius: 3px;
+    gap: 5px;
 
 }
 

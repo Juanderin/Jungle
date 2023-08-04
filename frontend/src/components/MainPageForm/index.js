@@ -10,7 +10,16 @@ import SearchBar from "./Searchbar";
 
 const MainPage = () => {
     const sessionUser = useSelector(state => state.session.user)
+    const cartQuantities = useSelector(state => state.carts)
     const history = useHistory();
+    const quantities = Object.values(cartQuantities).map((item) => item.quantity)
+    const cartQuantity = quantities.reduce((total, quantity) => total + quantity, 0)
+    
+    
+    
+    console.log(cartQuantities, 'waht are thewrererer')
+    console.log(quantities)
+    console.log(cartQuantity)
 
     const handleClick = () => {
 
@@ -37,8 +46,14 @@ const MainPage = () => {
                 <div id='dropProfile'>
                     <DropProfile user={sessionUser}/>
                 </div>
+
+
+                <div id="cartButton">
+                  <div id='cartAmount'>{cartQuantity}</div> 
+                    <img id='cartImg' src="/cart.jpg" /> 
+                </div>
+
            
-    
         </div>
         
         </>
