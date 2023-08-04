@@ -16,28 +16,28 @@ const ProductShow = () => {
     const sessionUser = useSelector(state => state.session?.user)
     const userId = sessionUser?.id
     const history = useHistory();
-    const [quantity, setQuantity] = useState(1)
     const priceStr = product?.productPrice?.toLocaleString()
     let price = priceStr?.split(".")
     price = price?.length < 2 ? [price[0], "00"] : price
-
+    
     
     const handleAddToCart = (e) => {
         e.preventDefault();
-
+        
         if (!sessionUser) {
             history.push('/login')
         } else {
             dispatch(cartActions.createCart({product_id: productId, user_id: userId, quantity: quantity}))
         }
-
+        
     }
-
+    
     useEffect(() => {
         dispatch(fetchProduct(productId))
     }, [productId])    
-
-
+    
+    const [quantity, setQuantity] = useState(1)
+    
     if (!product) return null
     return(
         <>
