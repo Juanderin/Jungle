@@ -78,7 +78,6 @@ const ProductShow = () => {
                 </select>
                 </div>
                     <button id='addCartButton' onClick={handleAddToCart}>Add to Cart</button>
-                    <button id='buyNowButton'>Buy Now</button>
             </div>
         </div>
         <div id='showPageDivider'></div>

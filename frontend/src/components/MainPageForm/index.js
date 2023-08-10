@@ -4,6 +4,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import { useSelector } from "react-redux";
 import DropProfile from "../DropProfileButton";
 import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import SearchBar from "./Searchbar";
 
@@ -44,6 +45,11 @@ const MainPage = () => {
 
                 <div id='searchBoxContainer'>
                     <SearchBar />
+                </div>
+
+                <div id='myLinks'>
+                    <a href='https://github.com/Juanderin/Jungle'><img id='gitLogo' src='/git-button.png'/></a>
+                    <a href='https://www.linkedin.com/in/juanavilame/'><img id='linkLogo' src='/link-button.png'/></a>
                 </div>
 
                 <div id='dropProfile'>
