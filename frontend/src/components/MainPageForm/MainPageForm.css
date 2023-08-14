@@ -8,9 +8,9 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    gap: 110px;
-    
+    justify-content: space-evenly;
+    gap: 80px;
+    z-index: 999;
 }
 
 #logoLinkContainer{
@@ -21,20 +21,18 @@
     box-sizing: border-box;
     border: solid 1px transparent; 
     border-radius: 3px;
-    margin-left: 5px;
+    /* margin-left: 5px; */
+    position: relative;
+    left: 25px;
 
 }
 
 #logoLinkContainer:hover{
 
-    height: 53px;
-    display: flex;
-    align-items: center;
+  
+
     border: solid 1px white;
-    border-radius: 3px;
-    box-sizing: border-box;
-    margin-left: 5px;
-    cursor: pointer;
+  
 
 }
 
@@ -47,15 +45,17 @@
 
 
 #cartButton {
-    position: relative;
-    right: 140px;
+    /* position: relative; */
+    /* right: 100px; */
     display: flex;
     align-items: center;
     border: solid 1px transparent;
+    position: relative;
+    right: 40px;
 }
 
 #cartButton:hover {
-    position: relative;
+    /* position: relative; */
     display: flex;
     align-items: center;
     border: solid 1px white;
@@ -63,22 +63,24 @@
 }
   
 #cartAmount {
-    position: absolute;
-    top: 4px;
-    right: 37px; 
+    position: relative;
+    bottom: 8px;
+    /* right: 0px;  */
+    left: 38px;
     font-family: 'Amazon Ember', Arial sans-serif;
     color: rgb(238, 136, 36);
     font-weight: bold;
     border-radius: 50%; 
     padding: 5px;
     font-size: 16px; 
-    z-index: 1; 
+    z-index: 4; 
 }
 
 #cartImg {
     height: 58px;
     background-color: transparent;
     margin-bottom: 4px;
+    z-index: -1;
 }
 
 
@@ -144,6 +146,12 @@
 #search-input::placeholder{
 
 font-size: 15px;
+
+}
+
+#dropProfile{
+
+    width: 115px;
 
 }
 
@@ -217,6 +225,8 @@ font-size: 15px;
 }
 
 #myLinks{
+    display: flex;
+    flex-direction: row;
     margin-top: 3px;
     height: 48px;
     background-color: white;
