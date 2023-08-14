@@ -45,7 +45,8 @@
 
 #signedInContainer{
 
-
+    /* width: 110px; */
+    width: 115px;
     border: solid 1px transparent;
     background-color: transparent;
     
