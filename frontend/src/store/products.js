@@ -2,7 +2,7 @@ import csrfFetch from "./csrf"
 
 
 export const RECEIVE_ALL_PRODUCTS = 'products/RECEIVE_ALL_PRODUCTS'
-const RECEIVE_PRODUCT = 'products/RECEIVE_PRODUCT'
+export const RECEIVE_PRODUCT = 'products/RECEIVE_PRODUCT'
 
 
 const receiveProducts = (data) => {
@@ -13,10 +13,10 @@ const receiveProducts = (data) => {
 }
 
 
-const receiveProduct = (product) => {
+const receiveProduct = (data) => {
     return ({
         type: RECEIVE_PRODUCT,
-        product
+        data
     })
 }
 
@@ -56,9 +56,11 @@ export const productsReducer = (state = initialState, action) => {
 
     switch(action.type) {
         case RECEIVE_ALL_PRODUCTS:
+            console.log(action.data, 'all products')
             return {...newState, ...action.data.products}
         case RECEIVE_PRODUCT:
-            return {...newState, ...action.product}
+            console.log(action.data, 'this the product')
+            return {...newState, ...action.data.product}
         default:
             return state;
     }

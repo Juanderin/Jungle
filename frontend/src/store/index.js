@@ -4,12 +4,14 @@ import userReducer from './sessionReducer';
 import { productsReducer } from './products';
 import cartReducer from './cart';
 import searhReducer from './search';
+import reviewReducer from './review';
 
 const rootReducer = combineReducers({
   session: userReducer,
   products: productsReducer,
   carts: cartReducer,
-  search: searhReducer
+  search: searhReducer,
+  reviews: reviewReducer
 });
 
 // const enhancer = applyMiddleware(thunk)
