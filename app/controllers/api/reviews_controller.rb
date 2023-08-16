@@ -12,7 +12,9 @@ class Api::ReviewsController < ApplicationController
 
     def show 
 
-        @reviews = Review.all.where(product_id: params[:product_id])
+        # @reviews = Review.all.where(product_id: params[:product_id])
+
+        @review = Review.find_by(id: params[:id])
 
         render :show 
 
@@ -57,7 +59,7 @@ class Api::ReviewsController < ApplicationController
 
     end 
 
-
+2
     def review_params
 
         params.require(:review).permit(:id, :title, :body, :rating, :user_id, :product_id)

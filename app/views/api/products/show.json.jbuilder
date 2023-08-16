@@ -6,3 +6,13 @@ json.product do
      end 
      
 end 
+
+json.reviews({})
+
+    json.reviews do 
+        @product_reviews&.each do |review|
+            json.set! review.id do 
+                json.extract! review, :id, :title, :body, :rating, :user_id, :product_id, :created_at, :updated_at
+            end 
+        end 
+    end 
