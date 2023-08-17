@@ -40,7 +40,7 @@ export const fetchProduct = (productId) => async dispatch => {
     const data = await res.json();
 
 
-    dispatch(receiveProduct(data.product))
+    dispatch(receiveProduct(data))
     return res
 
 }
@@ -56,10 +56,8 @@ export const productsReducer = (state = initialState, action) => {
 
     switch(action.type) {
         case RECEIVE_ALL_PRODUCTS:
-            console.log(action.data, 'all products')
             return {...newState, ...action.data.products}
         case RECEIVE_PRODUCT:
-            console.log(action.data, 'this the product')
             return {...newState, ...action.data.product}
         default:
             return state;

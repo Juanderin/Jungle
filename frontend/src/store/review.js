@@ -93,10 +93,9 @@ const reviewReducer = (state = {}, action) => {
     switch (action.type) {
 
         case RECEIVE_PRODUCT:
-            console.log(action.data, 'this is reviews')
             return {...state, ...action.data.reviews}
-        case RECEIVE_ALL_PRODUCTS:
-            return {...state, ...action.data.reviews}
+        // case RECEIVE_ALL_PRODUCTS:
+        //     return {...state, ...action.data.reviews}
         case RECEIVE_REVIEWS:
             return {...state, ...action.reviews}
         case RECEIVE_NEW_REVIEW: 
