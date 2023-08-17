@@ -14,13 +14,14 @@ const ProductShow = () => {
     const productId = useParams().productId
     const product = useSelector(state => state.products?.[productId])
     const sessionUser = useSelector(state => state.session?.user)
+    const reviews = useSelector(state => state.reviews)
     const userId = sessionUser?.id
     const history = useHistory();
     const priceStr = product?.productPrice?.toLocaleString()
     let price = priceStr?.split(".")
     price = price?.length < 2 ? [price[0], "00"] : price
     
-    
+    console.log(reviews, 'this is a review')
     const handleAddToCart = (e) => {
         e.preventDefault();
         
@@ -39,7 +40,21 @@ const ProductShow = () => {
     const [quantity, setQuantity] = useState(1)
     
     if (!product) return null
-    return(
+
+
+    let organizedReviews = Object.values(reviews).map((review) => {
+
+        return (
+          <div id='reviewContent'>
+            <div>{review.title}</div>
+            
+          </div>
+        )
+
+    })
+
+
+    return (
         <>
 
         <MainPage />
@@ -81,33 +96,35 @@ const ProductShow = () => {
             </div>
         </div>
         <div id='showPageDivider'></div>
-{/* 
+
         <div id='showReview'>
                 <div id='ratingBars'>
                     <div id='barTitle'>Customer Reviews</div>
                     <br/>
-                <div className="ratingMeter">
-                    <div className="ratingFiller" style={{ width: '0%' }}></div>
-                </div>
-                <div className="ratingMeter">
-                    <div className="ratingFiller" style={{ width: '100%' }}></div>
-                </div>
-                <div className="ratingMeter">
-                    <div className="ratingFiller" style={{ width: '20%' }}></div>
-                </div>
-                <div className="ratingMeter">
-                    <div className="ratingFiller" style={{ width: '0%' }}></div>
-                </div>
-                <div className="ratingMeter">
-                    <div className="ratingFiller" style={{ width: '0%' }}></div>
-                </div>
+                    <div className="ratingMeter">
+                        <div className="ratingFiller" style={{ width: '0%' }}></div>
+                    </div>
+                    <div className="ratingMeter">
+                        <div className="ratingFiller" style={{ width: '100%' }}></div>
+                    </div>
+                    <div className="ratingMeter">
+                        <div className="ratingFiller" style={{ width: '20%' }}></div>
+                    </div>
+                    <div className="ratingMeter">
+                        <div className="ratingFiller" style={{ width: '0%' }}></div>
+                    </div>
+                    <div className="ratingMeter">
+                        <div className="ratingFiller" style={{ width: '0%' }}></div>
+                    </div>
                 <br/>
                 <div id='showPageDivider'></div>
 
                 </div>
-            <div id='topReviewsTitle'>Top reviews from the United States</div>
-        
-        </div> */}
+                <div id='topReviewsTitle'>Top reviews from the United States
+                    {/* <div id='reviewContent'>{Object.values(reviews).map((review) => {return <p>{review.body}</p>})}</div> */}
+                    {organizedReviews}
+                </div>
+                </div>
 
         </>
     )
