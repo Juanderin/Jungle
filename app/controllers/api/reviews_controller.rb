@@ -12,9 +12,10 @@ class Api::ReviewsController < ApplicationController
 
     def show 
 
-        # @reviews = Review.all.where(product_id: params[:product_id])
+        @reviews = Review.all.where(product_id: params[:id])
 
-        @review = Review.find_by(id: params[:id])
+        @users = User.all 
+        # @review = Review.find_by(id: params[:id])
 
         render :show 
 

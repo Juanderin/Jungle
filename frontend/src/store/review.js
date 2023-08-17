@@ -57,6 +57,16 @@ export const fetchReviews = () => async dispatch => {
 }
 
 
+export const fetchProductReviews = (productId) => async dispatch => {
+
+    const res = await csrfFetch(`/api/reviews/${productId}`)
+
+    const reviews = await res.json();
+
+    dispatch(receiveReviews(reviews))
+}
+
+
 export const createReview = (data) => async dispatch => {
 
     const res = await csrfFetch('/api/reviews', {
@@ -66,7 +76,7 @@ export const createReview = (data) => async dispatch => {
 
 
     const review = await res.json();
-
+    // console.log(review, 'this is what the review will look like how you can fix')
     dispatch(receiveReview(review))
 
 }
@@ -89,26 +99,27 @@ export const deleteReview = (reviewId) => async dispatch => {
 
 const reviewReducer = (state = {}, action) => {
 
+   const newState = {...state}
 
     switch (action.type) {
 
-        case RECEIVE_PRODUCT:
-            return {...state, ...action.data}
+        // case RECEIVE_PRODUCT:
+        //     return {...state, ...action.data}
         // case RECEIVE_ALL_PRODUCTS:
         //     return {...state, ...action.data.reviews}
         case RECEIVE_REVIEWS:
-            return {...state, ...action.reviews}
-        case RECEIVE_NEW_REVIEW: 
-            return {...state, [action.review.id]: action.review}
+            return {...newState, ...action.reviews}
+        // case RECEIVE_NEW_REVIEW: 
+        //     return {...newState, [action.review.id]: action.review}
         case REMOVE_REVIEW: 
-            delete state[action.reviewId]
-            return {...state}
+            delete newState.reviews[action.reviewId]
+            return newState
         default: 
-            return state
+            return newState
 
     }
 
-
 };
+
 
 export default reviewReducer;

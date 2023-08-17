@@ -7,13 +7,16 @@ import "./ProductShowPage.css"
 import * as cartActions from '../../store/cart'
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import MainPage from "../MainPageForm";
-import { createReview, deleteReview} from "../../store/review";
+import ReviewForm from "../ReviewFormPage";
+import { createReview, deleteReview, fetchProductReviews} from "../../store/review";
+
 
 const ProductShow = () => {
     const dispatch = useDispatch();
     const productId = useParams().productId
     const product = useSelector(state => state.products?.[productId])
     const sessionUser = useSelector(state => state.session?.user)
+    const test = useSelector(state => state.reviews)
     const reviews = useSelector(state => state.reviews?.reviews)
     const users = useSelector(state => state.reviews?.users)
     const userId = sessionUser?.id
@@ -27,13 +30,11 @@ const ProductShow = () => {
     const [body, setBody] = useState("")
   
 
-    console.log(sessionUser)
-    console.log(reviews, 'this is nested reviews')
-    console.log(users, 'this is users')
+    // console.log(sessionUser)
+    // console.log(reviews, 'this is nested reviews')
+    // console.log(users, 'this is users')
 
-    // const 
-
-
+    console.log(test, 'this is what you get back from test')
     const handleAddToCart = (e) => {
         e.preventDefault();
         
@@ -45,28 +46,31 @@ const ProductShow = () => {
         
     }
     
-    useEffect(() => {
-        dispatch(fetchProduct(productId))
-    }, [productId])    
-    
-
     const handleReviewRedirect = () => {
         
+        history.push('/review/:productId')
+        
     }
-
+    
     const handleClick = () => {
-
+        
         dispatch(createReview({title: 'Good ol set, they are hefty', body: 'not much to say, impressive set of dumbells that hold up to the test of time', 
         rating: 5, user_id: sessionUser.id, product_id: productId
     }))
-
-    }
+        // dispatch(fetchProductReviews(productId))
+}
 
     const handleDelete = (reviewId) => {
         
         dispatch(deleteReview(reviewId))
-        
+        // dispatch(fetchProductReviews(productId))
     }
+
+useEffect(() => {
+    dispatch(fetchProduct(productId))
+    dispatch(fetchProductReviews(productId))
+}, [dispatch, productId])    
+
     
     if (!product) return null
 
@@ -160,11 +164,10 @@ const ProductShow = () => {
                 <div id='reviewContent'>
                     <div id='topReviewsTitle'>Top reviews from the United States </div>
                     <br/>
-                        {/* <div id='reviewContent'>{Object.values(reviews).map((review) => {return <p>{review.body}</p>})}</div> */}
-                        {organizedReviews.length > 0 ? organizedReviews : 
+                        {organizedReviews?.length > 0 ? organizedReviews : 
                         <>
                         <div>No Reviews for This Product</div>
-                        <button onClick={handleReviewRedirect}>Review this product</button>
+                        <button onClick={handleClick}>Review this product</button>
                         </>}
                     </div>
                 </div>

@@ -8,6 +8,7 @@ import ProductShow from "./components/ProductShowPage";
 import CartShow from "./components/CartShowPage";
 import ProductsIndex from "./components/ProductsIndex";
 import SearchShowPage from "./components/SearchShowPage";
+import ReviewForm from "./components/ReviewFormPage";
 import Navigation from "./components/Navigation";
 import { Redirect } from "react-router-dom/";
 import './index.css';
@@ -32,6 +33,7 @@ const App = () => {
     <Route exact path='/' component={HomePage} />
     <Route path='/login' component={LoginPage}/>
     <Route path={"/products/:productId"}><ProductShow/></Route>
+    <Route path={'/review/:productId'} component={ReviewForm}/>
     <Route path='/search'><SearchShowPage /></Route>
     <Route path='/main' component={MainPage} />
     <Route path='/cart' component={CartShow} />
