@@ -7,21 +7,33 @@ import "./ProductShowPage.css"
 import * as cartActions from '../../store/cart'
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import MainPage from "../MainPageForm";
-
+import { createReview, deleteReview} from "../../store/review";
 
 const ProductShow = () => {
     const dispatch = useDispatch();
     const productId = useParams().productId
     const product = useSelector(state => state.products?.[productId])
     const sessionUser = useSelector(state => state.session?.user)
-    const reviews = useSelector(state => state.reviews)
+    const reviews = useSelector(state => state.reviews?.reviews)
+    const users = useSelector(state => state.reviews?.users)
     const userId = sessionUser?.id
     const history = useHistory();
     const priceStr = product?.productPrice?.toLocaleString()
     let price = priceStr?.split(".")
     price = price?.length < 2 ? [price[0], "00"] : price
-    
-    console.log(reviews, 'this is a review')
+    const [quantity, setQuantity] = useState(1)
+    const [rating, setRating] = useState()
+    const [title, setTitle] = useState("")
+    const [body, setBody] = useState("")
+  
+
+    console.log(sessionUser)
+    console.log(reviews, 'this is nested reviews')
+    console.log(users, 'this is users')
+
+    // const 
+
+
     const handleAddToCart = (e) => {
         e.preventDefault();
         
@@ -37,21 +49,46 @@ const ProductShow = () => {
         dispatch(fetchProduct(productId))
     }, [productId])    
     
-    const [quantity, setQuantity] = useState(1)
+
+    const handleReviewRedirect = () => {
+        
+    }
+
+    const handleClick = () => {
+
+        dispatch(createReview({title: 'Good ol set, they are hefty', body: 'not much to say, impressive set of dumbells that hold up to the test of time', 
+        rating: 5, user_id: sessionUser.id, product_id: productId
+    }))
+
+    }
+
+    const handleDelete = (reviewId) => {
+        
+        dispatch(deleteReview(reviewId))
+        
+    }
     
     if (!product) return null
 
 
-    let organizedReviews = Object.values(reviews).map((review) => {
+    let organizedReviews = reviews ? Object.values(reviews).map((review) => {
+        
+        const deleteButton = sessionUser?.id === review.userId ? true : false
+     
 
         return (
           <div id='reviewContent'>
-            <div>{review.title}</div>
+
+            <div id='reviewUser'>{users[review.userId].username.charAt(0).toUpperCase() + users[review.userId].username.slice(1)}</div>
+            <div><span id='rating'>({review.rating} out of 5 stars)</span> <span id='reviewTitle'>{review.title}</span></div>
+            <div id='verifiedReview'>Verified Purchase</div>
+            <div id='ratingBody'>{review.body}</div>
+            {deleteButton ? <button onClick={() => handleDelete(review.id)}>Delete Review</button> : <button onClick={handleClick}>Submit New Review</button>}
             
           </div>
         )
 
-    })
+    }) :  null
 
 
     return (
@@ -120,10 +157,16 @@ const ProductShow = () => {
                 <div id='showPageDivider'></div>
 
                 </div>
-                <div id='topReviewsTitle'>Top reviews from the United States
-                    {/* <div id='reviewContent'>{Object.values(reviews).map((review) => {return <p>{review.body}</p>})}</div> */}
-                    {organizedReviews}
-                </div>
+                <div id='reviewContent'>
+                    <div id='topReviewsTitle'>Top reviews from the United States </div>
+                    <br/>
+                        {/* <div id='reviewContent'>{Object.values(reviews).map((review) => {return <p>{review.body}</p>})}</div> */}
+                        {organizedReviews.length > 0 ? organizedReviews : 
+                        <>
+                        <div>No Reviews for This Product</div>
+                        <button onClick={handleReviewRedirect}>Review this product</button>
+                        </>}
+                    </div>
                 </div>
 
         </>

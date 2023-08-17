@@ -7,6 +7,10 @@ class Api::ProductsController < ApplicationController
 
         @product_reviews = Review.all.where(product_id: params[:id])
 
+
+        @users = User.all
+     
+
         render :show
     
     end 

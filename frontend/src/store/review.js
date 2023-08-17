@@ -59,7 +59,7 @@ export const fetchReviews = () => async dispatch => {
 
 export const createReview = (data) => async dispatch => {
 
-    const res = await csrfFetch('api/reviews', {
+    const res = await csrfFetch('/api/reviews', {
         method: 'POST',
         body: JSON.stringify(data)
     })
@@ -93,7 +93,7 @@ const reviewReducer = (state = {}, action) => {
     switch (action.type) {
 
         case RECEIVE_PRODUCT:
-            return {...state, ...action.data.reviews}
+            return {...state, ...action.data}
         // case RECEIVE_ALL_PRODUCTS:
         //     return {...state, ...action.data.reviews}
         case RECEIVE_REVIEWS:
