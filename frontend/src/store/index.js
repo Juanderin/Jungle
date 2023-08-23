@@ -1,17 +1,19 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import userReducer from './sessionReducer';
+import sessionReducer from './sessionReducer';
 import { productsReducer } from './products';
 import cartReducer from './cart';
 import searhReducer from './search';
 import reviewReducer from './review';
+import usersReducer from './users';
 
 const rootReducer = combineReducers({
-  session: userReducer,
+  session: sessionReducer,
   products: productsReducer,
   carts: cartReducer,
   search: searhReducer,
-  reviews: reviewReducer
+  reviews: reviewReducer,
+  // users: usersReducer
 });
 
 // const enhancer = applyMiddleware(thunk)

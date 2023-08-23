@@ -16,9 +16,8 @@ const ProductShow = () => {
     const productId = useParams().productId
     const product = useSelector(state => state.products?.[productId])
     const sessionUser = useSelector(state => state.session?.user)
-    const test = useSelector(state => state.reviews)
-    const reviews = useSelector(state => state.reviews?.reviews)
-    const users = useSelector(state => state.reviews?.users)
+    const reviews = useSelector(state => state?.reviews)
+    const users = useSelector(state => state.users)
     const userId = sessionUser?.id
     const history = useHistory();
     const priceStr = product?.productPrice?.toLocaleString()
@@ -30,11 +29,7 @@ const ProductShow = () => {
     const [body, setBody] = useState("")
   
 
-    // console.log(sessionUser)
-    // console.log(reviews, 'this is nested reviews')
-    // console.log(users, 'this is users')
 
-    console.log(test, 'this is what you get back from test')
     const handleAddToCart = (e) => {
         e.preventDefault();
         
@@ -57,13 +52,13 @@ const ProductShow = () => {
         dispatch(createReview({title: 'Good ol set, they are hefty', body: 'not much to say, impressive set of dumbells that hold up to the test of time', 
         rating: 5, user_id: sessionUser.id, product_id: productId
     }))
-        // dispatch(fetchProductReviews(productId))
+        dispatch(fetchProductReviews(productId))
 }
 
     const handleDelete = (reviewId) => {
         
         dispatch(deleteReview(reviewId))
-        // dispatch(fetchProductReviews(productId))
+        dispatch(fetchProductReviews(productId))
     }
 
 useEffect(() => {
@@ -83,7 +78,7 @@ useEffect(() => {
         return (
           <div id='reviewContent'>
 
-            <div id='reviewUser'>{users[review.userId].username.charAt(0).toUpperCase() + users[review.userId].username.slice(1)}</div>
+            {/* <div id='reviewUser'>{users[review.userId].username.charAt(0).toUpperCase() + users[review.userId].username.slice(1)}</div> */}
             <div><span id='rating'>({review.rating} out of 5 stars)</span> <span id='reviewTitle'>{review.title}</span></div>
             <div id='verifiedReview'>Verified Purchase</div>
             <div id='ratingBody'>{review.body}</div>

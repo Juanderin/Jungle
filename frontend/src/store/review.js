@@ -3,7 +3,7 @@ import { RECEIVE_ALL_PRODUCTS } from "./products"
 import { RECEIVE_PRODUCT } from "./products"
 
 const RECEIVE_NEW_REVIEW = 'reviews/RECEIVE_NEW_REVIEW'
-const RECEIVE_REVIEWS = 'reviews/RECEIVE_REVIEWS'
+export const RECEIVE_REVIEWS = 'reviews/RECEIVE_REVIEWS'
 const REMOVE_REVIEW = 'reviews/REMOVE_REVIEW'
 
 
@@ -95,9 +95,9 @@ export const deleteReview = (reviewId) => async dispatch => {
 }
 
 
+const initialState = null
 
-
-const reviewReducer = (state = {}, action) => {
+const reviewReducer = (state = initialState, action) => {
 
    const newState = {...state}
 
@@ -108,11 +108,11 @@ const reviewReducer = (state = {}, action) => {
         // case RECEIVE_ALL_PRODUCTS:
         //     return {...state, ...action.data.reviews}
         case RECEIVE_REVIEWS:
-            return {...newState, ...action.reviews}
-        // case RECEIVE_NEW_REVIEW: 
-        //     return {...newState, [action.review.id]: action.review}
+            return {...newState, ...action.reviews.reviews}
+        case RECEIVE_NEW_REVIEW: 
+            return {...newState, [action.review.id]: action.review}
         case REMOVE_REVIEW: 
-            delete newState.reviews[action.reviewId]
+            delete newState[action.reviewId]
             return newState
         default: 
             return newState
