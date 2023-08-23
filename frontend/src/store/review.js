@@ -74,11 +74,6 @@ export const createReview = (data) => async dispatch => {
         body: JSON.stringify(data)
     })
 
-
-    const review = await res.json();
-    // console.log(review, 'this is what the review will look like how you can fix')
-    dispatch(receiveReview(review))
-
 }
 
 
@@ -103,14 +98,9 @@ const reviewReducer = (state = {}, action) => {
 
     switch (action.type) {
 
-        // case RECEIVE_PRODUCT:
-        //     return {...state, ...action.data}
-        // case RECEIVE_ALL_PRODUCTS:
-        //     return {...state, ...action.data.reviews}
+
         case RECEIVE_REVIEWS:
             return {...newState, ...action.reviews}
-        // case RECEIVE_NEW_REVIEW: 
-        //     return {...newState, [action.review.id]: action.review}
         case REMOVE_REVIEW: 
             delete newState.reviews[action.reviewId]
             return newState

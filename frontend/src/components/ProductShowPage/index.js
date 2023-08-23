@@ -16,7 +16,6 @@ const ProductShow = () => {
     const productId = useParams().productId
     const product = useSelector(state => state.products?.[productId])
     const sessionUser = useSelector(state => state.session?.user)
-    const test = useSelector(state => state.reviews)
     const reviews = useSelector(state => state.reviews?.reviews)
     const users = useSelector(state => state.reviews?.users)
     const userId = sessionUser?.id
@@ -30,11 +29,8 @@ const ProductShow = () => {
     const [body, setBody] = useState("")
   
 
-    // console.log(sessionUser)
-    // console.log(reviews, 'this is nested reviews')
-    // console.log(users, 'this is users')
 
-    console.log(test, 'this is what you get back from test')
+
     const handleAddToCart = (e) => {
         e.preventDefault();
         
@@ -48,7 +44,7 @@ const ProductShow = () => {
     
     const handleReviewRedirect = () => {
         
-        history.push('/review/:productId')
+        history.push(`/review/${productId}`)
         
     }
     
@@ -57,19 +53,19 @@ const ProductShow = () => {
         dispatch(createReview({title: 'Good ol set, they are hefty', body: 'not much to say, impressive set of dumbells that hold up to the test of time', 
         rating: 5, user_id: sessionUser.id, product_id: productId
     }))
-        // dispatch(fetchProductReviews(productId))
+        dispatch(fetchProductReviews(productId))
 }
 
     const handleDelete = (reviewId) => {
         
         dispatch(deleteReview(reviewId))
-        // dispatch(fetchProductReviews(productId))
+        dispatch(fetchProductReviews(productId))
     }
 
-useEffect(() => {
-    dispatch(fetchProduct(productId))
-    dispatch(fetchProductReviews(productId))
-}, [dispatch, productId])    
+    useEffect(() => {
+        dispatch(fetchProduct(productId))
+        dispatch(fetchProductReviews(productId))
+    }, [dispatch, productId])    
 
     
     if (!product) return null
@@ -167,7 +163,7 @@ useEffect(() => {
                         {organizedReviews?.length > 0 ? organizedReviews : 
                         <>
                         <div>No Reviews for This Product</div>
-                        <button onClick={handleClick}>Review this product</button>
+                        <button onClick={handleReviewRedirect}>Review this product</button>
                         </>}
                     </div>
                 </div>
