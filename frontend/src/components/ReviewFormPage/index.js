@@ -17,56 +17,67 @@ const ReviewForm = () => {
         dispatch(fetchProduct(productId))
     }, [productId])    
 
+    
+    const handleSubmit = () => {
 
+
+
+    }
 
     return (
 
         <>
         <MainPage />
-        <div id='adjustmentContainer'>
-            <div id='reviewMainContainer'>
-                <div id='reviewTitlePage'>Create Review</div>
-                    <div id='itemDescription'>
-                        <img id='productReviewImg' src={product?.photoUrl}></img>
-                        <div id='reviewNameContainer'>
-                            <div id='reviewName'>{product?.productName}</div>
+        <form onSubmit={handleSubmit}>
+            <div id='adjustmentContainer'>
+                <div id='reviewMainContainer'>
+            
+                    <div id='reviewTitlePage'>Create Review</div>
+                        <div id='itemDescription'>
+                            <img id='productReviewImg' src={product?.photoUrl}></img>
+                            <div id='reviewNameContainer'>
+                                <div id='reviewName'>{product?.productName}</div>
+                            </div>
+                        </div>
+                    <div id='showPageDivider'></div>
+                    <div id='reviewFormDrop' className='formHeaders'>Overall Rating
+                
+                        <div id='dropRatingShow'>
+                            <label id="dropRating"></label>
+                                <select id="dropdownRating">
+                                    <option value="1">1 Star</option>
+                                    <option value="2">2 Stars</option>
+                                    <option value="3">3 Stars</option>
+                                    <option value="4">4 Stars</option>
+                                    <option value="5">5 Stars</option>
+                                </select>
                         </div>
                     </div>
-                <div id='showPageDivider'></div>
-                <div id='reviewFormDrop' className='formHeaders'>Overall Rating
-            
-                    <div id='dropRatingShow'>
-                        <label id="dropRating"></label>
-                            <select id="dropdownRating">
-                                <option value="1">1 Star</option>
-                                <option value="2">2 Stars</option>
-                                <option value="3">3 Stars</option>
-                                <option value="4">4 Stars</option>
-                                <option value="5">5 Stars</option>
-                            </select>
+
+                    <div id='showPageDivider'></div>
+
+                    <div id='reviewFormHeadline' className='formHeaders'>Add a headline
+                        <input id='reviewHeadline' type='textbox' placeholder='Whats most important to know?'></input>
+
+
+                    </div>
+
+                    <div id='showPageDivider'></div>
+
+                    <div id='reviewFormContent' className='formHeaders'>Add a written review
+                        <textarea id='reviewContent' type='textbox' placeholder='What did you like or dislike? What did you use this product for?'></textarea>
+
+
+                    </div>
+
+                    <div id='showPageDivider'></div>
+                    <div id='submitButtonContainer'>
+                        <input id='reviewFormSubmit' type='submit' value='Submit'></input>
                     </div>
                 </div>
-
-                <div id='showPageDivider'></div>
-
-                <div id='reviewFormHeadline' className='formHeaders'>Add a headline
-                    <input id='reviewHeadline' type='textbox' placeholder='Whats most important to know?'></input>
-
-
-                </div>
-
-                <div id='showPageDivider'></div>
-
-                <div id='reviewFormContent' className='formHeaders'>Add a written review
-                    <textarea id='reviewContent' type='textbox' placeholder='What did you like or dislike? What did you use this product for?'></textarea>
-
-
-                </div>
-
-                <div id='showPageDivider'></div>
-
+        
             </div>
-        </div>
+        </form>
        </>
     )
 

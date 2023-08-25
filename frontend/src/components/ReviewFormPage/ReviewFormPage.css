@@ -63,7 +63,7 @@
 
 #dropdownRating{
 
-    width: 100%;
+    width: auto;
     height: 100%;
     font-size: 17px;
     padding: 3px;
@@ -131,4 +131,30 @@
 
 }
 
+#submitButtonContainer{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+
+
+}
+
+
+#reviewFormSubmit{
+
+    background-color: rgb(254, 214, 54);
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+    height: 30px;
+    width: 64px;
+}
+
+#reviewFormSubmit:hover{
+
+    background-color: rgb(240, 201, 41);
+
+}
 
