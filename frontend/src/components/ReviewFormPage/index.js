@@ -2,10 +2,11 @@ import './ReviewFormPage.css'
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { fetchProduct } from "../../store/products";
-import { fetchProductReviews } from '../../store/review';
+import { fetchProductReviews, fetchUserProductReview } from '../../store/review';
 import { useParams } from "react-router-dom/";
 import { createReview } from "../../store/review"
 import { useHistory } from 'react-router-dom/';
+import { Link } from 'react-router-dom/';
 import MainPage from "../MainPageForm";
 
 const ReviewForm = () => {
@@ -14,28 +15,18 @@ const ReviewForm = () => {
     const productId = useParams().productId
     const product = useSelector(state => state.products?.[productId])
     const sessionUser = useSelector(state => state.session?.user)
-    const reviews = useSelector(state => state.reviews?.reviews)
+    const review = useSelector(state => state.reviews?.review?.[productId])
     const userId = sessionUser?.id
-    const [title, setTitle] = useState();
-    const [body, setBody] = useState(); 
-    const [rating, setRating] = useState();
+    const [title, setTitle] = useState(review?.title);
+    const [body, setBody] = useState(review?.body); 
+    const [rating, setRating] = useState(review?.rating);
     
     
     useEffect(() => {
         dispatch(fetchProduct(productId))
-        dispatch(fetchProductReviews(productId))
+        dispatch(fetchUserProductReview(productId))
     }, [dispatch, productId])    
     
-
-    if (reviews) {
-
-        let hasReviewed = Object.values(reviews).some((review) => sessionUser?.id === review?.userId)
-
-        if (hasReviewed) {
-            history.push(`/products/${productId}`)
-        }
-        
-    }
 
     
     const handleSubmit = () => {
@@ -54,7 +45,9 @@ const ReviewForm = () => {
             
                     <div id='reviewTitlePage'>Create Review</div>
                         <div id='itemDescription'>
-                            <img id='productReviewImg' src={product?.photoUrl}></img>
+                            <div id='photoContainer'>
+                                <Link id='linkContainer' to={`/products/${productId}`}><img id='productReviewImg' src={product?.photoUrl}/></Link>
+                            </div>
                             <div id='reviewNameContainer'>
                                 <div id='reviewName'>{product?.productName}</div>
                             </div>
@@ -64,7 +57,7 @@ const ReviewForm = () => {
                 
                         <div id='dropRatingShow'>
                             <label id="dropRating"></label>
-                                <select id="dropdownRating" value={rating} onChange={(e) => setRating(e.target.value)}>
+                                <select id="dropdownRating" value={rating ? rating : '1'} onChange={(e) => setRating(e.target.value)}>
                                     <option value="1">1 Star</option>
                                     <option value="2">2 Stars</option>
                                     <option value="3">3 Stars</option>

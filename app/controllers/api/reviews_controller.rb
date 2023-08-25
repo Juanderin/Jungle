@@ -22,6 +22,16 @@ class Api::ReviewsController < ApplicationController
     end 
 
 
+    def user_review
+
+    
+        @review = Review.where(product_id: params[:id], user_id: current_user.id)
+
+        render :user_review
+
+    end 
+
+
     def create 
 
         @review = Review.new(review_params)

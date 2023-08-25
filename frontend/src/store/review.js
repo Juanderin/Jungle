@@ -67,6 +67,16 @@ export const fetchProductReviews = (productId) => async dispatch => {
 }
 
 
+export const fetchUserProductReview = (productId) => async dispatch => {
+
+    const res = await csrfFetch(`/api/review/${productId}`)
+
+    const review = await res.json();
+
+    dispatch(receiveReviews(review))
+
+}
+
 export const createReview = (data) => async dispatch => {
 
     const res = await csrfFetch('/api/reviews', {

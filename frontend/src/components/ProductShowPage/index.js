@@ -77,15 +77,16 @@ const ProductShow = () => {
     const handleReviewRedirect = () => {
         
      
-        let hasReviewed = Object.values(reviews).some((review) => sessionUser?.id === review.userId);
+        // let hasReviewed = Object.values(reviews).some((review) => sessionUser?.id === review.userId);
     
-        if (hasReviewed) {
-            alert('You have already reviewed this product')
-        } else {
-            history.push(`/review/${productId}`)
-        }
+        // if (hasReviewed) {
+        //     alert('You have already reviewed this product')
+        // } else {
+        //     history.push(`/review/${productId}`)
+        // }
+    
+        history.push(`/review/${productId}`)
 
-        
     }
     
     
