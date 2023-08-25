@@ -42,55 +42,53 @@ const ProductShow = () => {
         
     }
     
-    const handleReviewRedirect = () => {
-        
-        history.push(`/review/${productId}`)
-        
-    }
-    
-    const handleClick = () => {
-        
-        dispatch(createReview({title: 'Good ol set, they are hefty', body: 'not much to say, impressive set of dumbells that hold up to the test of time', 
-        rating: 5, user_id: sessionUser.id, product_id: productId
-    }))
-        dispatch(fetchProductReviews(productId))
-}
-
     const handleDelete = (reviewId) => {
-        
         dispatch(deleteReview(reviewId))
         dispatch(fetchProductReviews(productId))
     }
-
+    
     useEffect(() => {
         dispatch(fetchProduct(productId))
         dispatch(fetchProductReviews(productId))
     }, [dispatch, productId])    
-
+    
     
     if (!product) return null
-
-
+    
+    
     let organizedReviews = reviews ? Object.values(reviews).map((review) => {
         
-        const deleteButton = sessionUser?.id === review.userId ? true : false
-     
-
+        const currentUser = sessionUser?.id === review.userId ? true : false
+        
+        
         return (
-          <div id='reviewContent'>
-
+            <div id='reviewContent'>
             <div id='reviewUser'>{users[review.userId].username.charAt(0).toUpperCase() + users[review.userId].username.slice(1)}</div>
             <div><span id='rating'>({review.rating} out of 5 stars)</span> <span id='reviewTitle'>{review.title}</span></div>
             <div id='verifiedReview'>Verified Purchase</div>
             <div id='ratingBody'>{review.body}</div>
-            {deleteButton ? <button onClick={() => handleDelete(review.id)}>Delete Review</button> : <button onClick={handleClick}>Submit New Review</button>}
+            {currentUser ? <button onClick={() => handleDelete(review.id)}>Delete Review</button> : null}
             
           </div>
         )
-
+        
     }) :  null
+    
+    const handleReviewRedirect = () => {
+        
+     
+        let hasReviewed = Object.values(reviews).some((review) => sessionUser?.id === review.userId);
+    
+        if (hasReviewed) {
+            alert('You have already reviewed this product')
+        } else {
+            history.push(`/review/${productId}`)
+        }
 
-
+        
+    }
+    
+    
     return (
         <>
 
@@ -160,7 +158,10 @@ const ProductShow = () => {
                 <div id='reviewContent'>
                     <div id='topReviewsTitle'>Top reviews from the United States </div>
                     <br/>
-                        {organizedReviews?.length > 0 ? organizedReviews : 
+                        {organizedReviews?.length > 0 ? <> 
+                        <button onClick={handleReviewRedirect}>Write a customer review</button>
+                        {organizedReviews}
+                         </>: 
                         <>
                         <div>No Reviews for This Product</div>
                         <button onClick={handleReviewRedirect}>Review this product</button>

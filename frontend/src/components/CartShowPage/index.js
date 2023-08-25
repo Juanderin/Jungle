@@ -36,7 +36,7 @@ const CartShow = () => {
     let priceTotal = totalPrice.toLocaleString()
     priceTotal = priceTotal.length < 2 ? [priceTotal[0], ".00"] : priceTotal
 
-    console.log(totalPrice, 'the totoala pricelkjdhflskd')
+
 
     useEffect(() => {
         dispatch(fetchProducts())
@@ -78,14 +78,6 @@ const CartShow = () => {
 
     }
 
-    console.log(itemIds, 'the og ids')
-
-    console.log(quantities, 'tha quantities');
-    console.log(quantities[2], 'el dino')
-
-    console.log(cart_items, 'these cart items')
-    console.log(items, 'these items')
-    console.log(selectedProducts, 'these products');
 
 
     if (!cart_items) return null
