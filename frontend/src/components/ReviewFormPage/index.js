@@ -33,7 +33,7 @@ const ReviewForm = () => {
                         </div>
                     </div>
                 <div id='showPageDivider'></div>
-                <div className='formHeaders'>Overall Rating
+                <div id='reviewFormDrop' className='formHeaders'>Overall Rating
             
                     <div id='dropRatingShow'>
                         <label id="dropRating"></label>
@@ -45,13 +45,26 @@ const ReviewForm = () => {
                                 <option value="5">5 Stars</option>
                             </select>
                     </div>
+                </div>
+
                 <div id='showPageDivider'></div>
-                <div id='reviewFormTitle'>Title
-                    <input id='reviewContent' type='textbox' placeholder='Write your review'></input>
+
+                <div id='reviewFormHeadline' className='formHeaders'>Add a headline
+                    <input id='reviewHeadline' type='textbox' placeholder='Whats most important to know?'></input>
 
 
                 </div>
+
+                <div id='showPageDivider'></div>
+
+                <div id='reviewFormContent' className='formHeaders'>Add a written review
+                    <textarea id='reviewContent' type='textbox' placeholder='What did you like or dislike? What did you use this product for?'></textarea>
+
+
                 </div>
+
+                <div id='showPageDivider'></div>
+
             </div>
         </div>
        </>
