@@ -4,35 +4,56 @@ import { useEffect, useState } from "react"
 import { fetchProduct } from "../../store/products";
 import { fetchProductReviews, fetchUserProductReview } from '../../store/review';
 import { useParams } from "react-router-dom/";
-import { createReview } from "../../store/review"
+import { createReview, updateReview } from "../../store/review"
 import { useHistory } from 'react-router-dom/';
 import { Link } from 'react-router-dom/';
 import MainPage from "../MainPageForm";
 
+
 const ReviewForm = () => {
     const dispatch = useDispatch(); 
-    const history = useHistory();
     const productId = useParams().productId
+    const history = useHistory();
     const product = useSelector(state => state.products?.[productId])
     const sessionUser = useSelector(state => state.session?.user)
     const review = useSelector(state => state.reviews?.review?.[productId])
     const userId = sessionUser?.id
-    const [title, setTitle] = useState(review?.title);
-    const [body, setBody] = useState(review?.body); 
-    const [rating, setRating] = useState(review?.rating);
-    
-    
+    const [id, setId] = useState();
+    const [title, setTitle] = useState();
+    const [body, setBody] = useState(); 
+    const [rating, setRating] = useState();
+
+
     useEffect(() => {
+
         dispatch(fetchProduct(productId))
         dispatch(fetchUserProductReview(productId))
-    }, [dispatch, productId])    
+
+    }, [productId])    
     
 
-    
+    useEffect(() => {
+
+        if (review) {
+            setTitle(review.title)
+            setBody(review.body)
+            setRating(review.rating)
+            setId(review.id)
+        }
+
+    }, [review])
+
+
     const handleSubmit = () => {
 
-        dispatch(createReview({title: title, body: body, rating: rating, user_id: userId, product_id: productId}))
-        history.push(`/products/${productId}`)
+        if (review) {
+            dispatch(updateReview({title: title, body: body, rating: rating, user_id: userId, product_id: productId}), id)
+            history.push(`/products/${productId}`)
+        } else {
+            dispatch(createReview({title: title, body: body, rating: rating, user_id: userId, product_id: productId}))
+            history.push(`/products/${productId}`)
+        }
+
     }
 
     return (

@@ -48,7 +48,7 @@ class Api::ReviewsController < ApplicationController
 
     def update 
 
-        @review = Review.find_by(id: params[:id])
+        @review = Review.find_by(product_id: params[:product_id], user_id: current_user.id)
 
         if @review && @review.update(review_params)
             render :show

@@ -5,9 +5,17 @@ import { RECEIVE_PRODUCT } from "./products"
 const RECEIVE_NEW_REVIEW = 'reviews/RECEIVE_NEW_REVIEW'
 const RECEIVE_REVIEWS = 'reviews/RECEIVE_REVIEWS'
 const REMOVE_REVIEW = 'reviews/REMOVE_REVIEW'
+const RECEIVE_USER_REVIEW = 'reviews/RECEIVE_USER_REVIEW'
 
 
+export const receiveUserReview = (review) => {
 
+    return ({
+        type: RECEIVE_USER_REVIEW,
+        review: review
+    })
+
+}
 
 export const receiveReview = (review) => {
 
@@ -73,7 +81,7 @@ export const fetchUserProductReview = (productId) => async dispatch => {
 
     const review = await res.json();
 
-    dispatch(receiveReviews(review))
+    dispatch(receiveUserReview(review))
 
 }
 
@@ -86,7 +94,14 @@ export const createReview = (data) => async dispatch => {
 
 }
 
+export const updateReview = (review, id) => async dispatch => {
 
+    const res = await csrfFetch(`/api/reviews/${review.id}`, {
+        method: 'PATCH',
+        body: JSON.stringify(review)
+    } )
+
+}
 
 
 export const deleteReview = (reviewId) => async dispatch => {
@@ -111,6 +126,8 @@ const reviewReducer = (state = {}, action) => {
 
         case RECEIVE_REVIEWS:
             return {...newState, ...action.reviews}
+        case RECEIVE_USER_REVIEW:
+            return {...action.review}
         case REMOVE_REVIEW: 
             delete newState.reviews[action.reviewId]
             return newState
