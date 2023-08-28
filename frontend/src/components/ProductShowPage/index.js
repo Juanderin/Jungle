@@ -29,8 +29,6 @@ const ProductShow = () => {
     const [body, setBody] = useState("")
   
 
-
-
     const handleAddToCart = (e) => {
         e.preventDefault();
         
@@ -75,17 +73,16 @@ const ProductShow = () => {
     }) :  null
     
     const handleReviewRedirect = () => {
-        
-     
-        // let hasReviewed = Object.values(reviews).some((review) => sessionUser?.id === review.userId);
-    
-        // if (hasReviewed) {
-        //     alert('You have already reviewed this product')
-        // } else {
-        //     history.push(`/review/${productId}`)
-        // }
-    
-        history.push(`/review/${productId}`)
+
+        if (sessionUser) {
+
+             history.push(`/review/${productId}`)
+
+        } else {
+
+            history.push('/login')
+
+        }
 
     }
     

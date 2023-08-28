@@ -21,16 +21,19 @@ const ReviewForm = () => {
     const [id, setId] = useState();
     const [title, setTitle] = useState();
     const [body, setBody] = useState(); 
-    const [rating, setRating] = useState();
+    const [rating, setRating] = useState(1);
 
 
     useEffect(() => {
 
+        if (sessionUser) {
+            dispatch(fetchUserProductReview(productId))
+        }
+        
         dispatch(fetchProduct(productId))
-        dispatch(fetchUserProductReview(productId))
 
     }, [productId])    
-    
+
 
     useEffect(() => {
 
@@ -39,10 +42,16 @@ const ReviewForm = () => {
             setBody(review.body)
             setRating(review.rating)
             setId(review.id)
+        } else {
+            setTitle()
+            setBody()
+            setRating(1)
+            setId()
         }
 
-    }, [review])
+    }, [review, productId])
 
+    if (!sessionUser) {history.push('/login')}
 
     const handleSubmit = () => {
 
