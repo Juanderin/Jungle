@@ -162,7 +162,51 @@
 
 
 #topReviewsTitle{
+    
     font-weight: bold;
     font-size: 16px;
-    margin-left: -20px;
+
+}
+
+#reviewContent{
+
+    display: flex;
+    flex-direction: column;
+    /* justify-content: flex-start; */
+    gap: 5px;
+
+
+}
+
+#reviewTitle{
+
+    font-weight: bold;
+
+}
+
+#rating{
+
+    font-size: 14px;
+
+}
+
+#ratingBody{
+
+
+    font-size: 15px;
+
+}
+
+#reviewUser{
+
+    font-size: 14px;
+
+}
+
+#verifiedReview{
+
+    font-size: 12px;
+    font-weight: bold;
+    color: rgb(201, 90, 0);
+
 }

@@ -8,10 +8,12 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json} do 
     get 'products/search', to: "products#search"
+    get 'review/:id', to: 'reviews#user_review'
     resources :users, only: [:create]
     resource :session, only: [:create, :show, :destroy]
     resources :products, only: [:show, :index]
     resources :carts, only: [:index, :create, :show, :update, :destroy]
+    resources :reviews
   end 
 
 

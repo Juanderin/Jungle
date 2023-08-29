@@ -8,6 +8,7 @@ import ProductShow from "./components/ProductShowPage";
 import CartShow from "./components/CartShowPage";
 import ProductsIndex from "./components/ProductsIndex";
 import SearchShowPage from "./components/SearchShowPage";
+import ReviewForm from "./components/ReviewFormPage";
 import Navigation from "./components/Navigation";
 import { Redirect } from "react-router-dom/";
 import './index.css';
@@ -19,20 +20,16 @@ const App = () => {
 
   return (
   <>
-    {/* <h1>Welcome to Jungle</h1> */}
-    {/* <div id='logo'>
-    <img src='Jungle-7-24-2023.png'></img>
-    </div> */}
+
 
    <Switch>
-   {/* <Route path='/' component={LoginPage}/> */}
-    {/* <Route exact path='/' component={Navigation}/> */}
-    {/* <Route path='/home' component={HomePage} /> */}
+
     
     <Route exact path='/' component={HomePage} />
     <Route path='/login' component={LoginPage}/>
-    <Route path={"/products/:productId"}><ProductShow/></Route>
-    <Route path='/search'><SearchShowPage /></Route>
+    <Route path={"/products/:productId"} component={ProductShow}/>
+    <Route path={'/review/:productId'} component={ReviewForm}/>
+    <Route path='/search' component={SearchShowPage}/>
     <Route path='/main' component={MainPage} />
     <Route path='/cart' component={CartShow} />
     <Route path='/signup' component={SignUpForm}/>

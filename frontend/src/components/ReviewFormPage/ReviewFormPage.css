@@ -1,0 +1,166 @@
+#adjustmentContainer{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    margin-top: 100px;
+}
+
+#reviewMainContainer{
+
+
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 15px;
+
+}
+
+#reviewTitlePage{
+
+    font-size: 22px;
+ 
+ 
+}
+
+
+
+
+#itemDescription{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 20px;
+
+}
+
+#photoContainer{
+
+    width: 13%;
+
+}
+
+.formHeaders{
+
+    width: 100%;
+    font-size: 19px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-weight: bold;
+
+}
+
+#dropRatingShow{
+
+    width: 50vh;
+  
+
+}
+
+#dropRating{
+
+    font-size: 16px;
+
+}
+
+#dropdownRating{
+
+    width: auto;
+    height: 100%;
+    font-size: 17px;
+    padding: 3px;
+}
+
+#reviewFormDrop{
+
+    width: auto;
+
+}
+
+#productReviewImg{
+
+    width: 100%;
+
+}
+
+#reviewNameContainer{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+#reviewName{
+
+    position: relative;
+    text-align: center;
+
+}
+
+
+#reviewFormHeadline{
+
+    height: 80px;
+
+}
+
+
+#reviewHeadline{
+
+    height: 25%;
+    padding: 5px;
+    font-size: 14px;
+}
+
+
+#reviewContent{
+
+    height: 100%;
+    width: auto;
+    font-size: 14px;
+    font-family: 'Amazon Ember', Arial sans-serif;
+    padding: 5px;
+
+
+}
+
+#reviewFormContent{
+
+
+    height: 150px;
+    margin-bottom: 10px;
+
+}
+
+#submitButtonContainer{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+
+
+}
+
+
+#reviewFormSubmit{
+
+    background-color: rgb(254, 214, 54);
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+    height: 30px;
+    width: 64px;
+}
+
+#reviewFormSubmit:hover{
+
+    background-color: rgb(240, 201, 41);
+
+}
+

@@ -7,6 +7,8 @@ import "./ProductShowPage.css"
 import * as cartActions from '../../store/cart'
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import MainPage from "../MainPageForm";
+import ReviewForm from "../ReviewFormPage";
+import { createReview, deleteReview, fetchProductReviews} from "../../store/review";
 
 
 const ProductShow = () => {
@@ -14,13 +16,19 @@ const ProductShow = () => {
     const productId = useParams().productId
     const product = useSelector(state => state.products?.[productId])
     const sessionUser = useSelector(state => state.session?.user)
+    const reviews = useSelector(state => state.reviews?.reviews)
+    const users = useSelector(state => state.reviews?.users)
     const userId = sessionUser?.id
     const history = useHistory();
     const priceStr = product?.productPrice?.toLocaleString()
     let price = priceStr?.split(".")
     price = price?.length < 2 ? [price[0], "00"] : price
-    
-    
+    const [quantity, setQuantity] = useState(1)
+    const [rating, setRating] = useState()
+    const [title, setTitle] = useState("")
+    const [body, setBody] = useState("")
+  
+
     const handleAddToCart = (e) => {
         e.preventDefault();
         
@@ -32,14 +40,54 @@ const ProductShow = () => {
         
     }
     
+    const handleDelete = (reviewId) => {
+        dispatch(deleteReview(reviewId))
+        dispatch(fetchProductReviews(productId))
+    }
+    
     useEffect(() => {
         dispatch(fetchProduct(productId))
-    }, [productId])    
+        dispatch(fetchProductReviews(productId))
+    }, [dispatch, productId])    
     
-    const [quantity, setQuantity] = useState(1)
     
     if (!product) return null
-    return(
+    
+    
+    let organizedReviews = reviews ? Object.values(reviews).map((review) => {
+        
+        const currentUser = sessionUser?.id === review.userId ? true : false
+        
+        
+        return (
+            <div id='reviewContent'>
+            <div id='reviewUser'>{users[review.userId].username.charAt(0).toUpperCase() + users[review.userId].username.slice(1)}</div>
+            <div><span id='rating'>({review.rating} out of 5 stars)</span> <span id='reviewTitle'>{review.title}</span></div>
+            <div id='verifiedReview'>Verified Purchase</div>
+            <div id='ratingBody'>{review.body}</div>
+            {currentUser ? <button onClick={() => handleDelete(review.id)}>Delete Review</button> : null}
+            
+          </div>
+        )
+        
+    }) :  null
+    
+    const handleReviewRedirect = () => {
+
+        if (sessionUser) {
+
+             history.push(`/review/${productId}`)
+
+        } else {
+
+            history.push('/login')
+
+        }
+
+    }
+    
+    
+    return (
         <>
 
         <MainPage />
@@ -81,33 +129,43 @@ const ProductShow = () => {
             </div>
         </div>
         <div id='showPageDivider'></div>
-{/* 
+
         <div id='showReview'>
                 <div id='ratingBars'>
                     <div id='barTitle'>Customer Reviews</div>
                     <br/>
-                <div className="ratingMeter">
-                    <div className="ratingFiller" style={{ width: '0%' }}></div>
-                </div>
-                <div className="ratingMeter">
-                    <div className="ratingFiller" style={{ width: '100%' }}></div>
-                </div>
-                <div className="ratingMeter">
-                    <div className="ratingFiller" style={{ width: '20%' }}></div>
-                </div>
-                <div className="ratingMeter">
-                    <div className="ratingFiller" style={{ width: '0%' }}></div>
-                </div>
-                <div className="ratingMeter">
-                    <div className="ratingFiller" style={{ width: '0%' }}></div>
-                </div>
+                    <div className="ratingMeter">
+                        <div className="ratingFiller" style={{ width: '0%' }}></div>
+                    </div>
+                    <div className="ratingMeter">
+                        <div className="ratingFiller" style={{ width: '100%' }}></div>
+                    </div>
+                    <div className="ratingMeter">
+                        <div className="ratingFiller" style={{ width: '20%' }}></div>
+                    </div>
+                    <div className="ratingMeter">
+                        <div className="ratingFiller" style={{ width: '0%' }}></div>
+                    </div>
+                    <div className="ratingMeter">
+                        <div className="ratingFiller" style={{ width: '0%' }}></div>
+                    </div>
                 <br/>
                 <div id='showPageDivider'></div>
 
                 </div>
-            <div id='topReviewsTitle'>Top reviews from the United States</div>
-        
-        </div> */}
+                <div id='reviewContent'>
+                    <div id='topReviewsTitle'>Top reviews from the United States </div>
+                    <br/>
+                        {organizedReviews?.length > 0 ? <> 
+                        <button onClick={handleReviewRedirect}>Write a customer review</button>
+                        {organizedReviews}
+                         </>: 
+                        <>
+                        <div>No Reviews for This Product</div>
+                        <button onClick={handleReviewRedirect}>Review this product</button>
+                        </>}
+                    </div>
+                </div>
 
         </>
     )

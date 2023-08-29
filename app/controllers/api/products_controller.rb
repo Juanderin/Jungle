@@ -4,6 +4,13 @@ class Api::ProductsController < ApplicationController
     def show 
 
         @product = Product.find_by(id: params[:id])
+
+        @product_reviews = Review.all.where(product_id: params[:id])
+
+
+        @users = User.all
+     
+
         render :show
     
     end 
