@@ -21,20 +21,23 @@ import MainPage from "../MainPageForm";
         }, [])
 
         return (
-            <div id='search-page-container'>{searchResults.map(result => {
-
+            <>
+            <div id='search-page-container' >
+             <MainPage />
+                
+                {searchResults.map(result => {
                 return (
                 
                     <>
-                        <MainPage />
                         <br/>
                         <br/>
-                    <h1>yooooooooooo</h1>
                         <ProductsIndexItem product={result}/>
                     </>
                 )
             })}
             </div>
+
+        </>
         
         )
 
