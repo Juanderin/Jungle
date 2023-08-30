@@ -11,6 +11,20 @@ function SearchBar() {
     const searchResults = useSelector(state => Object.values(state.search))
     const history = useHistory();
     const dispatch = useDispatch();
+    const [drop, setDrop] = useState(false);
+
+
+    function open() {
+
+        setDrop(true)
+        console.log('entered')
+    }
+
+    function close() {
+
+        setDrop(false)
+        console.log('left')
+    }
 
     function handleSearch(e) {
         const query = e.target.value
@@ -45,6 +59,17 @@ function SearchBar() {
         }
     }
 
+    function handleEnter(e) {
+
+
+        if (e.key === 'Enter') {
+            // console.log(e, 'you pressed enter')
+            handleSubmit(e)
+        }
+
+    }
+
+
     return (
         <div id="searchbar-container">
             <input 
@@ -53,17 +78,23 @@ function SearchBar() {
             value={searchText} 
             placeholder='Search the Jungle'
             onChange={handleSearch}
+            onKeyDown={(e) => {handleEnter(e)}}
+            onMouseEnter={open} 
+            onMouseLeave={close}
             />
            
-           <button id='search-button' onClick={handleSubmit}>
+           <button id='search-button' onClick={handleSubmit} >
             <i id='mag' className="fa-solid fa-magnifying-glass" ></i> 
 
            </button>
-            {searchText && searchResults && <ul id='search-dropdown'>
+
+           {drop ? searchText && searchResults && <ul id='search-dropdown' onMouseEnter={open} onMouseLeave={close}>
                 {searchResults.map(result => { 
                     return <li className="search-dropdown-item" onClick={handClick(result.id)}>{result.productName}</li>
-                })}
-            </ul>}
+                })} 
+                
+            </ul> : null}
+
         </div>
     )
 
