@@ -64,6 +64,9 @@ const ReviewForm = () => {
         if (review) {
             setErrors([])
             dispatch(updateReview({title: title, body: body, rating: rating, user_id: userId, product_id: productId}), id)
+            .then(async () => {
+                history.push(`/products/${productId}`)
+            })
             .catch(async (res) => {
                 let data;
                 try {
@@ -83,6 +86,9 @@ const ReviewForm = () => {
         } else {
           
             dispatch(createReview({title: title, body: body, rating: rating, user_id: userId, product_id: productId}))
+            .then(async () => {
+                history.push(`/products/${productId}`)
+            })
             .catch(async (res) => {
                 let data;
                 try {
@@ -106,8 +112,20 @@ const ReviewForm = () => {
             
     
         }
+
     }
 
+    const realRedirect = () => {
+
+        // if (errors.length <= 0) {
+        //     history.push('/')
+        // }
+
+        history.push('/')
+
+    }
+    
+ 
     return (
 
         <>

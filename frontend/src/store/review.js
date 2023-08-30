@@ -98,17 +98,6 @@ export const createReview = (data) => async dispatch => {
         body: JSON.stringify(data)
     })
     
-    if (res.ok) {
-        debugger
-        const review = await res.json();
-        if (review.errors) throw review
-        dispatch(test(review))
-
-   } else {
-        throw res
-   }
-
-   return res
 }
 
 export const updateReview = (review, id) => async dispatch => {
