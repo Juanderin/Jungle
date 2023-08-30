@@ -12,7 +12,7 @@ import MainPage from "../MainPageForm";
 
 const ReviewForm = () => {
 
-    
+
     const dispatch = useDispatch(); 
     const productId = useParams().productId
     const history = useHistory();
@@ -23,7 +23,8 @@ const ReviewForm = () => {
     const [id, setId] = useState();
     const [title, setTitle] = useState();
     const [body, setBody] = useState(); 
-    const [rating, setRating] = useState(1);
+    const [rating, setRating] = useState();
+    const [errors, setErrors] = useState([])
 
 
     useEffect(() => {
@@ -47,7 +48,7 @@ const ReviewForm = () => {
         } else {
             setTitle()
             setBody()
-            setRating(1)
+            setRating()
             setId()
         }
 
@@ -56,15 +57,51 @@ const ReviewForm = () => {
     if (!sessionUser) {history.push('/login')}
 
     const handleSubmit = () => {
-
+        // debugger
         if (review) {
+            setErrors([])
             dispatch(updateReview({title: title, body: body, rating: rating, user_id: userId, product_id: productId}), id)
-            history.push(`/products/${productId}`)
+            .catch(async (res) => {
+                let data;
+                try {
+                    data = await res.clone().json();
+                } catch {
+                    data = await res.text();
+                } 
+                if (data?.errors) {
+                    setErrors(data.errors)
+                } else if (data) {
+                    setErrors([data])
+                } else {
+                    setErrors([res.statusText])
+                }
+            })
+         
         } else {
             dispatch(createReview({title: title, body: body, rating: rating, user_id: userId, product_id: productId}))
-            history.push(`/products/${productId}`)
+            .catch(async (res) => {
+                let data;
+                try {
+                    debugger
+                    data = await res.clone().json();
+        
+                } catch {
+                    data = await res.text();
+                } 
+                if (data?.errors) {
+                    setErrors(data.errors)
+        
+                } else if (data) {
+                    setErrors([data])
+        
+                } else {
+                    setErrors([res.statusText])
+        
+                }
+            })
+            
+    
         }
-
     }
 
     return (
@@ -78,7 +115,8 @@ const ReviewForm = () => {
                     <div id='reviewTitlePage'>Create Review</div>
                         <div id='itemDescription'>
                             <div id='photoContainer'>
-                                <Link id='linkContainer' to={`/products/${productId}`}><img id='productReviewImg' src={product?.photoUrl}/></Link>
+                                <Link id='linkContainer' to={`/products/${productId}`}>
+                                    <img id='productReviewImg' src={product?.photoUrl}/></Link>
                             </div>
                             <div id='reviewNameContainer'>
                                 <div id='reviewName'>{product?.productName}</div>
@@ -86,7 +124,7 @@ const ReviewForm = () => {
                         </div>
                     <div id='showPageDivider'></div>
                     <div id='reviewFormDrop' className='formHeaders'>Overall Rating
-                
+                    {errors.length > 0 ? <h1>{errors.join(", ")}</h1> : null}
                         <div id='dropRatingShow'>
                             <label id="dropRating"></label>
                                 <select id="dropdownRating" value={rating ? rating : '1'} onChange={(e) => setRating(e.target.value)}>
