@@ -12,7 +12,7 @@ import MainPage from "../MainPageForm";
 
 const ReviewForm = () => {
 
-    
+
     const dispatch = useDispatch(); 
     const productId = useParams().productId
     const history = useHistory();
@@ -23,7 +23,8 @@ const ReviewForm = () => {
     const [id, setId] = useState();
     const [title, setTitle] = useState();
     const [body, setBody] = useState(); 
-    const [rating, setRating] = useState(1);
+    const [rating, setRating] = useState();
+    const [errors, setErrors] = useState([])
 
 
     useEffect(() => {
@@ -47,7 +48,7 @@ const ReviewForm = () => {
         } else {
             setTitle()
             setBody()
-            setRating(1)
+            setRating()
             setId()
         }
 
@@ -55,18 +56,76 @@ const ReviewForm = () => {
 
     if (!sessionUser) {history.push('/login')}
 
-    const handleSubmit = () => {
+    const handleSubmit = async (e) => {
+        
+        e.preventDefault();
+
 
         if (review) {
+            setErrors([])
             dispatch(updateReview({title: title, body: body, rating: rating, user_id: userId, product_id: productId}), id)
-            history.push(`/products/${productId}`)
+            .then(async () => {
+                history.push(`/products/${productId}`)
+            })
+            .catch(async (res) => {
+                let data;
+                try {
+                    data = await res.clone().json();
+                } catch {
+                    data = await res.text();
+                } 
+                if (data?.errors) {
+                    setErrors(data.errors)
+                } else if (data) {
+                    setErrors([data])
+                } else {
+                    setErrors([res.statusText])
+                }
+            })
+         
         } else {
+          
             dispatch(createReview({title: title, body: body, rating: rating, user_id: userId, product_id: productId}))
-            history.push(`/products/${productId}`)
+            .then(async () => {
+                history.push(`/products/${productId}`)
+            })
+            .catch(async (res) => {
+                let data;
+                try {
+                   
+                    data = await res.clone().json();
+        
+                } catch {
+                    data = await res.text();
+                } 
+                if (data?.errors) {
+                    setErrors(data.errors)
+        
+                } else if (data) {
+                    setErrors([data])
+        
+                } else {
+                    setErrors([res.statusText])
+        
+                }
+            })
+            
+    
         }
 
     }
+    
 
+    const getErrorField = (field) => {
+
+        if (errors) {
+            return errors.find((error) => {
+                return error.includes(field)
+            })
+        }
+
+    }
+ 
     return (
 
         <>
@@ -78,7 +137,8 @@ const ReviewForm = () => {
                     <div id='reviewTitlePage'>Create Review</div>
                         <div id='itemDescription'>
                             <div id='photoContainer'>
-                                <Link id='linkContainer' to={`/products/${productId}`}><img id='productReviewImg' src={product?.photoUrl}/></Link>
+                                <Link id='linkContainer' to={`/products/${productId}`}>
+                                    <img id='productReviewImg' src={product?.photoUrl}/></Link>
                             </div>
                             <div id='reviewNameContainer'>
                                 <div id='reviewName'>{product?.productName}</div>
@@ -86,7 +146,7 @@ const ReviewForm = () => {
                         </div>
                     <div id='showPageDivider'></div>
                     <div id='reviewFormDrop' className='formHeaders'>Overall Rating
-                
+
                         <div id='dropRatingShow'>
                             <label id="dropRating"></label>
                                 <select id="dropdownRating" value={rating ? rating : '1'} onChange={(e) => setRating(e.target.value)}>
@@ -107,7 +167,10 @@ const ReviewForm = () => {
                         value={title} onChange={(e) => setTitle(e.target.value)}
                         />
 
+
                     </div>
+                    {getErrorField('Title') ? <div className='reviewErrors'><i id="a-icon a-icon-alert" className='reviewErrorExclamation' >!</i>
+                    <span className='errorBody'> Please enter your headline.</span></div> : <div className='reviewErrors'/> }
 
                     <div id='showPageDivider'></div>
 
@@ -117,7 +180,10 @@ const ReviewForm = () => {
                             value={body} onChange={(e) => setBody(e.target.value)}
                          />
 
+
                     </div>
+                    {getErrorField('Body') ? <div className='reviewErrors'><i id="a-icon a-icon-alert" className='reviewErrorExclamation' >!</i>
+                    <span className='errorBody'> Please add a written review.</span></div> : <div className='reviewErrors'/> }
 
                     <div id='showPageDivider'></div>
                     <div id='submitButtonContainer'>

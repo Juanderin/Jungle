@@ -8,6 +8,12 @@ const REMOVE_REVIEW = 'reviews/REMOVE_REVIEW'
 const RECEIVE_USER_REVIEW = 'reviews/RECEIVE_USER_REVIEW'
 
 
+export const test = (review) => {
+
+    return review
+
+}
+
 export const receiveUserReview = (review) => {
 
     return ({
@@ -86,12 +92,12 @@ export const fetchUserProductReview = (productId) => async dispatch => {
 }
 
 export const createReview = (data) => async dispatch => {
-
+ 
     const res = await csrfFetch('/api/reviews', {
         method: 'POST',
         body: JSON.stringify(data)
     })
-
+    
 }
 
 export const updateReview = (review, id) => async dispatch => {
