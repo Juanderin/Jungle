@@ -164,3 +164,22 @@
 
 }
 
+.reviewErrors{
+    
+    color: rgb(221, 0, 0);
+    font-size: 15px;
+
+}
+
+.errorBody {
+
+    /* font-weight: lighter; */
+
+}
+
+.reviewErrorExclamation{
+
+    color: rgb(209, 0, 0);
+    font-size: 18px;
+
+}

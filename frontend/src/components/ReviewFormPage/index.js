@@ -114,17 +114,17 @@ const ReviewForm = () => {
         }
 
     }
+    
 
-    const realRedirect = () => {
+    const getErrorField = (field) => {
 
-        // if (errors.length <= 0) {
-        //     history.push('/')
-        // }
-
-        history.push('/')
+        if (errors) {
+            return errors.find((error) => {
+                return error.includes(field)
+            })
+        }
 
     }
-    
  
     return (
 
@@ -146,7 +146,7 @@ const ReviewForm = () => {
                         </div>
                     <div id='showPageDivider'></div>
                     <div id='reviewFormDrop' className='formHeaders'>Overall Rating
-                    {errors.length > 0 ? <h1>{errors.join(", ")}</h1> : null}
+
                         <div id='dropRatingShow'>
                             <label id="dropRating"></label>
                                 <select id="dropdownRating" value={rating ? rating : '1'} onChange={(e) => setRating(e.target.value)}>
@@ -167,7 +167,10 @@ const ReviewForm = () => {
                         value={title} onChange={(e) => setTitle(e.target.value)}
                         />
 
+
                     </div>
+                    {getErrorField('Title') ? <div className='reviewErrors'><i id="a-icon a-icon-alert" className='reviewErrorExclamation' >!</i>
+                    <span className='errorBody'> Please enter your headline.</span></div> : <div className='reviewErrors'/> }
 
                     <div id='showPageDivider'></div>
 
@@ -177,7 +180,10 @@ const ReviewForm = () => {
                             value={body} onChange={(e) => setBody(e.target.value)}
                          />
 
+
                     </div>
+                    {getErrorField('Body') ? <div className='reviewErrors'><i id="a-icon a-icon-alert" className='reviewErrorExclamation' >!</i>
+                    <span className='errorBody'> Please add a written review.</span></div> : <div className='reviewErrors'/> }
 
                     <div id='showPageDivider'></div>
                     <div id='submitButtonContainer'>
