@@ -17,13 +17,13 @@ function SearchBar() {
     function open() {
 
         setDrop(true)
-        console.log('entered')
+
     }
 
     function close() {
 
         setDrop(false)
-        console.log('left')
+     
     }
 
     function handleSearch(e) {
@@ -63,8 +63,35 @@ function SearchBar() {
 
 
         if (e.key === 'Enter') {
-            // console.log(e, 'you pressed enter')
+   
             handleSubmit(e)
+        }
+
+    }
+
+
+    function searchDropShow() {
+       
+        if (searchResults.length > 0 && searchText) {
+
+            return (
+                <ul id='search-dropdown' onMouseEnter={open} onMouseLeave={close}>
+                {searchResults.map(result => { 
+                    return <li className="search-dropdown-item" onClick={handClick(result.id)}>{result.productName}</li>
+                })} 
+            </ul>
+            )
+
+        } else if (searchText && searchResults.length <= 0) {
+            
+            return (
+
+                <ul id='search-dropdown' onMouseEnter={open} onMouseLeave={close}>
+                    <li className="search-dropdown-item"  > No results found </li>
+                </ul>
+
+            )
+
         }
 
     }
@@ -88,12 +115,7 @@ function SearchBar() {
 
            </button>
 
-           {drop ? searchText && searchResults && <ul id='search-dropdown' onMouseEnter={open} onMouseLeave={close}>
-                {searchResults.map(result => { 
-                    return <li className="search-dropdown-item" onClick={handClick(result.id)}>{result.productName}</li>
-                })} 
-                
-            </ul> : null}
+           {drop && searchDropShow()}
 
         </div>
     )
@@ -101,5 +123,5 @@ function SearchBar() {
 }
 
 
-//
+
 export default SearchBar
