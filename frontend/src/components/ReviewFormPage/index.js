@@ -56,8 +56,11 @@ const ReviewForm = () => {
 
     if (!sessionUser) {history.push('/login')}
 
-    const handleSubmit = () => {
-        // debugger
+    const handleSubmit = async (e) => {
+        
+        e.preventDefault();
+
+
         if (review) {
             setErrors([])
             dispatch(updateReview({title: title, body: body, rating: rating, user_id: userId, product_id: productId}), id)
@@ -78,11 +81,12 @@ const ReviewForm = () => {
             })
          
         } else {
+          
             dispatch(createReview({title: title, body: body, rating: rating, user_id: userId, product_id: productId}))
             .catch(async (res) => {
                 let data;
                 try {
-                    debugger
+                   
                     data = await res.clone().json();
         
                 } catch {
