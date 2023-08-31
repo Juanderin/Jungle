@@ -1,0 +1,79 @@
+#search-page-container{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+
+#noResultMessage{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 100px;
+    font-size: 20px;
+
+}
+
+#searchItems{
+
+    margin-top: 100px;
+
+}
+
+#randomItems{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+
+#noResultsContent{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+
+}
+
+
+#randomItemsSubContainer{
+
+
+
+}
+
+#actualItems{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+#productResultsTitle{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: start;
+    font-weight: bold;
+    font-size: 21px;    
+    margin-top: 60px;
+
+}
+
+
+#mainContainerSearch{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
