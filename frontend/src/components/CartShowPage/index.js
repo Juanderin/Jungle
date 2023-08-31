@@ -1,11 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { useState } from "react";
 import { useEffect } from "react";
 import * as cartActions from '../../store/cart'
-import { fetchCarts} from "../../store/cart";
-import CartIndexItem from "./CartIndexItem";
 import { fetchProducts } from "../../store/products";
 import './CartShowPage.css'
 import { useHistory } from "react-router-dom";
