@@ -44,7 +44,7 @@
 #productShowPageContainer{
 
     position: relative;
-    bottom: 300px;
+    bottom: 350px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

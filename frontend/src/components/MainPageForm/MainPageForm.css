@@ -227,7 +227,7 @@ font-size: 15px;
 #myLinks{
     display: flex;
     flex-direction: row;
-    margin-top: 3px;
-    height: 48px;
-    background-color: white;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 15px;
 }
