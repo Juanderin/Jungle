@@ -11,6 +11,20 @@ function SearchBar() {
     const searchResults = useSelector(state => Object.values(state.search))
     const history = useHistory();
     const dispatch = useDispatch();
+    const [drop, setDrop] = useState(false);
+
+
+    function open() {
+
+        setDrop(true)
+
+    }
+
+    function close() {
+
+        setDrop(false)
+     
+    }
 
     function handleSearch(e) {
         const query = e.target.value
@@ -45,6 +59,44 @@ function SearchBar() {
         }
     }
 
+    function handleEnter(e) {
+
+
+        if (e.key === 'Enter') {
+   
+            handleSubmit(e)
+        }
+
+    }
+
+
+    function searchDropShow() {
+       
+        if (searchResults.length > 0 && searchText) {
+
+            return (
+                <ul id='search-dropdown' onMouseEnter={open} onMouseLeave={close}>
+                {searchResults.map(result => { 
+                    return <li className="search-dropdown-item" onClick={handClick(result.id)}>{result.productName}</li>
+                })} 
+            </ul>
+            )
+
+        } else if (searchText && searchResults.length <= 0) {
+            
+            return (
+
+                <ul id='search-dropdown' onMouseEnter={open} onMouseLeave={close}>
+                    <li className="search-dropdown-item"  > No results found </li>
+                </ul>
+
+            )
+
+        }
+
+    }
+
+
     return (
         <div id="searchbar-container">
             <input 
@@ -53,22 +105,23 @@ function SearchBar() {
             value={searchText} 
             placeholder='Search the Jungle'
             onChange={handleSearch}
+            onKeyDown={(e) => {handleEnter(e)}}
+            onMouseEnter={open} 
+            onMouseLeave={close}
             />
            
-           <button id='search-button' onClick={handleSubmit}>
+           <button id='search-button' onClick={handleSubmit} >
             <i id='mag' className="fa-solid fa-magnifying-glass" ></i> 
 
            </button>
-            {searchText && searchResults && <ul id='search-dropdown'>
-                {searchResults.map(result => { 
-                    return <li className="search-dropdown-item" onClick={handClick(result.id)}>{result.productName}</li>
-                })}
-            </ul>}
+
+           {drop && searchDropShow()}
+
         </div>
     )
 
 }
 
 
-//
+
 export default SearchBar
