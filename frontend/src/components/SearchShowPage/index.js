@@ -20,21 +20,34 @@ import MainPage from "../MainPageForm";
             }
         }, [])
 
+        
+        
         return (
             <>
             <div id='search-page-container' >
              <MainPage />
-                
-                {searchResults.map(result => {
-                return (
-                
-                    <>
-                        <br/>
-                        <br/>
-                        <ProductsIndexItem product={result}/>
-                    </>
-                )
-            })}
+              
+              {/* {searchDisplay()} */}
+
+              {searchResults.length > 0 ? searchResults.map(result => {
+                    return (
+                    
+                        <>
+                            <br/>
+                            <br/>
+                            <ProductsIndexItem product={result}/>
+                        </>
+                    )
+                }) : 
+                <>
+                <br/>
+                    <br/>
+                    <div id='noResultMessage'>
+                        <h1>Sorry, no results found</h1>
+                    </div>
+                </>
+                }
+
             </div>
 
         </>
