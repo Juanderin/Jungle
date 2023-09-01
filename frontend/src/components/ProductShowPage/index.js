@@ -27,6 +27,7 @@ const ProductShow = () => {
     const [rating, setRating] = useState()
     const [title, setTitle] = useState("")
     const [body, setBody] = useState("")
+    const [errors, setErrors] = useState([]);
   
 
     const handleAddToCart = (e) => {
@@ -36,6 +37,36 @@ const ProductShow = () => {
             history.push('/login')
         } else {
             dispatch(cartActions.createCart({product_id: productId, user_id: userId, quantity: quantity}))
+            .catch(async (res) =>{
+                let data;
+                try {
+                    data = await res.clone().json();
+                } catch {
+                    data = await res.text();
+                }
+
+                if (data?.errors) {
+                    setErrors(data.errors)
+                } else if (data) {
+                    setErrors([data])
+                } else {
+                    setErrors([res.statusText])
+                }
+
+            })
+        }
+        
+    }
+
+
+    const handleBuyNow = (e) => {
+        e.preventDefault();
+        
+        if (!sessionUser) {
+            history.push('/login')
+        } else {
+            // dispatch(cartActions.createCart({product_id: productId, user_id: userId, quantity: quantity}))
+            history.push('/checkout')
         }
         
     }
@@ -131,7 +162,9 @@ const ProductShow = () => {
                     <option value="4">10</option>
                 </select>
                 </div>
+               {errors && <div>{errors.join(", ")}</div> }
                     <button id='addCartButton' onClick={handleAddToCart}>Add to Cart</button>
+                    <button id='buyNowButton' onClick={handleBuyNow}>Buy Now</button>
             </div>
         </div>
         <div id='showPageDivider'></div>
