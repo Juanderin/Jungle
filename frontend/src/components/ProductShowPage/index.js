@@ -96,7 +96,7 @@ const ProductShow = () => {
             <div><span id='rating'>({review.rating} out of 5 stars)</span> <span id='reviewTitle'>{review.title}</span></div>
             <div id='verifiedReview'>Verified Purchase</div>
             <div id='ratingBody'>{review.body}</div>
-            {currentUser ? <button onClick={() => handleDelete(review.id)}>Delete Review</button> : null}
+            {currentUser ? <button id='reviewDeleteButton' onClick={() => handleDelete(review.id)}>Delete Review</button> : null}
             
           </div>
         )
@@ -135,7 +135,8 @@ const ProductShow = () => {
             </div>
                 <div id='showPageDivider'></div>
                 <br/>
-                <div id='productPriceOnIndex'><div id="productCentsOnIndex">$</div>{price[0]}<div id="productCentsOnIndex">{price[1]}</div></div>
+                <div id='productPriceOnIndex'><div id="productCentsOnIndex">$</div>{price[0]}
+                <div id="productCentsOnIndex">{price[1]}</div></div>
                     <div id='freeReturnsInfo'>FREE returns</div>
                 <br/>
                 <div id='showPageDivider'></div>
@@ -162,7 +163,7 @@ const ProductShow = () => {
                     <option value="4">10</option>
                 </select>
                 </div>
-               {errors && <div>{errors.join(", ")}</div> }
+               {errors && <div id='cartError'>{errors.join(", ")}</div> }
                     <button id='addCartButton' onClick={handleAddToCart}>Add to Cart</button>
                     <button id='buyNowButton' onClick={handleBuyNow}>Buy Now</button>
             </div>
@@ -188,20 +189,23 @@ const ProductShow = () => {
                     <div className="ratingMeter">
                         <div className="ratingFiller" style={{ width: '0%' }}></div>
                     </div>
-                <br/>
+
                 <div id='showPageDivider'></div>
 
+                    <div id='reviewButtons'>
+                        <div id='reviewTitleBody'> Review this product </div>
+                        <div id='reviewTextBody'> Share your thoughts with other customers </div>
+                        <button id='reviewButton' onClick={handleReviewRedirect}>Write a customer review</button>
+                    </div>
                 </div>
                 <div id='reviewContent'>
                     <div id='topReviewsTitle'>Top reviews from the United States </div>
                     <br/>
                         {organizedReviews?.length > 0 ? <> 
-                        <button onClick={handleReviewRedirect}>Write a customer review</button>
                         {organizedReviews}
                          </> : 
                         <>
                         <div>No Reviews for This Product</div>
-                        <button onClick={handleReviewRedirect}>Review this product</button>
                         </>}
                     </div>
                 </div>

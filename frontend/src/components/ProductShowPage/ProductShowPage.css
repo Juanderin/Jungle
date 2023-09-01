@@ -93,6 +93,13 @@
     cursor: pointer;
 }
 
+#cartError{
+
+    font-size: 13px;
+    margin: 5px;
+
+}
+
 #addCartButton:hover{
     background-color: rgb(230, 193, 45);
     border: 1px solid rgb(211, 176, 40);
@@ -103,6 +110,7 @@
 }
 
 #buyNowButton{
+    margin-top: 3px;
     background-color: rgb(255, 152, 30);
     border: 1px solid rgb(255, 152, 30);
     border-radius: 100px;
@@ -199,6 +207,7 @@
 
 }
 
+
 #reviewUser{
 
     font-size: 14px;
@@ -211,4 +220,52 @@
     font-weight: bold;
     color: rgb(201, 90, 0);
 
+}
+
+#reviewDeleteButton{
+
+    background: none;
+    border: none;
+    padding: 0;
+    color: rgb(56, 144, 160);
+    cursor: pointer;
+
+}
+
+#reviewButtons{
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+}
+
+#reviewButton{
+
+    border-radius: 7px;
+    background-color: white;
+    border: 1.5px solid lightgray;
+    cursor: pointer;
+    height: 30px;
+    margin-bottom: 100px;
+}
+
+#reviewButton:hover{
+
+    background-color: rgb(238, 238, 238);
+
+}
+
+#reviewTitleBody{
+
+
+    font-size: 18px;
+    font-weight: bold;
+
+}   
+
+
+#reviewTextBody{
+
+    font-size: 14px;
 }
