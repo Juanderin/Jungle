@@ -27,8 +27,6 @@ const Checkout = () => {
             <div id='finalCheckoutContainer'>
                 <div id='checkout'>
 
-                    {/* <h1>Hello</h1> */}
-
                     <div id='checkoutContainer'>
                             <div id='checkoutContent'> Thank you for your purchase {upperName}, 
                                 your items should arrive 

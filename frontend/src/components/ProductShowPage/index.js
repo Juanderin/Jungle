@@ -123,6 +123,12 @@ const ProductShow = () => {
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
+                    <option value="1">5</option>
+                    <option value="2">6</option>
+                    <option value="3">7</option>
+                    <option value="4">8</option>
+                    <option value="3">9</option>
+                    <option value="4">10</option>
                 </select>
                 </div>
                     <button id='addCartButton' onClick={handleAddToCart}>Add to Cart</button>
@@ -159,7 +165,7 @@ const ProductShow = () => {
                         {organizedReviews?.length > 0 ? <> 
                         <button onClick={handleReviewRedirect}>Write a customer review</button>
                         {organizedReviews}
-                         </>: 
+                         </> : 
                         <>
                         <div>No Reviews for This Product</div>
                         <button onClick={handleReviewRedirect}>Review this product</button>
