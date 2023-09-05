@@ -30,6 +30,15 @@ const ProductShow = () => {
     const [errors, setErrors] = useState([]);
   
 
+    const ratings = {
+        1 : 0,
+        2 : 0,
+        3 : 0,
+        4: 0,
+        5: 0
+    }
+
+
     const handleAddToCart = (e) => {
         e.preventDefault();
         
@@ -102,7 +111,67 @@ const ProductShow = () => {
         )
         
     }) :  null
-    
+
+    const ratingValues = reviews ? Object.values(reviews) : null
+
+    let reviewRating = reviews ? ratingValues.reduce((sum, review) => sum + review.rating, 0) / ratingValues.length : null
+
+    const ratingLength = reviews ? ratingValues.length : null
+
+    const eachReviewRating = reviews ? ratingValues.map((review) => {
+
+
+        switch (review.rating) {
+            case 1:
+                ratings[1] += 1
+            break;
+
+            case 2: 
+                ratings[2] += 1
+            break;
+
+            case 3:
+                ratings[3] += 1
+            break;
+
+            case 4: 
+                ratings[4] += 1
+            break;
+
+            case 5:
+                ratings[5] += 1
+            break;
+
+        }
+
+
+    }) : null
+
+    // const normalizedReviews = reviews ? Object.values(ratings).forEach((num) => {
+
+    //     if (num !== 0) {
+    //         ratings[num] = (ratings[num] / ratingLength) * 100
+
+    //     }
+
+
+    // }) : null 
+
+
+    for (let i = 1; i <= 5; i++) {
+
+        if (ratings[i] !== 0) {
+
+            ratings[i] = (ratings[i] / ratingLength) * 100
+
+        }
+
+       
+    }
+
+    console.log(ratings, 'these are the normalized reviews ')
+
+
     const handleReviewRedirect = () => {
 
         if (sessionUser) {
@@ -173,21 +242,23 @@ const ProductShow = () => {
         <div id='showReview'>
                 <div id='ratingBars'>
                     <div id='barTitle'>Customer Reviews</div>
+                        <div id='reviewAverage'>{reviewRating} out of 5</div>
+                        <div id='ratingAmount'>{ratingLength} global ratings</div>
                     <br/>
                     <div className="ratingMeter">
-                        <div className="ratingFiller" style={{ width: '0%' }}></div>
+                        <div className="ratingFiller" style={{ width: `${ratings[5]}%` }}></div>
                     </div>
                     <div className="ratingMeter">
-                        <div className="ratingFiller" style={{ width: '100%' }}></div>
+                        <div className="ratingFiller" style={{ width: `${ratings[4]}%` }}></div>
                     </div>
                     <div className="ratingMeter">
-                        <div className="ratingFiller" style={{ width: '20%' }}></div>
+                        <div className="ratingFiller" style={{ width: `${ratings[3]}%` }}></div>
                     </div>
                     <div className="ratingMeter">
-                        <div className="ratingFiller" style={{ width: '0%' }}></div>
+                        <div className="ratingFiller" style={{ width: `${ratings[2]}%` }}></div>
                     </div>
                     <div className="ratingMeter">
-                        <div className="ratingFiller" style={{ width: '0%' }}></div>
+                        <div className="ratingFiller" style={{ width: `${ratings[1]}%` }}></div>
                     </div>
 
                 <div id='showPageDivider'></div>

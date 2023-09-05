@@ -170,6 +170,19 @@
     font-weight: bold;
 }
 
+#reviewAverage{
+
+    margin-top: 5px;
+    font-size: 18px;
+
+}
+
+#ratingAmount{
+
+    margin-top: 15px;
+    font-size: 14px;
+    color: rgb(86, 89, 89);
+}
 
 #topReviewsTitle{
     
@@ -224,16 +237,20 @@
 
 #reviewDeleteButton{
 
+    align-self: center;
+    margin-top: 13px;
     background: none;
     border: none;
     padding: 0;
     color: rgb(56, 144, 160);
+    width: 110px;
     cursor: pointer;
 
 }
 
 #reviewButtons{
-
+    
+    margin-top: 25px;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -247,6 +264,7 @@
     border: 1.5px solid lightgray;
     cursor: pointer;
     height: 30px;
+    margin-top: 7px;
     margin-bottom: 100px;
 }
 
@@ -269,3 +287,4 @@
 
     font-size: 14px;
 }
+
