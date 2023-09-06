@@ -111,7 +111,7 @@ function SearchBar() {
             />
            
            <button id='search-button' onClick={handleSubmit} >
-            <i id='mag' className="fa-solid fa-magnifying-glass" ></i> 
+                <i id='mag' className="fa-solid fa-magnifying-glass" ></i> 
 
            </button>
 

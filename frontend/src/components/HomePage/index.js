@@ -13,11 +13,13 @@ const HomePage = () => {
     return (
         
         <>
+
         <MainPage />
-        {/* <DropProfile user={sessionUser}/> */}
+
         <div id='allproductsContainer'>
-        <ProductsIndex />
+            <ProductsIndex />
         </div>
+        
         </>
     )
 

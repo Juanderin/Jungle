@@ -3,8 +3,6 @@ import { SET_CURRENT_USER } from "./sessionReducer"
 import { useSelector } from "react-redux"
 import { RECEIVE_ALL_PRODUCTS } from "./products"
 
-const SET_CURRENT_CART = 'cart/SET_CURRENT_CART'
-const REMOVE_CURRENT_CART = 'cart/REMOVE_CURRENT_CART'
 const RECEIVE_CART_PRODUCTS = 'cart/RECEIVE_CART_PRODUCTS'
 const RECEIVE_CART_PRODUCT = 'cart/RECEIVE_CART_PRODUCT'
 const REMOVE_PRODUCT = 'cart/REMOVE_PRODUCT'

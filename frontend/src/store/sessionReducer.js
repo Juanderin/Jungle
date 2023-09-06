@@ -4,17 +4,23 @@ export const SET_CURRENT_USER = 'session/setCurrentUser';
 const REMOVE_CURRENT_USER = 'session/removeCurrentUser';
 
 const setCurrentUser = (user) => ({
+
   type: SET_CURRENT_USER,
   user
+
 });
 
 const removeCurrentUser = () => ({
+
   type: REMOVE_CURRENT_USER
+
 });
 
 const storeCurrentUser = user => {
+
   if (user) sessionStorage.setItem("currentUser", JSON.stringify(user));
   else sessionStorage.removeItem("currentUser");
+  
 }
 
 const storeCSRFToken = response => {

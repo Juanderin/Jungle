@@ -7,8 +7,7 @@ import "./ProductShowPage.css"
 import * as cartActions from '../../store/cart'
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import MainPage from "../MainPageForm";
-import ReviewForm from "../ReviewFormPage";
-import { createReview, deleteReview, fetchProductReviews} from "../../store/review";
+import { deleteReview, fetchProductReviews} from "../../store/review";
 
 
 const ProductShow = () => {
@@ -105,12 +104,16 @@ const ProductShow = () => {
         
         return (
             <div id='reviewContent'>
-            <div id='reviewUser'>{users[review.userId].username.charAt(0).toUpperCase() + users[review.userId].username.slice(1)}</div>
-            <div><span id='rating'>({review.rating} out of 5 stars)</span> <span id='reviewTitle'>{review.title}</span></div>
-            <div id='verifiedReview'>Verified Purchase</div>
-            <div id='ratingBody'>{review.body}</div>
-            {currentUser ? <button id='reviewDeleteButton' onClick={() => handleDelete(review.id)}>Delete Review</button> : null}
-            
+                <div id='reviewUser'>{users[review.userId].username.charAt(0).toUpperCase() + users[review.userId].username.slice(1)}</div>
+
+                <div><span id='rating'>({review.rating} out of 5 stars)</span> <span id='reviewTitle'>{review.title}</span></div>
+
+                <div id='verifiedReview'>Verified Purchase</div>
+
+                <div id='ratingBody'>{review.body}</div>
+                
+                {currentUser ? <button id='reviewDeleteButton' onClick={() => handleDelete(review.id)}>Delete Review</button> : null}
+                
           </div>
         )
         

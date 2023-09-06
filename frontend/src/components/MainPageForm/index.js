@@ -45,17 +45,18 @@ const MainPage = () => {
 
                 <div id='myLinks'>
 
-                    <div className='symbol'><a href='https://github.com/Juanderin'><i className="fa-brands fa-github fa-2xl"
-                    style={{fontSize: '3em', color: "#FFFFFF"}}>
-                    </i>
-                    </a>
+                    <div className='symbol'>
+                        <a href='https://github.com/Juanderin'><i className="fa-brands fa-github fa-2xl"
+                        style={{fontSize: '3em', color: "#FFFFFF"}}>
+                        </i>
+                        </a>
                     </div>
 
                     <div id='linked'className='symbol'> 
-                    <a href='https://www.linkedin.com/in/juanavilame/'><i className="fa-brands fa-linkedin fa-2xl" 
-                    style={{fontSize: '3em', color: "#0a66c2"}}>
-                    </i>
-                    </a>
+                        <a href='https://www.linkedin.com/in/juanavilame/'><i className="fa-brands fa-linkedin fa-2xl" 
+                        style={{fontSize: '3em', color: "#0a66c2"}}>
+                        </i>
+                        </a>
                     </div>
                     
                 </div>
