@@ -8,17 +8,9 @@ const REMOVE_CURRENT_CART = 'cart/REMOVE_CURRENT_CART'
 const RECEIVE_CART_PRODUCTS = 'cart/RECEIVE_CART_PRODUCTS'
 const RECEIVE_CART_PRODUCT = 'cart/RECEIVE_CART_PRODUCT'
 const REMOVE_PRODUCT = 'cart/REMOVE_PRODUCT'
-const CLEAR_CART = 'cart/CLEAR_CART'
+export const CLEAR_CART = 'cart/CLEAR_CART'
 
 
-// export const receiveCartsProducts = () => {
-
-//     return({
-//         type: RECEIVE_CART_PRODUCTS,
-//         carts
-//     })
-
-// }
 
 
 export const receiveCartProduct = (cartProduct) => {
@@ -42,9 +34,14 @@ export const removeCartProduct = (productId) => {
 }
 
 
-// const storeCurrentCart = (SET_CURRENT_USER) => {
+export const clearAllCart = () => {
 
-// }
+    return ({
+        type: CLEAR_CART
+    })
+
+}
+
 
 
 export const fetchCarts = () => async (dispatch) => {
@@ -57,8 +54,6 @@ export const fetchCarts = () => async (dispatch) => {
         carts
     })
 
-// console.log(data)
-// return data
 
 }
 
@@ -73,10 +68,7 @@ export const createCart = (cart) => async dispatch => {
 
     const data = await res.json();
 
-    // dispatch({
-    //     type: RECEIVE_CART_PRODUCT,
-    //     cartProduct: data
-    // })
+
 
     dispatch(receiveCartProduct(data))
     return data
@@ -93,14 +85,6 @@ export const updateCart = (cart) => async dispatch => {
     })
 
     const data = await res.json();
-
-
-    // dispatch({
-
-    //     type: RECEIVE_CART_PRODUCT,
-    //     data
-
-    // })
 
 
     dispatch(receiveCartProduct(data))

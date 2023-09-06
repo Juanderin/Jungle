@@ -4,9 +4,8 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/sessionReducer';
 import './DropButton.css'
-import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import { useHistory } from "react-router-dom";
-
+import { clearAllCart } from '../../store/cart';
 
 
 
@@ -15,8 +14,8 @@ const DropProfile = ({user}) => {
    
     const dispatch = useDispatch();
     const [dropMenu, setDropMenu] = useState(false);
-    const [overlay, setOverlay] = useState(false)
     const history = useHistory();
+    const username = user ? user.username.charAt(0).toUpperCase() + user.username.slice(1).toLowerCase() : null
 
     const open = () => {
         setDropMenu(true)
@@ -31,6 +30,7 @@ const DropProfile = ({user}) => {
         e.preventDefault();
 
         dispatch(sessionActions.logout())
+        dispatch(clearAllCart())
 
     }
 
@@ -48,7 +48,7 @@ const DropProfile = ({user}) => {
           {user ? (
             <>
             <div id='signedInContainer'>
-              <div className='signInText'>Hello, {user.username}</div>
+              <div className='signInText'>Hello, {username}</div>
                 <div id='accountListingsContainer'>
                     <span className='accountLists'>Account & Lists <i id='carrot' className='fa-solid fa-caret-down' />
                 </span>
@@ -61,7 +61,7 @@ const DropProfile = ({user}) => {
                       <span>{user.email}</span>
                     </div>
                     <div id="logoutButton">
-                      <button id='outButton' onClick={handleClickLogout}>
+                      <button id='outButton' onClick={(e) => {handleClickLogout(e)}}>
                         Log Out
                       </button>
                     </div>
