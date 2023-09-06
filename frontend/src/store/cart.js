@@ -8,6 +8,7 @@ const REMOVE_CURRENT_CART = 'cart/REMOVE_CURRENT_CART'
 const RECEIVE_CART_PRODUCTS = 'cart/RECEIVE_CART_PRODUCTS'
 const RECEIVE_CART_PRODUCT = 'cart/RECEIVE_CART_PRODUCT'
 const REMOVE_PRODUCT = 'cart/REMOVE_PRODUCT'
+const CLEAR_CART = 'cart/CLEAR_CART'
 
 
 // export const receiveCartsProducts = () => {
@@ -123,6 +124,19 @@ export const deleteCart = (cartId) => async dispatch => {
 }
 
 
+export const clearCart = () => async dispatch => {
+
+
+    const res = await csrfFetch('/api/carts/delete')
+
+    dispatch({
+        type: CLEAR_CART
+    })
+
+
+}
+
+
 
 const cartReducer = (state = {}, action) => {
 
@@ -133,55 +147,21 @@ const cartReducer = (state = {}, action) => {
 
 
         case RECEIVE_CART_PRODUCTS:
-                return { ...newState, ...action.carts};
+            return { ...newState, ...action.carts};
 
         case RECEIVE_ALL_PRODUCTS:
             return {...newState, ...action.data.carts};
 
         case RECEIVE_CART_PRODUCT:
-            return { ...newState,  [action.cartProduct.cart.id]: action.cartProduct.cart }
-            
+            return { ...newState,  [action.cartProduct.cart.id]: action.cartProduct.cart }       
         case REMOVE_PRODUCT:
             delete newState[action.cartId]
-            return newState
+            return newState;
+        case CLEAR_CART:
+            return {}
         default:
             return newState;
         }
 };
 export default cartReducer;
 
-// const initialState = {
-//     cartProducts: []
-//   }
-  
-
-// const cartReducer = (state = initialState, action) => {
-
-//     const sessionUser = JSON.parse(sessionStorage.getItem('currentUser')).id 
-//     const userId = sessionUser.id
-    
-
-//     switch (action.type) {
-//       case RECEIVE_CART_PRODUCTS:
-//         return {
-//           ...state,
-//           cartProducts: action.cartProducts
-//         };
-//       case RECEIVE_CART_PRODUCT:
-//         return {
-//           ...state,
-//           cartProducts: [...state.cartProducts, action.cartProduct]
-//         };
-//       case REMOVE_PRODUCT:
-//         return {
-//           ...state,
-//           cartProducts: state.cartProducts.filter(
-//             product => product.id !== action.productId
-//           )
-//         };
-//       default:
-//         return state;
-//     }
-//   };
-
-// export default cartReducer;

@@ -21,11 +21,16 @@ const ProductShow = () => {
     const userId = sessionUser?.id
     const history = useHistory();
     const priceStr = product?.productPrice?.toLocaleString()
+    const cartItems = useSelector(state => state?.carts)
     let price = priceStr?.split(".")
     price = price?.length < 2 ? [price[0], "00"] : price
     const [quantity, setQuantity] = useState(1)
     const [errors, setErrors] = useState([]);
   
+
+    const inCart = cartItems ? Object.values(cartItems) : null
+
+    console.log(inCart.length, 'these are the cart items!!!!')
 
     const ratings = {
         1 : 0,
@@ -70,8 +75,11 @@ const ProductShow = () => {
         
         if (!sessionUser) {
             history.push('/login')
-        } else {
+        } else if (inCart.length > 0) {
             history.push('/checkout')
+            dispatch(cartActions.clearCart())
+        } else {
+            history.push('/cart')
         }
         
     }
