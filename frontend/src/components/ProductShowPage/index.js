@@ -196,7 +196,7 @@ const ProductShow = () => {
             <div id='showProductImg'>
                 <img id='productImg' src={product.photoUrl} alt='product_image' />
             </div>
-        <br/>
+            <br/>
         <div id='middleContainer'>
             <div id='showProductInfo'>
                <div id='showTitle'>{product.productName}</div>
