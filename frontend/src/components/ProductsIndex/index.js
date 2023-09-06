@@ -19,10 +19,10 @@ const ProductsIndex = () => {
         <>
         <div id='splashContainer'>
             <div id='splashBox'>
-                <ul id='imageList' className="imageList">
-                    {/* <li><img id="splashImg" src='/amazonSplashOne.jpg'/></li> */}
-                    <li><img id="splashImg" src='/amazonSplashTwo.jpg'/></li>
-                    </ul>
+                
+              
+                    <img id="splashImg" src='/amazonSplashTwo.jpg'/>
+                   
             </div>
             <div id='productShowPageContainer'>
                 {Object.values(products).map((product) => <ProductsIndexItem product={product}/> )}

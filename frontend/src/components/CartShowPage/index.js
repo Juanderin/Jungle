@@ -40,10 +40,6 @@ const CartShow = () => {
         dispatch(fetchProducts())
     }, [])
     
-    if (!sessionUser) {
-        history.push("/")
-    }
-
     
     const itemIds = items.reduce((acc, cartItems) => {
         acc[cartItems.productId] = cartItems.id
@@ -70,12 +66,7 @@ const CartShow = () => {
     }
 
 
-    const handleCheckout = () => {
-
-        history.push('/checkout')
-
-    }
-
+   
 
 
     if (!cart_items) return null
@@ -135,6 +126,30 @@ const CartShow = () => {
     })
 
 
+    const handleCheckout = () => {
+
+        if (arrangedProducts.length > 0 && sessionUser) {
+            history.push('/checkout')
+        } else if (sessionUser && arrangedProducts.length === 0) {
+            history.push('/')
+        } else {
+            history.push('/login')
+        }
+
+    }
+
+
+    const handleSignin = () => {
+
+        history.push('/login')
+
+    }
+
+    const handleSignup = () => {
+
+        history.push('/signup')
+
+    }
 
 
 
@@ -163,14 +178,17 @@ const CartShow = () => {
                         <div id='todaysDeals'>
                            <Link id='todaysDealsLink' to='/'>Shop today's deals</Link> 
                         </div>
+
+                        { !sessionUser ? 
                         <div id='emptyButtons'>
-                            <button>
+                            <button id='emptySignButton' onClick={handleSignin}>
                                 Sign in to your account
                             </button>
-                            <button>
+                            <button id='emptySignupButton' onClick={handleSignup}>
                                 Sign up now
                             </button>
-                        </div>
+                        </div> 
+                        : null }
                     </div>
                 </div>
 
