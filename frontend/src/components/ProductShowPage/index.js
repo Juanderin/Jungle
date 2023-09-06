@@ -71,7 +71,6 @@ const ProductShow = () => {
         if (!sessionUser) {
             history.push('/login')
         } else {
-            // dispatch(cartActions.createCart({product_id: productId, user_id: userId, quantity: quantity}))
             history.push('/checkout')
         }
         
