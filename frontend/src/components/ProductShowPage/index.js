@@ -245,22 +245,41 @@ const ProductShow = () => {
                         <div id='reviewAverage'>{reviewRating} out of 5</div>
                         <div id='ratingAmount'>{ratingLength} global ratings</div>
                     <br/>
-                    <div className="ratingMeter">
+                    <div className="ratingBarsOrg">
+                        <div className="ratingAmounts">5 star</div> 
+                        <div className="ratingMeter">
                         <div className="ratingFiller" style={{ width: `${ratings[5]}%` }}></div>
-                    </div>
-                    <div className="ratingMeter">
-                        <div className="ratingFiller" style={{ width: `${ratings[4]}%` }}></div>
-                    </div>
-                    <div className="ratingMeter">
-                        <div className="ratingFiller" style={{ width: `${ratings[3]}%` }}></div>
-                    </div>
-                    <div className="ratingMeter">
-                        <div className="ratingFiller" style={{ width: `${ratings[2]}%` }}></div>
-                    </div>
-                    <div className="ratingMeter">
-                        <div className="ratingFiller" style={{ width: `${ratings[1]}%` }}></div>
-                    </div>
-
+                        </div>
+                        <div className="ratingAmounts">{`${ratings[5]}%`}</div> 
+                    </div> 
+                    <div className="ratingBarsOrg">
+                        <div className="ratingAmounts">4 star</div> 
+                        <div className="ratingMeter">
+                            <div className="ratingFiller" style={{ width: `${ratings[4]}%` }}></div>
+                        </div>
+                        <div className="ratingAmounts">{`${ratings[4]}%`}</div> 
+                    </div> 
+                    <div className="ratingBarsOrg">
+                        <div className="ratingAmounts">3 star</div> 
+                        <div className="ratingMeter">
+                            <div className="ratingFiller" style={{ width: `${ratings[3]}%` }}></div>
+                        </div>
+                        <div className="ratingAmounts">{`${ratings[3]}%`}</div> 
+                    </div> 
+                    <div className="ratingBarsOrg">
+                        <div className="ratingAmounts">2 star</div> 
+                        <div className="ratingMeter">
+                            <div className="ratingFiller" style={{ width: `${ratings[2]}%` }}></div>
+                        </div>
+                        <div className="ratingAmounts">{`${ratings[2]}%`}</div> 
+                    </div> 
+                    <div className="ratingBarsOrg">
+                        <div className="ratingAmounts">1 star</div> 
+                        <div className="ratingMeter">
+                            <div className="ratingFiller" style={{ width: `${ratings[1]}%` }}></div>
+                        </div>
+                        <div className="ratingAmounts">{`${ratings[1]}%`}</div> 
+                    </div> 
                 <div id='showPageDivider'></div>
 
                     <div id='reviewButtons'>
