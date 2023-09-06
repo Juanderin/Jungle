@@ -20,15 +20,18 @@ const storeCurrentUser = user => {
 
   if (user) sessionStorage.setItem("currentUser", JSON.stringify(user));
   else sessionStorage.removeItem("currentUser");
-  
+
 }
 
 const storeCSRFToken = response => {
+
   const csrfToken = response.headers.get("X-CSRF-Token");
   if (csrfToken) sessionStorage.setItem("X-CSRF-Token", csrfToken);
+
 }
 
 export const restoreSession = () => async dispatch => {
+
   const response = await csrfFetch("/api/session");
 
   storeCSRFToken(response);
@@ -38,12 +41,15 @@ export const restoreSession = () => async dispatch => {
 
   dispatch(setCurrentUser(data.user));
   return response;
+
 };
 
 export const login = ({ credential, password }) => async dispatch => {
+
   const response = await csrfFetch("/api/session", {
     method: "POST",
     body: JSON.stringify({ credential, password })
+
   });
 
   const data = await response.json();
@@ -52,11 +58,14 @@ export const login = ({ credential, password }) => async dispatch => {
   
   dispatch(setCurrentUser(data.user));
   return response;
+
 };
 
 
 export const signup = (user) => async (dispatch) => {
+
   const { username, email, password } = user;
+
   const response = await csrfFetch("/api/users", {
     method: "POST",
     body: JSON.stringify({
@@ -64,22 +73,29 @@ export const signup = (user) => async (dispatch) => {
       email,
       password
     })
+
   });
 
 
   if (response.ok) {
 
-  const data = await response.json();
+    const data = await response.json();
+
     if (data.errors) throw data
-  storeCurrentUser(data.user);
-  dispatch(setCurrentUser(data.user));
+
+    storeCurrentUser(data.user);
+    dispatch(setCurrentUser(data.user));
+    
   } else {
     throw response
   }
+
   return response;
+
 };
 
 export const logout = () => async (dispatch) => {
+  
   const response = await csrfFetch("/api/session", {
     method: "DELETE"
   });
@@ -88,10 +104,13 @@ export const logout = () => async (dispatch) => {
 
   dispatch(removeCurrentUser());
   return response;
+
 };
 
 const initialState = { 
+
   user: JSON.parse(sessionStorage.getItem("currentUser"))
+
 };
 
 const sessionReducer = (state = initialState, action) => {
@@ -106,6 +125,7 @@ const sessionReducer = (state = initialState, action) => {
     default:
       return state;
   }
+  
 };
 
 export default sessionReducer;

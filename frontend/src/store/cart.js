@@ -130,10 +130,8 @@ const cartReducer = (state = {}, action) => {
 
         case RECEIVE_CART_PRODUCTS:
             return { ...newState, ...action.carts};
-
         case RECEIVE_ALL_PRODUCTS:
             return {...newState, ...action.data.carts};
-
         case RECEIVE_CART_PRODUCT:
             return { ...newState,  [action.cartProduct.cart.id]: action.cartProduct.cart }       
         case REMOVE_PRODUCT:

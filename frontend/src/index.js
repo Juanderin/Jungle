@@ -6,7 +6,6 @@ import './index.css';
 import App from './App';
 import configureStore from './store';
 import csrfFetch from "./store/csrf";
-import { restoreSession } from './store/sessionReducer';
 import * as sessionActions from './store/sessionReducer';
 import * as cartActions from './store/cart'
 
@@ -18,14 +17,6 @@ if (process.env.NODE_ENV !== 'production') {
   window.sessionActions = sessionActions;
   window.cartActions = cartActions
 }
-
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
-
 
 function Root() {
   return (
