@@ -1,15 +1,13 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { useState } from "react";
 import { useEffect } from "react";
 import * as cartActions from '../../store/cart'
-import { fetchCarts} from "../../store/cart";
-import CartIndexItem from "./CartIndexItem";
 import { fetchProducts } from "../../store/products";
 import './CartShowPage.css'
 import { useHistory } from "react-router-dom";
 import MainPage from "../MainPageForm";
+import { Link } from "react-router-dom/";
 
 const CartShow = () => {
 
@@ -26,10 +24,10 @@ const CartShow = () => {
     let selectedProducts = items.map((cartItem) => products[cartItem.productId])
 
     
-        const quantities = items.reduce((acc, cartItem) => {
-            acc[cartItem.productId] = cartItem.quantity;
-            return acc;
-        }, {});
+    const quantities = items.reduce((acc, cartItem) => {
+        acc[cartItem.productId] = cartItem.quantity;
+        return acc;
+    }, {});
 
     const totalPrice = selectedProducts.reduce((sum, product) => sum + (product.productPrice * quantities[product.id]), 0)
     const totalItems = items.reduce((sum, item) => sum + item.quantity, 0)
@@ -42,10 +40,6 @@ const CartShow = () => {
         dispatch(fetchProducts())
     }, [])
     
-    if (!sessionUser) {
-        history.push("/")
-    }
-
     
     const itemIds = items.reduce((acc, cartItems) => {
         acc[cartItems.productId] = cartItems.id
@@ -72,12 +66,7 @@ const CartShow = () => {
     }
 
 
-    const handleCheckout = () => {
-
-        history.push('/checkout')
-
-    }
-
+   
 
 
     if (!cart_items) return null
@@ -93,7 +82,6 @@ const CartShow = () => {
         return (
            
             <div>
-                <MainPage />
 
                     <div id='cartSubContainer'>
                         <img id='productCartImg' src={photoUrl}></img>
@@ -138,6 +126,30 @@ const CartShow = () => {
     })
 
 
+    const handleCheckout = () => {
+
+        if (arrangedProducts.length > 0 && sessionUser) {
+            history.push('/checkout')
+        } else if (sessionUser && arrangedProducts.length === 0) {
+            history.push('/')
+        } else {
+            history.push('/login')
+        }
+
+    }
+
+
+    const handleSignin = () => {
+
+        history.push('/login')
+
+    }
+
+    const handleSignup = () => {
+
+        history.push('/signup')
+
+    }
 
 
 
@@ -146,13 +158,41 @@ const CartShow = () => {
     <>
         <div id='cartPageContainer'>
 
+                <MainPage />
 
             <div id='cartMainContainer'>
                 <div id='mainCartHeader'>Shopping Cart</div>
                     <div id='cartShowPageDivider'></div>
 
 
-                {arrangedProducts}
+                {arrangedProducts.length > 0 ? arrangedProducts : 
+                
+                <div id='emptyMain'>
+                    <div id='emptyImgCont'>
+                        <img id='emptyImg' src='/empty.png'/>
+                    </div>
+                    <div id='emptyContents'>
+                        <div id='emptyTitle'>
+                            Your Jungle Cart is empty
+                        </div>
+                        <div id='todaysDeals'>
+                           <Link id='todaysDealsLink' to='/'>Shop today's deals</Link> 
+                        </div>
+
+                        { !sessionUser ? 
+                        <div id='emptyButtons'>
+                            <button id='emptySignButton' onClick={handleSignin}>
+                                Sign in to your account
+                            </button>
+                            <button id='emptySignupButton' onClick={handleSignup}>
+                                Sign up now
+                            </button>
+                        </div> 
+                        : null }
+                    </div>
+                </div>
+
+                }
             </div>
 
             <div id='cartSidebarContainer'>

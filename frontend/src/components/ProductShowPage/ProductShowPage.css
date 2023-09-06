@@ -5,6 +5,7 @@
     font-family: 'Amazon Ember', Arial sans-serif;
     margin: 20px;
     margin-top: 80px;
+    
 }
 
 #showProductInfo{
@@ -54,6 +55,19 @@
     justify-content: left;
     width: 100%;
     margin: 20px;
+    margin-right: 50px;
+    margin-left: 50px;
+    box-sizing: border-box;
+}
+
+#productList{
+
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+
 }
 
 #freeReturnsInfo{
@@ -90,6 +104,14 @@
     box-shadow: 0 3px 5px 0 hsla(180,5%,85%, 0.5);
     height: 30px;
     width: 200px;
+    cursor: pointer;
+}
+
+#cartError{
+
+    font-size: 13px;
+    margin: 5px;
+
 }
 
 #addCartButton:hover{
@@ -102,12 +124,14 @@
 }
 
 #buyNowButton{
+    margin-top: 3px;
     background-color: rgb(255, 152, 30);
     border: 1px solid rgb(255, 152, 30);
     border-radius: 100px;
     box-shadow: 0 3px 5px 0 hsla(180,5%,85%, 0.5);
     height: 30px;
     width: 200px;
+    cursor: pointer;
 }
 
 
@@ -155,16 +179,45 @@
     justify-content: space-between; 
 }
 
+.ratingBarsOrg{
+
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+}
+
+.ratingAmounts{
+
+    font-size: 14px;
+    color: rgb(0, 102, 122);
+    font-weight: 500;
+
+}
+
 #barTitle{
     font-size: 23px;
     font-weight: bold;
 }
 
+#reviewAverage{
+
+    margin-top: 5px;
+    font-size: 18px;
+
+}
+
+#ratingAmount{
+
+    margin-top: 15px;
+    font-size: 14px;
+    color: rgb(86, 89, 89);
+}
 
 #topReviewsTitle{
     
-    font-weight: bold;
-    font-size: 16px;
+    font-weight: 700;
+    font-size: 18px;
 
 }
 
@@ -197,6 +250,7 @@
 
 }
 
+
 #reviewUser{
 
     font-size: 14px;
@@ -210,3 +264,57 @@
     color: rgb(201, 90, 0);
 
 }
+
+#reviewDeleteButton{
+
+    align-self: center;
+    margin-top: 13px;
+    background: none;
+    border: none;
+    padding: 0;
+    color: rgb(56, 144, 160);
+    width: 110px;
+    cursor: pointer;
+
+}
+
+#reviewButtons{
+    
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+}
+
+#reviewButton{
+
+    border-radius: 7px;
+    background-color: white;
+    border: 1.5px solid lightgray;
+    cursor: pointer;
+    height: 30px;
+    margin-top: 7px;
+    margin-bottom: 100px;
+}
+
+#reviewButton:hover{
+
+    background-color: rgb(238, 238, 238);
+
+}
+
+#reviewTitleBody{
+
+
+    font-size: 18px;
+    font-weight: bold;
+
+}   
+
+
+#reviewTextBody{
+
+    font-size: 14px;
+}
+

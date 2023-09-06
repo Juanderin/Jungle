@@ -103,6 +103,108 @@
 
 }
 
+#emptyMain{
+
+    display: flex;
+    flex-direction: row;
+
+}
+
+#emptyTitle{
+
+    font-weight: 700;
+    font-size: 24px;
+
+}
+
+#todaysDeals{
+
+    text-decoration: none;
+    color: #007185;
+    font-size: 14px;
+
+}
+
+#todaysDealsLink{
+
+    text-decoration: none;
+    color: #007185;
+    font-size: 14px;  
+
+}
+
+#emptyContents{
+
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+
+
+}
+
+#emptyButtons{
+
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+
+}
+
+#emptySignButton{
+
+
+    font-size: 16px;
+    background-color: rgb(254, 215, 54);
+    border: 1px solid rgb(254, 215, 54);
+    border-radius: 8px;
+    box-shadow: 0 3px 5px 0 hsla(180,5%,85%, 0.5);
+    height: 30px;
+    width: 195px;
+    cursor: pointer;
+    font-family: 'Amazon Ember', Arial sans-serif;
+
+}
+
+#emptySignButton:hover{
+    background-color: rgb(230, 193, 45);
+    border: 1px solid rgb(211, 176, 40);
+}
+
+
+
+#emptySignupButton{
+
+    border-radius: 7px;
+    background-color: white;
+    border: 1px solid lightgray;
+    cursor: pointer;
+    height: 30px;
+    font-size: 16px;
+    font-family: 'Amazon Ember', Arial sans-serif;
+
+}
+
+#emptySignupButton:hover{
+
+    background-color: rgb(238, 238, 238);
+
+}
+
+#emptyImgCont{
+
+    /* display: flex;
+    flex-direction: row; */
+
+}
+
+#emptyImg{
+
+    margin-top: 50px;
+    max-width: 350px;
+
+}
 
 #productCartImg{
 
@@ -132,7 +234,7 @@
 
 #eligibleFreeThree{
 
-    color: rgb(0, 113, 133)
+    color: rgb(0, 113, 133);
 }
 
 
@@ -167,7 +269,7 @@
 }
 
 #checkoutButton{
-    font-family: 'Amazon Ember', Arial sans-serif;
+   
     font-size: 12px;
     background-color: rgb(254, 215, 54);
     border: 1px solid rgb(254, 215, 54);
@@ -175,6 +277,7 @@
     box-shadow: 0 3px 5px 0 hsla(180,5%,85%, 0.5);
     height: 30px;
     width: 260px;
+    cursor: pointer;
 }
 
 

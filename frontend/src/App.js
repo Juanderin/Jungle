@@ -12,6 +12,7 @@ import ReviewForm from "./components/ReviewFormPage";
 import Navigation from "./components/Navigation";
 import { Redirect } from "react-router-dom/";
 import './index.css';
+import Checkout from "./components/CheckoutShowPage";
 
 
 const App = () => {
@@ -21,10 +22,7 @@ const App = () => {
   return (
   <>
 
-
    <Switch>
-
-    
     <Route exact path='/' component={HomePage} />
     <Route path='/login' component={LoginPage}/>
     <Route path={"/products/:productId"} component={ProductShow}/>
@@ -33,7 +31,7 @@ const App = () => {
     <Route path='/main' component={MainPage} />
     <Route path='/cart' component={CartShow} />
     <Route path='/signup' component={SignUpForm}/>
-    <Route path='/tester' component={ProductsIndex} />
+    <Route path='/checkout' component={Checkout} />
     </Switch> 
   </>
 
