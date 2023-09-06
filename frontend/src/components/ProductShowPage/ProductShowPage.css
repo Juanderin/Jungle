@@ -3,7 +3,7 @@
     flex-direction: row;
     justify-content: space-between;    
     font-family: 'Amazon Ember', Arial sans-serif;
-    margin: 60px;
+    margin: 20px;
     margin-top: 80px;
     
 }
@@ -55,7 +55,15 @@
     justify-content: left;
     width: 100%;
     margin: 20px;
+    margin-right: 50px;
+    margin-left: 50px;
     box-sizing: border-box;
+}
+
+#productList{
+
+    margin-top: 20px;
+
 }
 
 #freeReturnsInfo{

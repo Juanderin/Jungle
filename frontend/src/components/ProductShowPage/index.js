@@ -24,9 +24,6 @@ const ProductShow = () => {
     let price = priceStr?.split(".")
     price = price?.length < 2 ? [price[0], "00"] : price
     const [quantity, setQuantity] = useState(1)
-    const [rating, setRating] = useState()
-    const [title, setTitle] = useState("")
-    const [body, setBody] = useState("")
     const [errors, setErrors] = useState([]);
   
 
@@ -34,8 +31,8 @@ const ProductShow = () => {
         1 : 0,
         2 : 0,
         3 : 0,
-        4: 0,
-        5: 0
+        4 : 0,
+        5 : 0
     }
 
 
@@ -147,16 +144,6 @@ const ProductShow = () => {
 
     }) : null
 
-    // const normalizedReviews = reviews ? Object.values(ratings).forEach((num) => {
-
-    //     if (num !== 0) {
-    //         ratings[num] = (ratings[num] / ratingLength) * 100
-
-    //     }
-
-
-    // }) : null 
-
 
     for (let i = 1; i <= 5; i++) {
 
@@ -169,7 +156,9 @@ const ProductShow = () => {
        
     }
 
-    console.log(ratings, 'these are the normalized reviews ')
+    const description = product ? product.description.split('*') : null
+
+    const descriptionList = description.map((point) => <li>{point}</li>)
 
 
     const handleReviewRedirect = () => {
@@ -210,28 +199,28 @@ const ProductShow = () => {
                 <br/>
                 <div id='showPageDivider'></div>
 
-                <div>{product.description}</div>
+                {<div id='productList'> {descriptionList} </div>}
         </div>
         <br/>
             <div id='showProductPurchase'>
                 <div id='productPriceOnIndex'><div id="productCentsOnIndex">$</div>{price[0]}<div id="productCentsOnIndex">{price[1]}</div></div>
                     <div>FREE Returns</div>
                     <div id='inStock'>In Stock </div>
-                <div id='dropShow'>
-                <label id="dropText">Qty: </label>
-                <select id="dropdown">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="1">5</option>
-                    <option value="2">6</option>
-                    <option value="3">7</option>
-                    <option value="4">8</option>
-                    <option value="3">9</option>
-                    <option value="4">10</option>
-                </select>
-                </div>
+                    <div id='dropShow'>
+                        <label id="dropText">Qty: </label>
+                            <select id="dropdown" value={quantity} onChange={(e) => setQuantity(e.target.value)}>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                    </div>
                {errors && <div id='cartError'>{errors.join(", ")}</div> }
                     <button id='addCartButton' onClick={handleAddToCart}>Add to Cart</button>
                     <button id='buyNowButton' onClick={handleBuyNow}>Buy Now</button>
@@ -242,7 +231,7 @@ const ProductShow = () => {
         <div id='showReview'>
                 <div id='ratingBars'>
                     <div id='barTitle'>Customer Reviews</div>
-                        <div id='reviewAverage'>{reviewRating} out of 5</div>
+                        <div id='reviewAverage'>{reviewRating ? reviewRating : 0} out of 5</div>
                         <div id='ratingAmount'>{ratingLength} global ratings</div>
                     <br/>
                     <div className="ratingBarsOrg">

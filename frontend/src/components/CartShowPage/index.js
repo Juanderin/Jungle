@@ -7,6 +7,7 @@ import { fetchProducts } from "../../store/products";
 import './CartShowPage.css'
 import { useHistory } from "react-router-dom";
 import MainPage from "../MainPageForm";
+import { Link } from "react-router-dom/";
 
 const CartShow = () => {
 
@@ -23,10 +24,10 @@ const CartShow = () => {
     let selectedProducts = items.map((cartItem) => products[cartItem.productId])
 
     
-        const quantities = items.reduce((acc, cartItem) => {
-            acc[cartItem.productId] = cartItem.quantity;
-            return acc;
-        }, {});
+    const quantities = items.reduce((acc, cartItem) => {
+        acc[cartItem.productId] = cartItem.quantity;
+        return acc;
+    }, {});
 
     const totalPrice = selectedProducts.reduce((sum, product) => sum + (product.productPrice * quantities[product.id]), 0)
     const totalItems = items.reduce((sum, item) => sum + item.quantity, 0)
@@ -90,7 +91,6 @@ const CartShow = () => {
         return (
            
             <div>
-                <MainPage />
 
                     <div id='cartSubContainer'>
                         <img id='productCartImg' src={photoUrl}></img>
@@ -143,13 +143,38 @@ const CartShow = () => {
     <>
         <div id='cartPageContainer'>
 
+                <MainPage />
 
             <div id='cartMainContainer'>
                 <div id='mainCartHeader'>Shopping Cart</div>
                     <div id='cartShowPageDivider'></div>
 
 
-                {arrangedProducts}
+                {arrangedProducts.length > 0 ? arrangedProducts : 
+                
+                <div id='emptyMain'>
+                    <div id='emptyImgCont'>
+                        <img id='emptyImg' src='/empty.png'/>
+                    </div>
+                    <div id='emptyContents'>
+                        <div id='emptyTitle'>
+                            Your Jungle Cart is empty
+                        </div>
+                        <div id='todaysDeals'>
+                           <Link id='todaysDealsLink' to='/'>Shop today's deals</Link> 
+                        </div>
+                        <div id='emptyButtons'>
+                            <button>
+                                Sign in to your account
+                            </button>
+                            <button>
+                                Sign up now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                }
             </div>
 
             <div id='cartSidebarContainer'>

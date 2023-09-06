@@ -168,11 +168,11 @@ p9 = Product.create!(
     description: "Ever had enough of the outside world, powernaps not comfy enough? Well this pillow will set you straight. Feel like you are drowning in your matress, wherever you go!
     Microfiber
     Made in USA or Imported
-    💁 DREAM IN STYLE | The revolutionary sensation OSTRICHPILLOW ORIGINAL is the ultimate immersive travel pillow! Use it for a power nap, lounging at home, or wherever you may be, without moving an inch. Just slip it on and you're off to dreamland.
-    💆🏼‍♂️ CUSTOM FEEL | Lovingly hand made using a dreamily soft high quality combination of viscose and elastomer, together with the next generation coated microbead filling create a perfect partnership, helping you drift calmly into relaxation mode.
-    🧘 IMMERSIVE DESIGN | With its unique design, this travel pillow will disconnect you from your surroundings, reducing the light and ambient sound. With an opening on the front side, you can breathe easily, along with two more openings for your hands.
-    🎁 FANTASTIC GIFT FOR FAMILY & FRIENDS | Surprise your loved ones with a great present that will help them make their trips better. This travel pillow will help their neck rest and make their trips more comfortable by taking them to a relaxing spot.
-    🧼 HAND WASHABLE | You can gently spot clean your blackout mask Ostrichpillow using mild soap and water, making sure to thoroughly air dry afterwards, so it feels good as new! Please visit our website for full care instructions.",
+    * 💁 DREAM IN STYLE | The revolutionary sensation OSTRICHPILLOW ORIGINAL is the ultimate immersive travel pillow! Use it for a power nap, lounging at home, or wherever you may be, without moving an inch. Just slip it on and you're off to dreamland.
+    * 💆🏼‍♂️ CUSTOM FEEL | Lovingly hand made using a dreamily soft high quality combination of viscose and elastomer, together with the next generation coated microbead filling create a perfect partnership, helping you drift calmly into relaxation mode.
+    * 🧘 IMMERSIVE DESIGN | With its unique design, this travel pillow will disconnect you from your surroundings, reducing the light and ambient sound. With an opening on the front side, you can breathe easily, along with two more openings for your hands.
+    * 🎁 FANTASTIC GIFT FOR FAMILY & FRIENDS | Surprise your loved ones with a great present that will help them make their trips better. This travel pillow will help their neck rest and make their trips more comfortable by taking them to a relaxing spot.
+    * 🧼 HAND WASHABLE | You can gently spot clean your blackout mask Ostrichpillow using mild soap and water, making sure to thoroughly air dry afterwards, so it feels good as new! Please visit our website for full care instructions.",
     product_price: 79.99,
     category: "Comfort"
 )
