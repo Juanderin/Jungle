@@ -195,3 +195,14 @@ Future Implementations
 
 
 
+categories: 
+
+Home
+
+Electronics
+
+Comfort 
+
+Decor
+
+Apparel
