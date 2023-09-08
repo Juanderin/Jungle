@@ -179,7 +179,7 @@ p10 = Product.create!(
 
 p10.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/JungleImgs/cheesyphone.jpg"),filename: "cheesyphone.jpg")
 
-
+##
 
 star_wars_characters = [
     "Luke Skywalker",
