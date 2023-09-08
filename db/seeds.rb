@@ -190,7 +190,7 @@ p11 = Product.create!(
     category: "Home"
 )
 
-p11.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/hook.jpg"),filename: "hooks.jpg")
+p11.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/JungleImgs/hook.jpg"),filename: "hook.jpg")
 
 p12 = Product.create!(
     product_name: "Crocs unisex-adult Classic Lined Clog",
@@ -205,7 +205,7 @@ p12 = Product.create!(
     category: "Apparel"
 )
 
-p12.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/clog.jpg"),filename: "crocs.jpg")
+p12.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/JungleImgs/clog.jpg"),filename: "clog.jpg")
 
 p13 = Product.create!(
     product_name: "Hydro Flask",
@@ -220,7 +220,7 @@ p13 = Product.create!(
     category: "Accessories"
 )
 
-p13.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/flask2.jpg"),filename: "flask.jpg")
+p13.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/JungleImgs/flask2.jpg"),filename: "flask2.jpg")
 
 p14 = Product.create!(
     product_name: "Wireless Bluetooth Headphones",
@@ -248,7 +248,7 @@ p14 = Product.create!(
     category: "Electronics"
 )
 
-p14.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/lock.jpg"),filename: "headphones.jpg")
+p14.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/JungleImgs/lock.jpg"),filename: "lock.jpg")
  
 
 p15 = Product.create!(
@@ -267,7 +267,7 @@ p15 = Product.create!(
     category: "Home"
 )
 
-p15.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/humid.jpg"),filename: "humid.jpg")
+p15.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/JungleImgs/humid.jpg"),filename: "humid.jpg")
 
 
 p16 = Product.create!(
@@ -285,7 +285,7 @@ p16 = Product.create!(
     category: "Accessories"
 )
 
-p16.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/appa.jpg"),filename: "appa.jpg")
+p16.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/JungleImgs/appa.jpg"),filename: "appa.jpg")
 
 
 p17 = Product.create!(
@@ -298,22 +298,22 @@ p17 = Product.create!(
     category: "Accessories"
 )
 
-p17.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/aang.jpg"),filename: "aang.jpg")
+p17.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/JungleImgs/aang.jpg"),filename: "aang.jpg")
 
 
-p18 = Product.create!(
-    product_name: "Takumi Background Model Car",
-    description: "Materials: Acrylic Cover, Wood Base, ABS Plastic with UV Print on the panel. The reduction is perfect.
-    * Size: 1:32 ae86 Fujihara Tofu Store Car Model Kit 11.25*6.29*6.96 in (With Acrylic Cover).With a same size AE86 Die-cast Vehicle.
-    * Display: Led light powered by USB on top of panel makes this model kit well display in dark. This Die-cast model car
-        can open car door, hood, trunk boot. And it also can turn on the head light by LR44/AG13 1.5v battery(3pcs).
-    * Easy Assembled: Easy assemble without tools. You can also display other car models.
-    * Good rating:We've done lot of good rates in Gen1. And we continue improving this product. As you see this is the version 2.0. More detail, More clean. Hope you like this.",
-    product_price: 65.89,
-    category: "Home"
-)
+# p18 = Product.create!(
+#     product_name: "Takumi Background Model Car",
+#     description: "Materials: Acrylic Cover, Wood Base, ABS Plastic with UV Print on the panel. The reduction is perfect.
+#     * Size: 1:32 ae86 Fujihara Tofu Store Car Model Kit 11.25*6.29*6.96 in (With Acrylic Cover).With a same size AE86 Die-cast Vehicle.
+#     * Display: Led light powered by USB on top of panel makes this model kit well display in dark. This Die-cast model car
+#         can open car door, hood, trunk boot. And it also can turn on the head light by LR44/AG13 1.5v battery(3pcs).
+#     * Easy Assembled: Easy assemble without tools. You can also display other car models.
+#     * Good rating:We've done lot of good rates in Gen1. And we continue improving this product. As you see this is the version 2.0. More detail, More clean. Hope you like this.",
+#     product_price: 65.89,
+#     category: "Home"
+# )
 
-p18.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/ae86_.jpg"),filename: "ae86.jpg")
+# p18.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/JungleImgs/ae86_.jpg"),filename: "_ae86.jpg")
 
 
 p19 = Product.create!(
@@ -330,24 +330,24 @@ p19 = Product.create!(
     category: "Home"
 )
 
-p19.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/produce.jpg"),filename: "produce.jpg")
+p19.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/JungleImgs/produce.jpg"),filename: "produce.jpg")
 
 
-p20 = Product.create!(
-    product_name: "Squishy Steamed Stuffed Bun",
-    description: "* 🍥【Steamed Stuffed Bun Toy】The appearance of the steamed bun squishy stress ball is in the style 
-    of steamed buns, with clear and realistic texture, and a small steamer can store dumpling squishy toy, making the toy more vivid. 
-        The size of the bun is about 8.5cm(L)x5.5cm(H), and The size of the steamer is about 9.5cm(L)x6cm(H).this artifical dumpling stress ball
-        must be a great gift, such as April Fools birthday and other holidays.
-    * 🎯【Stress Relief Toys】The dumpling steamed bun squishy is a wonderful stress relief toy. You can knead the dumpling stress ball into 
-        any shape you want, no matter how hard you try. You just need to put the dumpling squishy stress ball in the palm of your hand and knead it, 
-        which will help you to release stress and anxiety. Or, If you type too much at work, you can also use this 
-        dumpling stress ball to move your finger joints so as to relieve pain.",
-    product_price: 7.89,
-    category: "Home"
-)
+# p20 = Product.create!(
+#     product_name: "Squishy Steamed Stuffed Bun",
+#     description: "* 🍥【Steamed Stuffed Bun Toy】The appearance of the steamed bun squishy stress ball is in the style 
+#     of steamed buns, with clear and realistic texture, and a small steamer can store dumpling squishy toy, making the toy more vivid. 
+#         The size of the bun is about 8.5cm(L)x5.5cm(H), and The size of the steamer is about 9.5cm(L)x6cm(H).this artifical dumpling stress ball
+#         must be a great gift, such as April Fools birthday and other holidays.
+#     * 🎯【Stress Relief Toys】The dumpling steamed bun squishy is a wonderful stress relief toy. You can knead the dumpling stress ball into 
+#         any shape you want, no matter how hard you try. You just need to put the dumpling squishy stress ball in the palm of your hand and knead it, 
+#         which will help you to release stress and anxiety. Or, If you type too much at work, you can also use this 
+#         dumpling stress ball to move your finger joints so as to relieve pain.",
+#     product_price: 7.89,
+#     category: "Home"
+# )
 
-p20.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/bao_.jpg"),filename: "bao.jpg")
+# p20.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/bao_.jpg"),filename: "bao.jpg")
 
 
 p21 = Product.create!(
@@ -361,7 +361,7 @@ p21 = Product.create!(
     category: "Exercise"
 )
 
-p21.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/handsurf.jpg"),filename: "handsurf.jpg")
+p21.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/JungleImgs/handsurf.jpg"),filename: "handsurf.jpg")
 
 
 p22 = Product.create!(
@@ -374,7 +374,7 @@ p22 = Product.create!(
     category: "Home"
 )
 
-p22.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/float.jpg"),filename: "float.jpg")
+p22.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/JungleImgs/float.jpg"),filename: "float.jpg")
 
 
 p23 = Product.create!(
@@ -389,7 +389,7 @@ p23 = Product.create!(
     category: "Electronics"
 )
 
-p23.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/ironman.jpg"),filename: "ironman.jpg")
+p23.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/JungleImgs/ironman.jpg"),filename: "ironman.jpg")
 
 
 p24 = Product.create!(
@@ -402,7 +402,7 @@ p24 = Product.create!(
     category: "Electronics"
 )
 
-p24.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/floatlamp.jpg"),filename: "floatlamp.jpg")
+p24.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/JungleImgs/floatlamp.jpg"),filename: "floatlamp.jpg")
 
 p25 = Product.create!(
     product_name: "Skateboard USB Flash Drive",
@@ -416,7 +416,7 @@ p25 = Product.create!(
     category: "Electronics"
 )
 
-p25.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/flashskate.jpg"),filename: "flashskate.jpg")
+p25.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/JungleImgs/flashskate.jpg"),filename: "flashskate.jpg")
 
 
 p26 = Product.create!(
@@ -431,7 +431,7 @@ p26 = Product.create!(
     category: "Home"
 )
 
-p26.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/ducktea.jpg"),filename: "ducktea.jpg")
+p26.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/JungleImgs/ducktea.jpg"),filename: "ducktea.jpg")
 
 
 p27 = Product.create!(
@@ -446,7 +446,7 @@ p27 = Product.create!(
     category: "Home"
 )
 
-p27.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/dogteeth.jpg"),filename: "dogteeth.jpg")
+p27.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/JungleImgs/dogteeth.jpg"),filename: "dogteeth.jpg")
 
 
 p28 = Product.create!(
@@ -464,7 +464,7 @@ p28 = Product.create!(
     category: "Accessories"
 )
 
-p28.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/pineapple.jpg"),filename: "pineapple.jpg")
+p28.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/JungleImgs/pineapple.jpg"),filename: "pineapple.jpg")
 
 
 p29 = Product.create!(
@@ -477,7 +477,7 @@ p29 = Product.create!(
     category: "Accessories"
 )
 
-p29.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/spidey.jpg"),filename: "spidey.jpg")
+p29.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/JungleImgs/spidey.jpg"),filename: "spidey.jpg")
 
 
 
@@ -490,7 +490,7 @@ p30 = Product.create!(
     category: "Exercise"
 )
 
-p30.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/workout.jpg"),filename: "workout.jpg")
+p30.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/JungleImgs/workout.jpg"),filename: "workout.jpg")
 
 
 p31 = Product.create!(
@@ -502,7 +502,7 @@ p31 = Product.create!(
     category: "Exercise"
 )
 
-p31.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/bike.jpg"),filename: "bike.jpg")
+p31.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/JungleImgs/bike.jpg"),filename: "bike.jpg")
 
 
 star_wars_characters = [
