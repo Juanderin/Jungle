@@ -77,7 +77,7 @@ const CartShow = () => {
         let price = productPrice.toLocaleString()
         price = price.length < 2 ? [price[0], ".00"] : price
         
-
+        // console.log(item, 'waht are these things')
 
         return (
            
@@ -102,6 +102,13 @@ const CartShow = () => {
                                             <option value="2">2</option>
                                             <option value="3">3</option>
                                             <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                          
                                         </select>
                                 </div>
                                         
@@ -130,6 +137,7 @@ const CartShow = () => {
 
         if (arrangedProducts.length > 0 && sessionUser) {
             history.push('/checkout')
+            dispatch(cartActions.clearCart())
         } else if (sessionUser && arrangedProducts.length === 0) {
             history.push('/')
         } else {
@@ -194,7 +202,7 @@ const CartShow = () => {
 
                 }
             </div>
-
+            {arrangedProducts.length > 0 ?
             <div id='cartSidebarContainer'>
                 <div id='subtotalContainer'>
                     <div id='subtotalSubContainer'>
@@ -211,7 +219,7 @@ const CartShow = () => {
                     </div>
                 </div>
                 <div id='recommendedContainer'></div>
-            </div>
+            </div> : <div/> }
 
         </div>
     </>

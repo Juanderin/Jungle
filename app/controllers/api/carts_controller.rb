@@ -57,6 +57,22 @@ class Api::CartsController < ApplicationController
         
     end 
 
+
+    def delete_all 
+
+        user = User.find_by(id: current_user.id)
+
+        carts = user.carts
+
+        if carts
+            carts.destroy_all
+            render json: {message: ['All items deleted']}
+        else 
+            render json: {message: ['Error in deletion, no items exists']}
+        end 
+
+    end 
+
    
     def cart_params
 

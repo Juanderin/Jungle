@@ -1,33 +1,15 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
 
-
-#this is for example once you migrate 
-
-
-#after eveery user input 
-
-# mike = User.Create!(username: 'madz', password: 'password')
-
-# to every user input 
-
-
-
-# db/seeds.rb
 require "open-uri"
 
 ApplicationRecord.transaction do 
     puts "Destroying tables..."
-    # Unnecessary if using `rails db:seed:replant`
+
     ApplicationRecord.connection.reset_pk_sequence!('users')
   
     puts "Creating users..."
-    # Create one user with an easy to remember username, email, and password:
+  
     
     Cart.destroy_all
     
@@ -42,7 +24,6 @@ ApplicationRecord.transaction do
     puts "Done!"
   end
 
-  # json.extract! product, :id, :product_name, :description, :product_price, :created_at, :updated_at
 
 
   Product.destroy_all
@@ -162,7 +143,7 @@ p8 = Product.create!(
     * High-Quality Material Made of high-quality plastic material, the pen holder has a smooth surface, is lightweight, strong, and not easy to damage with long-term use. The funny pen holder is easy to carry so that you can put the Japanese stationery into your backpack, handbag, pocket while going out
     * Best Easter Day Decorations Gift❆ The cute Japanese stationery is the best choice for holiday gift-giving. The cute appearance of the crab pen holder for the desk is popular with people. You can give the crab pen holder to children as a toy or school supplies. The crab pencil holder is also an interesting gift for your wife or girlfriend to store or display their accessories as the easter day accessories",
     product_price: 2.00,
-    category: "Decor"
+    category: "Home"
 )
 
 p8.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/JungleImgs/crab.jpg"),filename: "crab.jpg")
@@ -197,5 +178,391 @@ p10 = Product.create!(
 
 p10.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/JungleImgs/cheesyphone.jpg"),filename: "cheesyphone.jpg")
 
+p11 = Product.create!(
+    product_name: "Mearens Magnetic Hooks",
+    description: "【Super Magnetic Hooks】- Made of high-grade and exquisite quality magnet and steel offer more than 22lbs a vertical hanging and the power reduced by 2/3 on horizontal hanging. Steady without Sliding.
+    *【Excellent layer Coating】- Ni+Cu+Ni Triple Layer Coated. The best coating available, which provides a shiny and rust resistant coated steel cup provides protection for the metal magnet hooks and helps to prevent chipping or cracking, making magnetic hooks ideal for long term use.
+    *【Easy to Use】- The heavy duty magnetic hooks are easy to remove and fit in anywhere there is iron or steel, stable without drilling. No more holes in your walls or furniture, These are ideal magnetic hanging hooks for long-term use.
+    *【Versatile to Use】- The cruise essentials hooks are fairly small and don't take up too much space. perfect for hanging grill tools. decorative lights and tool accessories, also be widely used in cruise, fridge, kitchen, locker, workplace office, garage, indoor, outdoor and anywhere there is iron or steel.
+    *【Quality Guarantee】- Please contact us through Amazon if you have quality problems.",
+    product_price: 9.99,
+    category: "Home"
+)
 
+p11.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/hook.jpg"),filename: "hooks.jpg")
+
+p12 = Product.create!(
+    product_name: "Crocs unisex-adult Classic Lined Clog",
+    description: "100% Synthetic
+    * Imported
+    * Faux Fur
+    * Ethylene Vinyl Acetate sole
+    * Shaft measures approximately 3#inches from arch
+    * Heel measures approximately 0.73
+    * WARM AND FUZZY FEELINGS INSIDE: Designed with function and warmth in mind, the soft and lined Crocs for men and women are great as a slipper but also perfect for running errands.",
+    product_price: 59.99,
+    category: "Apparel"
+)
+
+p12.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/clog.jpg"),filename: "crocs.jpg")
+
+p13 = Product.create!(
+    product_name: "Hydro Flask",
+    description: "TempShield double-wall vacuum insulation keeps drinks cold up to 24 hours, hot up to 12
+    * Flex Cap is leakproof when closed
+    * Honeycomb Insulated Cap for maximum temperature retention
+    * Made with 18/8 pro-grade stainless steel for durability, pure taste and no flavor transfer
+    * Color Last powder coat is durable, sweat-free and colorful
+    * BPA-Free
+    * Dishwasher safe",
+    product_price: 20.99,
+    category: "Accessories"
+)
+
+p13.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/flask2.jpg"),filename: "flask.jpg")
+
+p14 = Product.create!(
+    product_name: "Wireless Bluetooth Headphones",
+
+    description: "Unique Open Ear Design for Comfort and Safety:Our open ear headphones feature a unique design that provides both comfort and safety. 
+        They don't block or cover your ears, allowing you to hear your music and your surroundings simultaneously. 
+        Whether you're working out, running, cycling, hiking, or engaged in other daily activities, these headphones offer a comfortable and secure fit.
+
+    * Enhanced Bluetooth Connectivity and High-Definition Sound Quality: Experience enhanced Bluetooth connectivity with our wireless headphones.
+     Stay connected within a range of up to 10 meters and enjoy high-definition sound quality for an immersive audio experience.
+
+
+    * Intuitive Touch Control Functionality: Our headphones are equipped with intuitive touch controls, 
+    allowing you to effortlessly control music playback, adjust volume, and switch songs with a simple touch. Enjoy a seamless and convenient user experience.
+
+    * IP55 Waterproof Rating for Active Lifestyles: Our headphones are designed with an IP55 waterproof rating, 
+        making them resistant to sweat, rain, and light splashes. They are perfect for 
+        outdoor activities, ensuring durability and reliability in various weather conditions.
+
+    * Long Battery Life and LED Power Display: Our headphones provide up to 20 hours of 
+        continuous music playback, ensuring you have enough power for your activities. The LED power display keeps 
+        you informed about the battery status, allowing you to plan your charging schedule.",
+
+    product_price: 29.99,
+    category: "Electronics"
+)
+
+p14.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/lock.jpg"),filename: "headphones.jpg")
  
+
+p15 = Product.create!(
+    product_name: "Humidifier for Bedroom",
+
+    description: "[Dry Air Relief Helper] INSENVO ultrasonic cool mist humidifier use ultrasonic cool mist technology which can moisturize dry 
+        air safely and quickly. Indoor air humidity can help relieve cough and congestion, keep throat and nasal passages hydrated. 
+        Our upgraded humidifiers pioneered the main circuit board overhead the water tank, thus the water will not overflow the mainboard to cause short-circuit.
+
+    *【Home Comfort Companion】The air humidifiers offer 3 Level speed settings can meet your different needs for different seasons. 
+        INSENVO home humidifier helps you consistently balance and regulate the humidity in your home during any
+         dry months for relief from coughing, colds, 
+         congestion, sore throat, sinus issues, allergies, and dry skin. Better home comfort companion for your lovers and families.",
+
+    product_price: 9.99,
+    category: "Home"
+)
+
+p15.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/humid.jpg"),filename: "humid.jpg")
+
+
+p16 = Product.create!(
+    product_name: "Appa Sitting Plush",
+
+    description: "YOUTOOZ AVATAR APPA PLUSHIE: Sitting, literally, at 12 inches, Appa is masterfully balancing on his 
+        butt with his 6 paws hovering. His belly is out in the open for the perfect and most optimal tummy rubs. 
+        Have him sit on the couch with you and watch some TV, or have him chill on your desk while your clutching your 1v4, Appa is just happy to spend some time with you.
+    * JUMBO APPA PLUSH: Youtooz Appa Sitting stuffed animal is 12 inches sitting upright. 
+        This Avatar plush collectible safely ships in a polybag to protect it from the elements on its journey to your home!
+    * YOUTOOZ THE LAST AIRBENDER COLLECTION: stuffed Appa is super soft and made of the same soft huggable quality as his friends Aang and Toph!
+    * A GIFT FOR AVATAR FANS: Youtooz stuffed Appa Flop plushie makes for the perfect gift for any Avatar: The Last Airbender fan.
+    * AUDIENCE: Youtooz Appa plush is intended for Ages 15+",
+    product_price: 20.99,
+    category: "Accessories"
+)
+
+p16.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/appa.jpg"),filename: "appa.jpg")
+
+
+p17 = Product.create!(
+    product_name: "Aang On Air Scooter Keychain",
+    description: "* Pull On closure
+    * Officially Licensed Avatar: The Last Airbender Keychain
+    * Manufactured by Zen Monkey Studios
+    * Soft enamel keychain with epoxy finish.",
+    product_price: 8.99,
+    category: "Accessories"
+)
+
+p17.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/aang.jpg"),filename: "aang.jpg")
+
+
+p18 = Product.create!(
+    product_name: "Takumi Background Model Car",
+    description: "Materials: Acrylic Cover, Wood Base, ABS Plastic with UV Print on the panel. The reduction is perfect.
+    * Size: 1:32 ae86 Fujihara Tofu Store Car Model Kit 11.25*6.29*6.96 in (With Acrylic Cover).With a same size AE86 Die-cast Vehicle.
+    * Display: Led light powered by USB on top of panel makes this model kit well display in dark. This Die-cast model car
+        can open car door, hood, trunk boot. And it also can turn on the head light by LR44/AG13 1.5v battery(3pcs).
+    * Easy Assembled: Easy assemble without tools. You can also display other car models.
+    * Good rating:We've done lot of good rates in Gen1. And we continue improving this product. As you see this is the version 2.0. More detail, More clean. Hope you like this.",
+    product_price: 65.89,
+    category: "Home"
+)
+
+p18.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/ae86_.jpg"),filename: "ae86.jpg")
+
+
+p19 = Product.create!(
+    product_name: "Ecowaare Set of 15 Reusable Mesh Produce Bags",
+    description: "Zero Waste and Eco-friendly --- One more step closer to a zero waste lifestyle and cuts plastic bag use in a 
+        convenient way; Get 15 pcs reusable and durable bags, great addition to your goal of being plastic free and helping the 
+        environment,and each mesh bags has the potential to eliminate up to 1000 plastic bags over it's lifetime.
+    * Safety and Lightweight --- BPA free and 100% food contact safe, with the highest standards
+        of quality, safely hold all your fresh produce. Made of ultra fine yet strong mesh polyester, the mesh bag is super lightweight that it won't add weight to your produce.
+    * Scan Through Easily --- Unlike most non-transparent mesh bags from other brands, our produce bags is 
+        nearly transparent so you can easily see through the bag to know what's inside;bar-codes will scan right in the bag so 
+        that the cashier will be able to see the item numbers and also make your checkout faster.",
+    product_price: 11.99,
+    category: "Home"
+)
+
+p19.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/produce.jpg"),filename: "produce.jpg")
+
+
+p20 = Product.create!(
+    product_name: "Squishy Steamed Stuffed Bun",
+    description: "* 🍥【Steamed Stuffed Bun Toy】The appearance of the steamed bun squishy stress ball is in the style 
+    of steamed buns, with clear and realistic texture, and a small steamer can store dumpling squishy toy, making the toy more vivid. 
+        The size of the bun is about 8.5cm(L)x5.5cm(H), and The size of the steamer is about 9.5cm(L)x6cm(H).this artifical dumpling stress ball
+        must be a great gift, such as April Fools birthday and other holidays.
+    * 🎯【Stress Relief Toys】The dumpling steamed bun squishy is a wonderful stress relief toy. You can knead the dumpling stress ball into 
+        any shape you want, no matter how hard you try. You just need to put the dumpling squishy stress ball in the palm of your hand and knead it, 
+        which will help you to release stress and anxiety. Or, If you type too much at work, you can also use this 
+        dumpling stress ball to move your finger joints so as to relieve pain.",
+    product_price: 7.89,
+    category: "Home"
+)
+
+p20.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/bao_.jpg"),filename: "bao.jpg")
+
+
+p21 = Product.create!(
+    product_name: "WAW Badfish Bodysurfing Handplane",
+    description: "BODYSURF and CLEAN THE OCEAN. The WAW BadFish bodysurfing handplane is made using plastic waste collected from Australias Great Barrier Reef. 
+        The equivalent to one whole shopping bag goes into each handplane.
+    * EASY TO USE - The WAW BadFish offers unrivaled bodysurfing enhancement whilst doing good for the planet. Offering ultimate paddling freedom and superior lift, speed and control.
+    * TAKE YOUR BODYSURFING TO THE NEXT LEVEL - The WAW BadFish handplane works by generating lift on your lead hand.
+         The lift brings your body up onto the waters surface, therefore reducing your drag allowing you bodysurf waves faster, longer and with way more control.",
+    product_price: 60.99,
+    category: "Exercise"
+)
+
+p21.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/handsurf.jpg"),filename: "handsurf.jpg")
+
+
+p22 = Product.create!(
+    product_name: "BandD Levitating Plant Pot",
+    description: "👁️‍🗨️ UNIQUE AND EYE CATCHING- Beautifully designed levitating plant holder pot, guaranteed to draw the attention of anyone who enters the room. 
+        No other decoration will have the same effect as our magnetic planter for floating plants.
+    * ✔️ SUPERB QUALITY- The highest quality levitating planter used for a variety of small plants, succulents, air-plant & bonsai tree. 
+        They will grow strong and healthy while suspended in mid air. Use an artificial plant as a maintenance free option.",
+    product_price: 65.99,
+    category: "Home"
+)
+
+p22.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/float.jpg"),filename: "float.jpg")
+
+
+p23 = Product.create!(
+    product_name: "Iron Man Wireless Mouse",
+    description: "800 / 1200 / 1600 DPI Resolution Optical Tracking Technology provides more sensitivity than standard optical mice for smooth and precise tracking on a wide range of surfaces.
+    * Snap-in Nano transceiver stows conveniently in the bottom of the mouse.
+    * Innovative design to provide comfort and control for either hand.
+    * Reliable 2.4GHz wireless connection with up to 33-foot range.
+    * Work perfectly for Windows XP, Windows Vista, Windows 7, Mac OS X 10.4 etc. 
+    (Pls Note: this mouse is connected by USB receiver, will NOT compatible with MacBook Pro or other devices which only have Type C ports)",
+    product_price: 15.99,
+    category: "Electronics"
+)
+
+p23.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/ironman.jpg"),filename: "ironman.jpg")
+
+
+p24 = Product.create!(
+    product_name: "FloatGo Floating Light Bulb Lamp",
+    description: "* PERFECT GIFT - Great gift for lover,friends,parents,kids at Christmas, birthday , holidays, wedding, anniversary and business. Image when they receive and open the box, it will bring them much surprise!
+    * ENERGY EFFICIENCY - The energy efficient LEDs working life is up to 50,000 hours. That is 12 hours a day for 11 years!
+    * 10W WIRELESS CHARGING: The floating light bulb lamp features a built in wireless charger for Phone 12/12 Pro/11/11 Pro/XR/XS/X/8/8+/Air pods, Galaxy Note 10/Note 10+/S10/S10+/S9/S8. This is the PERFECT LAMP for you!
+",
+    product_price: 88.99,
+    category: "Electronics"
+)
+
+p24.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/floatlamp.jpg"),filename: "floatlamp.jpg")
+
+p25 = Product.create!(
+    product_name: "Skateboard USB Flash Drive",
+    description: "Skateboard USB flash drive is a perfect usb drive for kids who love to skate. Make your passion for skateboarding reflect in this school accessory storage device. A stylish accessory for kids for schools and colleges. Experience premium, reliable and secure storage.
+    * Speed: Read: 12 - 18 Mb/secs; Write: 4 - 6 Mb/secs
+    * Design: Skateboard
+    * Color: Blue
+    * Memory Size: 16 GB 
+    ",
+    product_price: 13.99,
+    category: "Electronics"
+)
+
+p25.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/flashskate.jpg"),filename: "flashskate.jpg")
+
+
+p26 = Product.create!(
+    product_name: "RSVP Just Ducky Floating Tea Infuser",
+    description: "A whimsical floating tea infuser that will put a smile on your face every time you use it
+    * Measures 2-inches in diameter by 3-1/4-inches tall
+    * Infuser is made of 18/8 stainless steel, Ducky is made of BPA free plastic
+    * Fill with loose tea and let steep until the desired strength has been achieved
+    * Hand washing recommended
+    ",
+    product_price: 9.66,
+    category: "Home"
+)
+
+p26.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/ducktea.jpg"),filename: "ducktea.jpg")
+
+
+p27 = Product.create!(
+    product_name: "Mouth Squeaky Chew Dog Toy",
+    description: "This two pack of smiling mouth chew toys is perfect for your dog or puppy. Coming with one red and one blue toy, these funny novelty chew toys are sure to be fun for both you and your pet!
+    * Two smiling mouth dog toys
+    * Colors: one red, one blue
+    * Funny novelty chew toys
+    * Squeaky Chew toy is perfect for dogs and puppies
+    ",
+    product_price: 15.29,
+    category: "Home"
+)
+
+p27.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/dogteeth.jpg"),filename: "dogteeth.jpg")
+
+
+p28 = Product.create!(
+    product_name: "AirPod SpongeBob Pineapple Case",
+    description: "Compatible With: Only suitable for Airpods 1st generation and 2nd generation Case, 
+        it fits perfectly with the Airpods 2&1, and the precise opening position makes it easy to use the
+        charging port, take out and put in the headset.
+    * High Quality Material: The protective cases designed for Airpod 1/2 are made of soft durable 
+        silica gel. The rubber surface will not fade during long-term use.it is not easy to be torn and deformed.
+    * Aesthetic Design: This cute cartoon stylish and unique AirPods 
+        earphone protective shell is colorful and interesting in shape, fashionable and popular. 
+    * Lightweight and thin, comfortable to touch.
+    ",
+    product_price: 9.99,
+    category: "Accessories"
+)
+
+p28.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/pineapple.jpg"),filename: "pineapple.jpg")
+
+
+p29 = Product.create!(
+    product_name: "Spider-Man Super Web Slinger",
+    description: "BLAST WITH WEB FLUID OR WATER: Load a can of Web Fluid (included) or use the refillable water cartridge (included) to blast enemies with this Spider-Man Web Slinger (Web Fluid refills sold separately)
+    * WEARABLE GLOVE ATTACHES TO WRIST: Suit up with the glove and velcro on this Spider-Man web shooter toy to imitate Spider-Mans signature thwip move and blast web fluid or water. Would be a webtastic addition to any Spider-Man party!
+    * MARVEL SPIDER-MAN MOVIE-INSPIRED: This Spider-Man toy is inspired by the Marvel Cinematic Universe that includes the latest Spider-Man movie. A great addition to any Spider-Man costume for boys and girls!
+    ",
+    product_price: 22.99,
+    category: "Accessories"
+)
+
+p29.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/spidey.jpg"),filename: "spidey.jpg")
+
+
+
+p30 = Product.create!(
+    product_name: "Abdominal Exercise Roller Wheel",
+    description: "Automatic Rebound for Smooth Fitness Routines - Are you ready to take your fitness to the next level? Experience a hassle-free workout with the Bemmer Automatic Rebound Ab Abdominal Exercise Roller Wheel. The automatic rebound feature ensures safe and easy exercise, protecting your muscles and preventing sports injuries.
+    * Sculpt Your Abs and Waistline: Achieve the Perfect Silhouette - Unleash your potential with the Bemmer Exercise Roller Wheel! This fitness tool specifically targets your abs and waistline, helping you achieve that coveted hourglass figure. Get ready to turn heads and feel confident in your own skin. Are you ready to redefine your waistline?
+    * Floor-Friendly Design: Soft Material for Damage-Free Workouts - Say goodbye to worries about damaging your floor! The Bemmer Exercise Roller Wheel features a soft material construction that ensures no scratches or marks on your floor surface. Focus on your fitness goals without any distractions. Ready to work out without leaving a trace?",
+    product_price: 48.99,
+    category: "Exercise"
+)
+
+p30.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/workout.jpg"),filename: "workout.jpg")
+
+
+p31 = Product.create!(
+    product_name: "Under Desk Bike Pedal",
+    description: "Heavy Flywheel Exercise Bikes Increases Stability:▼ This TECHMOO under desk bike pedal exerciser adopts an internal 5LBS metal flywheel to greatly improves the stability. Not only makes it effortlessly to use for a long time, but it also avoids the movement problem of the trainer during use.
+    * Carpet Special Anti-Kid Pad:▼ The normal 4pcs wave shape pad enhanced the frictional force between bike and floor, which brings steady using. Don’t worry, these nail point pads and normal pads are made in soft rubber and will not hurt your carpet or floor. Which makes the mini exercise bike more stable whether on the carpet or on the ground.
+    * Personalized Massage Experience:▼ Mini cycle bike is designed for both on floor for leg exercise or on desk for arm exercise. This pedal exerciser fit offer low impact for light arm, shoulder leg and knee recovery exercise. Each pedal has 20 built-in massage point for foot and hand stimulation massage, exercise peddler bike helping to improve blood circulation and physical mobility, thereby enhancing overall health.",
+    product_price: 59.99,
+    category: "Exercise"
+)
+
+p31.photo.attach(io: URI.open("https://jungle-dev.s3.us-east-2.amazonaws.com/bike.jpg"),filename: "bike.jpg")
+
+
+star_wars_characters = [
+    "Luke Skywalker",
+    "Princess Leia",
+    "Han Solo",
+    "Darth Vader",
+    "Obi-Wan Kenobi",
+    "Yoda",
+    "R2-D2",
+    "C-3PO",
+    "Chewbacca",
+    "Emperor Palpatine",
+    "Boba Fett",
+    "Lando Calrissian",
+    "Padmé Amidala",
+    "Mace Windu",
+    "Darth Maul",
+    "Rey",
+    "Finn",
+    "Kylo Ren",
+    "Poe Dameron",
+    "BB-8"
+].shuffle
+
+20.times do 
+
+    User.create!({
+        username: star_wars_characters.pop,
+        email: Faker::Internet.unique.email,
+        password: 'password'
+    })
+
+end 
+
+
+p_ids = (1..31).to_a
+
+user_ids = (1..20).to_a
+
+
+100.times do 
+    user_id = user_ids.sample
+    p_id = p_ids.sample
+
+    next if Review.exists?(user_id: user_id, product_id: p_id)
+
+    title = Faker::Lorem.sentence
+    body = Faker::Lorem.paragraph
+    rating = rand(1..5)
+
+
+    Review.create!(
+        title: title,
+        body: body,
+        rating: rating,
+        user_id: user_id,
+        product_id: p_id
+      )
+
+end 
+
+
+puts 'Finished'

@@ -14,7 +14,6 @@ const rootReducer = combineReducers({
   reviews: reviewReducer
 });
 
-// const enhancer = applyMiddleware(thunk)
 
 
 let enhancer;

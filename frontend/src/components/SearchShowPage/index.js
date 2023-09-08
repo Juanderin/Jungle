@@ -61,53 +61,56 @@ import { fetchProduct } from "../../store/products";
         
         return (
             <>
+
             <div id='mainContainerSearch'>
-            <div id='search-page-container' >
-             <MainPage />
-              
+                <div id='search-page-container' >
+                <MainPage />
+                
 
-            <div id='productResultsTitle'> Results </div>
-              {searchResults.length > 0 ? searchResults.map(result => {
-                    return (
+                <div id='productResultsTitle'> Results </div>
+                {searchResults.length > 0 ? searchResults.map(result => {
+                        return (
+                        
+                            <>
+                                <div id='searchItems'>
+                                    <ProductsIndexItem product={result}/>
+                                </div>
+                            </>
+                        )
+                    }) : 
+                    <>
                     
-                        <>
-                            <div id='searchItems'>
-                                <ProductsIndexItem product={result}/>
+                        <div id='noResultsContent'>
+                            
+                            <div id='noResultMessage'>
+                                <div>Sorry, no results found</div>
                             </div>
-                        </>
-                    )
-                }) : 
-                <>
-                 
-                    <div id='noResultsContent'>
-                        <div id='noResultMessage'>
-                            <div>Sorry, no results found</div>
-                        </div>
 
 
-                            <div id='randomItems'>
-                                <div id='randomItemsSubContainer'>
-                                    <h2>You might be interested in</h2>
+                                <div id='randomItems'>
+                                    <div id='randomItemsSubContainer'>
+                                        <h2>You might be interested in</h2>
                                         <div id='actualItems'>
                                             {randomCollection && randomCollection.map((item) => {
 
                                                 return (
                                                     <div>
-                                                    <ProductsIndexItem product={item} />
+                                                        <ProductsIndexItem product={item} />
                                                     </div>
                                                 )
 
                                             })}
                                         </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-             
-                </>
-                }
+                
+                    </>
+                    }
 
+                </div>
             </div>
-            </div>
+            
         </>
         
         )

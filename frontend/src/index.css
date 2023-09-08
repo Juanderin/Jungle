@@ -1,6 +1,44 @@
 body, html {
 
+    display: flex;
+    flex-direction: column;
     font-family: 'Amazon Ember', Arial sans-serif;
     margin: 0px;
     padding: 0px;
+}
+
+
+#footer{
+
+    margin-top: 200px;
+    height: 150px;
+    width: 100%;
+    background-color: rgb(19, 25, 33);;
+
+}
+
+#footerItems{
+
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+}
+
+#footerText{
+
+    color: white;
+    font-weight: 400;
+
+}
+
+.footerLinks{
+
+    text-decoration: none;
+    color: white;
+    font-weight: 100;
+
 }
