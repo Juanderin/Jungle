@@ -26,6 +26,7 @@ gem "aws-sdk-s3"
 gem "bcrypt"
 gem "jbuilder"
 gem 'faker'
+gem "ruby-vips"
 
 # group :development, :test do
 #   gem "faker"
