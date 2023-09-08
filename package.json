@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/Juanderin/Jungle/issues"
   },
-  "homepage": "https://github.com/Juanderin/Jungle#readme"
+  "homepage": "https://github.com/Juanderin/Jungle#readme",
+  "dependencies": {
+    "@faker-js/faker": "^8.0.2"
+  }
 }
