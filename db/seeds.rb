@@ -10,7 +10,8 @@ ApplicationRecord.transaction do
   
     puts "Creating users..."
   
-    
+    Review.destroy_all
+
     Cart.destroy_all
     
     User.destroy_all
