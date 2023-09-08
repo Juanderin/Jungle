@@ -189,20 +189,3 @@ Future Implementations
 
 [Jungle-Link](jungle-2627.onrender.com/)
 
-
-
-
-
-
-
-categories: 
-
-Home
-
-Electronics
-
-Comfort 
-
-Decor
-
-Apparel
