@@ -237,11 +237,11 @@ const ProductShow = () => {
             </div>
         </div>
         <div id='showPageDivider'></div>
-
+    <div id='allReview'>
         <div id='showReview'>
                 <div id='ratingBars'>
                     <div id='barTitle'>Customer Reviews</div>
-                        <div id='reviewAverage'>{reviewRating ? reviewRating : 0} out of 5</div>
+                        <div id='reviewAverage'>{reviewRating ? Math.round(reviewRating) : 0} out of 5</div>
                         <div id='ratingAmount'>{ratingLength} global ratings</div>
                     <br/>
                     <div className="ratingBarsOrg">
@@ -249,35 +249,35 @@ const ProductShow = () => {
                         <div className="ratingMeter">
                         <div className="ratingFiller" style={{ width: `${ratings[5]}%` }}></div>
                         </div>
-                        <div className="ratingAmounts">{`${ratings[5]}%`}</div> 
+                        <div className="ratingAmounts">{`${Math.round(ratings[5])}%`}</div> 
                     </div> 
                     <div className="ratingBarsOrg">
                         <div className="ratingAmounts">4 star</div> 
                         <div className="ratingMeter">
                             <div className="ratingFiller" style={{ width: `${ratings[4]}%` }}></div>
                         </div>
-                        <div className="ratingAmounts">{`${ratings[4]}%`}</div> 
+                        <div className="ratingAmounts">{`${Math.round(ratings[4])}%`}</div> 
                     </div> 
                     <div className="ratingBarsOrg">
                         <div className="ratingAmounts">3 star</div> 
                         <div className="ratingMeter">
                             <div className="ratingFiller" style={{ width: `${ratings[3]}%` }}></div>
                         </div>
-                        <div className="ratingAmounts">{`${ratings[3]}%`}</div> 
+                        <div className="ratingAmounts">{`${Math.round(ratings[3])}%`}</div> 
                     </div> 
                     <div className="ratingBarsOrg">
                         <div className="ratingAmounts">2 star</div> 
                         <div className="ratingMeter">
                             <div className="ratingFiller" style={{ width: `${ratings[2]}%` }}></div>
                         </div>
-                        <div className="ratingAmounts">{`${ratings[2]}%`}</div> 
+                        <div className="ratingAmounts">{`${Math.round(ratings[2])}%`}</div> 
                     </div> 
                     <div className="ratingBarsOrg">
                         <div className="ratingAmounts">1 star</div> 
                         <div className="ratingMeter">
                             <div className="ratingFiller" style={{ width: `${ratings[1]}%` }}></div>
                         </div>
-                        <div className="ratingAmounts">{`${ratings[1]}%`}</div> 
+                        <div className="ratingAmounts">{`${Math.round(ratings[1])}%`}</div> 
                     </div> 
                 <div id='showPageDivider'></div>
 
@@ -287,18 +287,20 @@ const ProductShow = () => {
                         <button id='reviewButton' onClick={handleReviewRedirect}>Write a customer review</button>
                     </div>
                 </div>
-                <div id='reviewContent'>
-                    <div id='topReviewsTitle'>Top reviews from the United States </div>
-                    <br/>
-                        {organizedReviews?.length > 0 ? <> 
-                        {organizedReviews}
-                         </> : 
-                        <>
-                        <div>No Reviews for This Product</div>
-                        </>}
+        </div>
+                    <div>
+                        <div id='reviewContent'>
+                            <div id='topReviewsTitle'>Top reviews from the United States </div>
+                            <br/>
+                                {organizedReviews?.length > 0 ? <> 
+                                {organizedReviews}
+                                </> : 
+                                <>
+                                <div id='reviewContent'>No Reviews for This Product</div>
+                                </>}
+                        </div>
                     </div>
-                </div>
-
+    </div>
         </>
     )
 

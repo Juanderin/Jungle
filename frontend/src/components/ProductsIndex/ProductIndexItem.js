@@ -3,6 +3,7 @@ import { Link } from "react-router-dom/";
 import ProductShow from "../ProductShowPage";
 import MainPage from "../MainPageForm";
 
+
 const ProductsIndexItem = ({product}) => {
   const priceStr = product.productPrice.toLocaleString()
   let price = priceStr.split(".")

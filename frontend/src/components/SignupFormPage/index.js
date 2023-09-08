@@ -71,7 +71,7 @@ const SignUpForm = () => {
     return (
 
         <>
-
+        
         <div id='logo'>
             <img src='Jungle-7-24-2023.png'></img>
         </div>

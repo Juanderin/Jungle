@@ -9,9 +9,9 @@ import CartShow from "./components/CartShowPage";
 import ProductsIndex from "./components/ProductsIndex";
 import SearchShowPage from "./components/SearchShowPage";
 import ReviewForm from "./components/ReviewFormPage";
-import { Redirect } from "react-router-dom/";
-import './index.css';
 import Checkout from "./components/CheckoutShowPage";
+import ProductCategory from "./components/ProductsIndex/ProductCategoryIndex";
+import './index.css';
 
 
 const App = () => {
@@ -26,6 +26,7 @@ const App = () => {
       <Route exact path='/' component={HomePage} />
       <Route path='/login' component={LoginPage}/>
       <Route path={"/products/:productId"} component={ProductShow}/>
+      <Route path={'/categories/:category'} component={ProductCategory}/>
       <Route path={'/review/:productId'} component={ReviewForm}/>
       <Route path='/search' component={SearchShowPage}/>
       <Route path='/main' component={MainPage} />
