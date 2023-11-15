@@ -29,7 +29,6 @@ const ProductShow = () => {
 
     const inCart = cartItems ? Object.values(cartItems) : null
 
-    console.log(inCart.length, 'these are the cart items!!!!')
 
     const ratings = {
         1 : 0,
