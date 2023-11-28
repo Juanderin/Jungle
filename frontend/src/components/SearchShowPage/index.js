@@ -41,7 +41,6 @@ import { fetchProduct } from "../../store/products";
 
             }
         }
-        console.log(randomCollection, 'this is the random collection')
 
 
         useEffect(() => {

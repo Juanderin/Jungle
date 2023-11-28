@@ -40,7 +40,6 @@ const SignUpForm = () => {
                 }
                 if (data?.errors) {
                
-                    console.log("done");
                     setErrors(data.errors)
                 } else if (data) {
                     setErrors([data])
@@ -54,8 +53,6 @@ const SignUpForm = () => {
 
        return setErrors(['Passwords do not match'])
     };
-
-    console.log(errors)
 
     const getErrorField = (field) => {
       
