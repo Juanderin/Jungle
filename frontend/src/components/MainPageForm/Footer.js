@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 const Footer = () => {
 const user = useSelector(state => state.session.user)
 
-    console.log(user, 'this is the user asd;fjklhasdl;kfhj')
 
     return (
 

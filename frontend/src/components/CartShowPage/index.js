@@ -77,7 +77,7 @@ const CartShow = () => {
         let price = productPrice.toLocaleString()
         price = price.length < 2 ? [price[0], ".00"] : price
         
-        // console.log(item, 'waht are these things')
+
 
         return (
            

@@ -36,7 +36,6 @@ const LoginPage = () => {
                 data = await res.text();
             }
             if (data?.errors) {
-                console.log("done");
                 setErrors(data.errors)
             } else if (data) {
                 setErrors([data])
